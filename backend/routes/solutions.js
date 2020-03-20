@@ -31,7 +31,7 @@ router.route('/:id').get((req, res) => {
 });
 router.route('/:id').delete((req, res) => {
   Solution.findByIdAndDelete(req.params.id)
-    .then(() => res.json('Solution deleted.'))
+    .then(() => res.json(req.params.id + ' deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 router.route('/update/:id').post((req, res) => {
@@ -42,7 +42,7 @@ router.route('/update/:id').post((req, res) => {
       solution.description = req.body.description;
 
       solution.save()
-        .then(() => res.json('Solution updated!'))
+        .then(() => res.json(solution))
         .catch(err => res.status(400).json('Error: ' + err));
     })
     .catch(err => res.status(400).json('Error: ' + err));

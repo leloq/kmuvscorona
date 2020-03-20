@@ -33,7 +33,7 @@ router.route('/:id').get((req, res) => {
 });
 router.route('/:id').delete((req, res) => {
   Problem.findByIdAndDelete(req.params.id)
-    .then(() => res.json('Problem deleted.'))
+    .then(() => res.json(req.params.id + ' deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 router.route('/update/:id').post((req, res) => {
@@ -45,7 +45,7 @@ router.route('/update/:id').post((req, res) => {
       problem.severity = Number(req.body.severity);
 
       problem.save()
-        .then(() => res.json('Problem updated!'))
+        .then(() => res.json(problem))
         .catch(err => res.status(400).json('Error: ' + err));
     })
     .catch(err => res.status(400).json('Error: ' + err));
