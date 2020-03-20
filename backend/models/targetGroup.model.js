@@ -1,8 +1,8 @@
 const mongoose = require('mongoose'); // import mongoose
 const Schema = mongoose.Schema; // import Schema
 
-const userSchema = new Schema({ 
-  username: {
+const targetGroupSchema = new Schema({ 
+  groupname: {
     type: String,
     required: true,
     unique: true,
@@ -13,6 +13,6 @@ const userSchema = new Schema({
   timestamps: true,
 });
 
-const User = mongoose.model('User', userSchema);
+const TargetGroup = mongoose.model('TargetGroup', targetGroupSchema);
 
-module.exports = User;
+module.exports = TargetGroup;
