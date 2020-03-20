@@ -19,7 +19,7 @@ router.route('/add').post((req, res) => {
   });
 
   newSolution.save()
-  .then(() => res.json('Solution added!'))
+  .then(() => res.json(newSolution))
   .catch(err => res.status(400).json('Error: ' + err));
 });
 

@@ -8,20 +8,20 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  const groupname = req.body.groupname;
+  const targetGroup = req.body.targetGroup;
   const title = req.body.title;
   const description = req.body.description;
   const severity = Number(req.body.severity);
 
   const newProblem = new Problem({
-    groupname,
+    targetGroup,
     title,
     description,
     severity,
   });
 
   newProblem.save()
-  .then(() => res.json('Problem added!'))
+  .then(() => res.json(newProblem))
   .catch(err => res.status(400).json('Error: ' + err));
 });
 
