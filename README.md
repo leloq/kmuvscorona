@@ -12,6 +12,6 @@ This package contains code for the backend built with express + mongoose
 
 This is a React App which manages all targetGroups, problems and solutions
 
-* ### `main-frontend``
+* ### `main-frontend`
 
 This is the fronted that shows business owners applicable solutions to their problems
