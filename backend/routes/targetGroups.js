@@ -13,7 +13,29 @@ router.route('/add').post((req, res) => {
   const newTargetGroup = new TargetGroup({groupname});
 
   newTargetGroup.save()
-    .then(() => res.json('Target Group added!'))
+    .then(() => res.json(newTargetGroup))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/:id').get((req, res) => {
+  TargetGroup.findById(req.params.id)
+    .then(targetGroup => res.json(targetGroup))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+router.route('/:id').delete((req, res) => {
+  TargetGroup.findByIdAndDelete(req.params.id)
+    .then(() => res.json(req.params.id + ' deleted.'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+router.route('/update/:id').post((req, res) => {
+  TargetGroup.findById(req.params.id)
+    .then(targetGroup => {
+      targetGroup.groupname = req.body.groupname;
+
+      targetGroup.save()
+        .then(() => res.json(targetGroup))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
