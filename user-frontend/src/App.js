@@ -5,6 +5,7 @@ import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Impressum from './components/Impressum'
 import About from './components/About'
+import Voting from './components/Voting'
 import TargetGroupDetail from './components/TargetGroupDetail.js'
 import SolutionsOverview from './components/SolutionsOverview.js'
 import ContactImpressum from './components/ContactImpressum.js'
@@ -22,6 +23,7 @@ class App extends Component {
                 <Route path="/about" component={About} />
                 <Route path="/contact" component={ContactImpressum} />
                 <Route path="/impressum" component={Impressum} />
+                <Route path="/Voting" component={Voting} />
         	</div>
     	</Router>
 

@@ -8,6 +8,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import { withRouter } from 'react-router-dom';
 import Markdown from 'react-markdown';
+import Voting from './Voting'
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -41,6 +43,9 @@ const useStyles = makeStyles(theme => ({
     fontSize: theme.typography.pxToRem(18),
     color: theme.palette.text.secondary,
   },
+  voting: {
+    marginLeft: 15
+  },
 }));
 
 export default withRouter (function SolutionsListPanel(props) {
@@ -68,7 +73,7 @@ export default withRouter (function SolutionsListPanel(props) {
         <ExpansionPanelDetails>
           <Typography><Markdown escapeHtml={false} source={props.description} /></Typography>
         </ExpansionPanelDetails>
-
+        <div className={classes.voting}><Voting /></div>
       </ExpansionPanel>
     </div>
   );
