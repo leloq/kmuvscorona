@@ -25,7 +25,7 @@ router.route('/add').post((req, res) => {
   })
   .then((problem) => {
     problem.solution.push(newSolution.id);
-    return proble.save();
+    return problem.save();
   })
   .then(() => {
     return res.json(newSolution);

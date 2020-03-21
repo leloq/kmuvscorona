@@ -36,6 +36,7 @@ const NewSolutionForm = () => {
     const [selectedTargetGroups, setSelectedTargetGroups] = useState([]);
     const specificForTargetGroups = useSelector(state => state.TargetGroups.data);
     const problems = useSelector(state => state.Problems.data);
+    const [problemId, setProblemId] = useState('');
     const dispatch = useDispatch();
     const { enqueueSnackbar } = useSnackbar();
 
@@ -68,6 +69,7 @@ const NewSolutionForm = () => {
             title,
             description,
             specificForTargetGroups: selectedTargetGroups,
+			problemId,
         };
         dispatch({
             type: 'Solutions/saveNewSolution',
@@ -79,11 +81,12 @@ const NewSolutionForm = () => {
         enqueueSnackbar('Neue Lösung hinzugefügt', {
             variant: 'success',
         });
-    };
+    }
+
 
     const handleDropDownChange = (event, value) => {
         if (value !== null) {
-            console.log(value._id);
+            setProblemId(value._id);
         }
       }
 
