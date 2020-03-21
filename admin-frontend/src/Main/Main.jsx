@@ -133,11 +133,8 @@ const Main = () => {
                         <Home path="/" />
                         <TargetGroups path="/targetgroups" />
                         <Problems path="/problems" />
-<<<<<<< HEAD
                         <NewProblem path="/newProblem" />
-=======
                         <Solutions path="/solutions" />
->>>>>>> c35835e4762b6fc892521070f499b9c23c1228ee
                     </AppBarTitleUpdater>
                 </Router>
             </main>
