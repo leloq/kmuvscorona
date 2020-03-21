@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from './../axiosInstance';
 import { Link } from 'react-router-dom';
 import { View, Image, Text } from 'react-native';
 import GridList from '@material-ui/core/GridList';
@@ -16,7 +16,7 @@ export default class TargetGroupDetail extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/targetGroups/'+this.props.match.params.id)
+    axios.get('targetGroups/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           groupname: response.data.groupname,

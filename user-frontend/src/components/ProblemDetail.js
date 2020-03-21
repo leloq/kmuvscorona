@@ -23,7 +23,7 @@ export default class ProblemDetail extends Component {
           description: response.data.description,
         })
         response.data.solutions.forEach((solution)=>{
-          axios.get('http://localhost:5000/solutions/'+solution)
+          axios.get('solutions/'+solution)
           .then(res => {
             this.setState( (state) => {
               return {
