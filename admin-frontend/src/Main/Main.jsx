@@ -7,6 +7,8 @@ import DrawerContent from './DrawerContent';
 import AppBarTitleUpdater from './AppBarTitleUpdater';
 import Home from '../Routes/Home';
 import Problems from '../Routes/Problems/Problems';
+import TargetGroups from '../Routes/TargetGroups/TargetGroups';
+
 
 const drawerWidth = 240;
 
@@ -129,6 +131,15 @@ const Main = () => {
                     <AppBarTitleUpdater path="/">
                         <Home path="/" />
                         <Problems path="/problems" />
+                    </AppBarTitleUpdater>
+                </Router>
+            </main>
+            <main className={classes.content}>
+                <div className={classes.toolbar} />
+                <Router primary={false}>
+                    <AppBarTitleUpdater path="/">
+                        <Home path="/" />
+                        <TargetGroups path="/targetgroups" />
                     </AppBarTitleUpdater>
                 </Router>
             </main>
