@@ -91,7 +91,7 @@ export default function SearchAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" style={{ backgroundColor: 'rgba(63, 81, 181, 0.8)', boxShadow: 'none'}}>
         <Toolbar>
         <ClickAwayListener onClickAway={handleClickAway}>
           <IconButton
@@ -114,7 +114,12 @@ export default function SearchAppBar() {
               <Link to="/solutions" style={{ textDecoration: 'none'}}>
                   Lösungsansätze
                 </Link>
-                </MenuItem>
+              </MenuItem>
+              <MenuItem onClick={handleClose}>
+              <Link to="/" style={{ textDecoration: 'none'}}>
+                  Branchen
+                </Link>
+              </MenuItem>
               <MenuItem onClick={handleClose}>Über Uns</MenuItem>
               <MenuItem onClick={handleClose}>Kontakt</MenuItem>
             </Menu>
