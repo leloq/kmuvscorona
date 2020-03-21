@@ -9,12 +9,25 @@ const Solutions = {
             ...state,
             data: payload.data,
         }),
+        saveNewSolutionSuccess: (state, payload) => ({
+            ...state,
+            data: [
+                ...state.data,
+                payload.newSolution,
+            ],
+        }),
     },
     effects: dispatch => ({
-        async getSolutions(payload, rooState) {
+        async getSolutions(payload, rootState) {
             const result = await axios.get('/solutions/');
             dispatch.Solutions.getSolutionsSuccess({
                 data: result.data,
+            });
+        },
+        async saveNewSolution(payload, rootState) {
+            const result = await axios.post('/solutions/add', payload.newSolution);
+            dispatch.Solutions.saveNewSolutionSuccess({
+                newSolution: result.data,
             });
         },
     }),

@@ -8,6 +8,7 @@ const RouteNames = {
     '/problems': 'Probleme',
     '/newProblem': 'Neues Problem',
     '/solutions': 'Lösungen',
+    '/newSolution': 'Neue Lösung',
 };
 
 
