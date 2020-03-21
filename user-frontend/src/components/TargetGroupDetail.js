@@ -1,11 +1,36 @@
 import React, { Component } from 'react';
 import axios from './../axiosInstance';
-import { Link } from 'react-router-dom';
-import { View, Image, Text } from 'react-native';
-import GridList from '@material-ui/core/GridList';
-import ProblemList from './ProblemList'
+import { withStyles, Grid, Typography } from '@material-ui/core/';
+import ProblemList from './ProblemList';
 
-export default class TargetGroupDetail extends Component {
+const styles = {
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  imageContainer: {
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center',
+    minHeight: '25rem',
+    opacity: 0.8,
+    padding: '0 15rem',
+  },
+  bigHeadingWrapper: {
+    marginTop: '10rem',
+  },
+  heading: {
+    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+    color: '#fff',
+    padding: '0.25rem',
+  },
+  smallHeadingWrapper: {
+    marginTop: '1rem',
+  }
+};
+
+class TargetGroupDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,25 +70,29 @@ export default class TargetGroupDetail extends Component {
 
   descriptionHeader() {
     return (
-      <div class="container">
-        <View style={{position: 'absolute', top: 50, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-          <img src={this.state.imageUrl} alt='target group image' class='responsive' />
-          <div class="centered" style={{backgroundColor: 'rgba(0, 0, 0, .3)'}}> {this.state.groupname}  </div>
-          <div class="description" style={{backgroundColor: 'rgba(0, 0, 0, .3)'}}> {this.state.description} </div>
-        </View>
+      <div style={{backgroundImage: `url(${this.state.imageUrl})`}} className={this.props.classes.imageContainer}>
+          <Grid container justify="center" direction="column">
+            <Grid item>
+              <div className={this.props.classes.bigHeadingWrapper}>
+                <Typography component="span" className={this.props.classes.heading} variant="h3">{this.state.groupname}</Typography>
+              </div>
+              <div className={this.props.classes.smallHeadingWrapper}>
+                <Typography className={this.props.classes.heading} component="span" variant="h4">{this.state.description}</Typography>
+              </div>
+            </Grid>
+          </Grid>
       </div>
       );
   }
 
   render() {
     return (
-      <div>
+      <div className={this.props.classes.root}>
          { this.descriptionHeader() }
          <div><ProblemList problems={this.state.problems}/>  </div>
-
       </div>
-
-
-    )
+    );
   }
 }
+
+export default withStyles(styles)(TargetGroupDetail);
