@@ -9,11 +9,13 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
   const groupname = req.body.groupname;
+  const description = req.body.description;
   const problems = req.body.problems;
   const imageUrl = req.body.imageUrl;
 
   const newTargetGroup = new TargetGroup({
     groupname,
+    description,
     problems,
     imageUrl,
   });
@@ -37,6 +39,7 @@ router.route('/update/:id').post((req, res) => {
   TargetGroup.findById(req.params.id)
     .then(targetGroup => {
       targetGroup.groupname = req.body.groupname;
+      targetGroup.description = req.body.description;
       targetGroup.problems = req.body.problems;
       targetGroup.imageUrl = req.body.imageUrl;
 

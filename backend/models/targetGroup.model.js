@@ -3,6 +3,7 @@ const Schema = mongoose.Schema; // import Schema
 
 const targetGroupSchema = new Schema({
   groupname: { type: String, required: true, unique: true, trim: true, minlength: 3},
+  description: { type: String, required: false },
   problems: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Problem', required: false }],
   imageUrl: { type: String, required: false },
 
