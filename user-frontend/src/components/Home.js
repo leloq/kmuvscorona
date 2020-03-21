@@ -8,7 +8,6 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 
 import TargetGroupList from './TargetGroupList'
-import ProblemDetail from './ProblemDetail'
 
 class Home extends Component {
   render() {

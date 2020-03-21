@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from './../axiosInstance';
 import TargetGroupCard from './TargetGroupCard'
 import Grid from '@material-ui/core/Grid';

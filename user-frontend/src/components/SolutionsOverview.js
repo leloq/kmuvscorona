@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import SolutionsList from './SolutionsList'
-import Grid from '@material-ui/core/Grid';
 import axios from './../axiosInstance';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';

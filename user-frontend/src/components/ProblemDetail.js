@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from './../axiosInstance';
-import { Link } from 'react-router-dom';
 import SolutionsListPanel from './SolutionsListPanel'
 import SolutionsList from './SolutionsList'
 import Grid from '@material-ui/core/Grid';
