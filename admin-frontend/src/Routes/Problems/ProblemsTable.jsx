@@ -27,7 +27,6 @@ const ProblemsTable = () => {
                         <TableCell>Titel</TableCell>
                         <TableCell align="right">Beschreibung</TableCell>
                         <TableCell align="right">Priorität</TableCell>
-                        <TableCell align="right">Lösungen</TableCell>
                         <TableCell align="right">Geändert am</TableCell>
                         <TableCell align="right">Erstellt am</TableCell>
                     </TableRow>
@@ -38,7 +37,6 @@ const ProblemsTable = () => {
                             <TableCell>{problem.title}</TableCell>
                             <TableCell align="right">{problem.description}</TableCell>
                             <TableCell align="right">{problem.severity}</TableCell>
-                            <TableCell align="right">{problem.solutions + ' '}</TableCell>
                             <TableCell align="right">{moment(problem.updatedAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
                             <TableCell align="right">{moment(problem.createdAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
                         </TableRow>

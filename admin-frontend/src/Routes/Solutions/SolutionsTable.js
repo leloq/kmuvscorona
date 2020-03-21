@@ -11,11 +11,11 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const TargetGroupsTable = () => {
-    const targetGroups = useSelector(state => state.TargetGroups.data);
+const SolutionsTable = () => {
+    const solutions = useSelector(state => state.Solutions.data);
     const classes = useStyles();
 
-    if (targetGroups === null || typeof targetGroups === 'undefined' || targetGroups.length === 0) {
+    if (solutions === null || typeof solutions === 'undefined' || solutions.length === 0) {
         return null;
     }
     return (
@@ -25,16 +25,18 @@ const TargetGroupsTable = () => {
                 <TableHead>
                     <TableRow>
                         <TableCell>Titel</TableCell>
+                        <TableCell align="right">Beschreibung</TableCell>
                         <TableCell align="right">Geändert am</TableCell>
                         <TableCell align="right">Erstellt am</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {targetGroups.map(targetGroups => (
-                        <TableRow key={targetGroups._id}>
-                            <TableCell>{targetGroups.groupname}</TableCell>
-                            <TableCell align="right">{moment(targetGroups.updatedAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
-                            <TableCell align="right">{moment(targetGroups.createdAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
+                    {solutions.map(solution => (
+                        <TableRow key={solution._id}>
+                            <TableCell>{solution.title}</TableCell>
+                            <TableCell align="right">{solution.description}</TableCell>
+                            <TableCell align="right">{moment(solutions.updatedAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
+                            <TableCell align="right">{moment(solution.createdAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
@@ -44,4 +46,4 @@ const TargetGroupsTable = () => {
     )
 };
 
-export default TargetGroupsTable;
+export default SolutionsTable;
