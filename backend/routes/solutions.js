@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Solution = require('../models/solution.model');
-const Problems = require('../models/problem.model');
+const Problem = require('../models/problem.model');
 
 router.route('/').get((req, res) => {
   Solution.find()
@@ -21,10 +21,10 @@ router.route('/add').post((req, res) => {
 
   newSolution.save()
   .then(() => {
-    return Problems.findById(req.body.problemId);
+    return Problem.findById(req.body.problemId);
   })
   .then((problem) => {
-    problem.solution.push(newSolution.id);
+    problem.solutions.push(newSolution.id);
     return problem.save();
   })
   .then(() => {
