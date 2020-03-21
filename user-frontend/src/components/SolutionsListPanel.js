@@ -6,7 +6,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Markdown from 'react-markdown';
 
 const useStyles = makeStyles(theme => ({
@@ -34,6 +34,7 @@ const useStyles = makeStyles(theme => ({
 
   },
   paragraph: {
+    fontFamily: 'Open Sans',
     fontSize: theme.typography.pxToRem(17),
   },
   secondaryHeading: {
@@ -65,7 +66,7 @@ export default withRouter (function SolutionsListPanel(props) {
         </ExpansionPanelSummary>
 
         <ExpansionPanelDetails>
-          <Markdown escapeHtml={false} source={props.description} />
+          <Typography><Markdown escapeHtml={false} source={props.description} /></Typography>
         </ExpansionPanelDetails>
 
       </ExpansionPanel>

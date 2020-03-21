@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
 import axios from './../axiosInstance';
-import { Link } from 'react-router-dom';
 import SolutionsListPanel from './SolutionsListPanel'
 import SolutionsList from './SolutionsList'
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from "@material-ui/core/styles";
 
-export default class ProblemDetail extends Component {
+
+const styles = theme => ({
+  root: {
+    paddingTop: "25px",
+    paddingBottom : "25px"
+  },
+  down: {
+    paddingBottom : "25px"
+  }
+
+});
+
+export default withStyles(styles)(class ProblemDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,14 +65,15 @@ export default class ProblemDetail extends Component {
   }
 
   render() {
+    const { classes } = this.props;
     return (
-      <div>
-        <h1>{this.state.title}</h1>
-        <p>{this.state.description}</p>
+      <div className={classes.root}>
+        <Typography variant="h5">{this.state.title}</Typography>
+        <Typography className={classes.down}>{this.state.description}</Typography>
         <SolutionsList solutions={this.state.solutions}/>    
         
         
       </div>
     )
   }
-}
+})

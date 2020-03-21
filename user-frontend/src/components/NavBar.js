@@ -74,8 +74,6 @@ export default function SearchAppBar() {
 
    const [anchorEl, setAnchorEl] = React.useState(null);
 
-    const [open, setOpen] = React.useState(false);
-
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };

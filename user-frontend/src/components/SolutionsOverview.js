@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import SolutionsList from './SolutionsList'
-import Grid from '@material-ui/core/Grid';
 import axios from './../axiosInstance';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
 
 export default class SolutionsOverview extends Component {
 
@@ -23,8 +23,13 @@ export default class SolutionsOverview extends Component {
 
   render() {
     return (
-      <div>
-          <SolutionsList solutions={this.state.solutions}/>        
+      <div style={{display: 'flex', justifyContent: 'center'}}>
+      <Container maxWidth="sm" class="hero" >
+          <Typography variant="h3" align="center" className="lg-mg-bottom">
+          Alle unsere Lösungsansätze
+        </Typography>
+          <SolutionsList solutions={this.state.solutions}/>  
+        </Container>      
       </div>
     )
   }
