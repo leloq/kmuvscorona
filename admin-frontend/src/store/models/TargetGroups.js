@@ -17,8 +17,7 @@ const TargetGroups = {
             ],
         }),
         deleteTargetGroupSuccess: (state, payload) => {
-            console.log(payload);
-            const deleteIdx = state.data.indexOf(payload.targetGroupId);
+            const deleteIdx = state.data.findIndex(targetGroup => targetGroup._id === payload.targetGroupId);
             return {
                 ...state,
                 data: [
