@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { makeStyles, TextField, Slider, Typography, Button, Grid } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
+import { navigate } from '@reach/router';
+import { useSnackbar } from 'notistack';
 import SolutionsSelect from './SolutionsSelect';
 
 const useStyles = makeStyles(theme => ({
@@ -34,6 +36,7 @@ const NewProblemForm = () => {
     const [selectedSolutions, setSelectedSolutions] = useState([]);
     const solutions = useSelector(state => state.Solutions.data);
     const dispatch = useDispatch();
+    const { enqueueSnackbar } = useSnackbar();
 
     const hasSolutions = solutions !== null && typeof solutions !== 'undefined' && solutions.length > 0;
 
@@ -73,6 +76,10 @@ const NewProblemForm = () => {
             payload: {
                 newProblem,
             },
+        });
+        navigate('/problems');
+        enqueueSnackbar('Neues Problem hinzugefügt', {
+            variant: 'success',
         });
     };
 
