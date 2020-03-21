@@ -35,6 +35,7 @@ export default withStyles(styles)(class ProblemDetail extends Component {
           title: response.data.title,
           description: response.data.description,
         })
+        console.log(response.data)
         response.data.solutions.forEach((solution)=>{
           axios.get('solutions/'+solution)
           .then(res => {

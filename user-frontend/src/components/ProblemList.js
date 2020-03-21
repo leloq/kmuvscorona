@@ -2,7 +2,7 @@ import React  from 'react';
 import ProblemDetail from './ProblemDetail'
 
 export default function ProblemList(props){
-
+console.log(props)
 const problemList = () => {
     return props.problems.map(problem => {
       return( 
