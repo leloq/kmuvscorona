@@ -6,7 +6,7 @@ const store = init({
     models: {
         UI,
         Problems,
-    }
+    },
 });
 
 export default store;

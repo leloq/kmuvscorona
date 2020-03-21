@@ -11,7 +11,7 @@ const Problems = {
         }),
     },
     effects: dispatch => ({
-        async getProblems(payload, rooState) {
+        async getProblems(payload, rootState) {
             const result = await axios.get('/problems/');
             dispatch.Problems.getProblemsSuccess({
                 data: result.data,
