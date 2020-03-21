@@ -7,8 +7,11 @@ import ProblemsTable from './ProblemsTable';
 
 const useStyles = makeStyles(theme => ({
     fab: {
-        position: 'absolute',
+        margin: 0,
+        position: 'fixed',
+        top: 'auto',
         bottom: theme.spacing(5),
+        left: 'auto',
         right: theme.spacing(5),
     }
 }));
