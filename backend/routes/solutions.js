@@ -8,14 +8,14 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  const problem = req.body.problem;
   const title = req.body.title;
   const description = req.body.description;
+  const specificForTargetGroups = req.body.specificForTargetGroups;
 
   const newSolution = new Solution({
-    problem,
     title,
     description,
+    specificForTargetGroups,
   });
 
   newSolution.save()
@@ -36,10 +36,10 @@ router.route('/:id').delete((req, res) => {
 });
 router.route('/update/:id').post((req, res) => {
   Solution.findById(req.params.id)
-    .then(problem => {
-      solution.problem = req.body.problem;
+    .then(solution => {
       solution.title = req.body.title;
       solution.description = req.body.description;
+      solution.specificForTargetGroups = req.body.specificForTargetGroups;
 
       solution.save()
         .then(() => res.json(solution))
