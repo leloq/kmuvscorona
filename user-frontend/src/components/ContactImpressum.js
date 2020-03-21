@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+
 import {
   FormControl,
   InputLabel,
@@ -10,51 +12,47 @@ import {
 class Contact extends React.Component {
   render() {
     return (
-      <div
-        style={{
-          justifyContent: "center",
-          margin: 20,
-          padding: 20,
-          width: '100%'
-        }}
-      >
-        <form style={{ width: "50%" }}>
-          <h1>Kontaktieren Sie uns:</h1>
+    <div> 
 
-          <FormControl margin="normal" fullWidth>
-            <InputLabel htmlFor="name">Name</InputLabel>
-            <Input id="name" type="text" />
-          </FormControl>
+		<Button variant="outlined" color="primary" style= {{ margin:10, padding:10}}>
+			<Link to="/impressum" style={{ textDecoration: 'none'}}>
+			Impressum
+			</Link>
+		</Button>
 
-          <FormControl margin="normal" fullWidth>
-            <InputLabel htmlFor="email">Email</InputLabel>
-            <Input id="email" type="email" />
-          </FormControl>
+	      <div
+	        style={{
+				display: "flex",
+				justifyContent: "center",
+				margin: 5,
+				padding: 5
+	        }}
+	      >
+	        <form style={{ width: "50%" }}>
+	          <h1>Kontaktieren Sie uns:</h1>
 
-          <FormControl margin="normal" fullWidth>
-            <InputLabel htmlFor="email">Message</InputLabel>
-            <Input id="email" multiline rows={10} />
-          </FormControl>
+	          <FormControl margin="normal" fullWidth>
+	            <InputLabel htmlFor="name">Name</InputLabel>
+	            <Input id="name" type="text" />
+	          </FormControl>
 
-          <Button variant="contained" color="primary" size="medium">
-            Send
-          </Button>
-        </form>
+	          <FormControl margin="normal" fullWidth>
+	            <InputLabel htmlFor="email">Email</InputLabel>
+	            <Input id="email" type="email" />
+	          </FormControl>
 
-        <div style={{
-          margin: 20,
-          padding: 20,
-          width: '100%'
-        }}>
-        	<h3> Impressum: </h3>
-        	<span> 
-        		<b>Büroanschrift:</b> <br /> 
-        		Nicolai Semmelmann <br />
-        		Müllerstr. 27  <br />
-        		80469 München <br />
-        	</span>
-        </div>
-      </div>
+	          <FormControl margin="normal" fullWidth>
+	            <InputLabel htmlFor="email">Message</InputLabel>
+	            <Input id="email" multiline rows={10} />
+	          </FormControl>
+
+	          <Button variant="contained" color="primary" size="medium">
+	            Send
+	          </Button>
+	        </form>
+	        
+	      </div>
+	</div>
     );
   }
 }
