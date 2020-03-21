@@ -44,7 +44,6 @@ class Home extends Component {
         </div>
 
         <TargetGroupList />
-        <ProblemDetail id="5e75f787e9dc4a70b54bb922"/>
 
     	</div>
 
