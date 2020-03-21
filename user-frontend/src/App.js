@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import TargetGroupDetail from './components/TargetGroupDetail.js'
-import SolutionsList from './components/SolutionsList.js'
+import SolutionsOverview from './components/SolutionsOverview.js'
 
 class App extends Component {
   render() {
@@ -15,7 +15,7 @@ class App extends Component {
     	<NavBar />
     	<Route path="/" exact component={Home} />
         <Route path="/targetgroup/:id" component={TargetGroupDetail} />
-        <Route path="/solutions" component={SolutionsList} />
+        <Route path="/solutions" component={SolutionsOverview} />
     	</div>
     	</Router>
 

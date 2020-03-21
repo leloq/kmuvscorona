@@ -5,26 +5,11 @@ import SolutionsListPanel from './SolutionsListPanel'
 import Grid from '@material-ui/core/Grid';
 
 
-export default class SolutionsList extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {solutions: []};
-  }
+export default function SolutionsList(props){
 
-  componentDidMount() {
-    axios.get('http://localhost:5000/solutions/')
-     .then(response => {
-       this.setState({ solutions: response.data });
-     })
-     .catch((error) => {
-        console.log(error);
-     })
-  }
-
-
-  solutionsList() {
-    return this.state.solutions.map(solution => {
+const solutionsList = () => {
+    return props.solutions.map(solution => {
       return( 
         <Grid item>
           <SolutionsListPanel title={solution.title} description={solution.description} id={solution._id}/>
@@ -32,11 +17,11 @@ export default class SolutionsList extends Component {
       })
   }
 
-  render() {
-    return (
+  return (
       <div>
-          { this.solutionsList() }         
+          <SolutionsListPanel title="Leo" description="Theo" id="5e75f7f8e9dc4a70b54bb923"/>
+          {solutionsList()}         
       </div>
     )
-  }
+  
 }
