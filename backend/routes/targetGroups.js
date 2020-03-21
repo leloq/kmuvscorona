@@ -10,10 +10,12 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
   const groupname = req.body.groupname;
   const problems = req.body.problems;
+  const imageUrl = req.body.imageUrl;
 
   const newTargetGroup = new TargetGroup({
     groupname,
     problems,
+    imageUrl,
   });
 
   newTargetGroup.save()
@@ -36,6 +38,7 @@ router.route('/update/:id').post((req, res) => {
     .then(targetGroup => {
       targetGroup.groupname = req.body.groupname;
       targetGroup.problems = req.body.problems;
+      targetGroup.imageUrl = req.body.imageUrl;
 
       targetGroup.save()
         .then(() => res.json(targetGroup))
