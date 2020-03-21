@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 
 import TargetGroupList from './TargetGroupList'
-
+import ProblemDetail from './ProblemDetail'
 
 class Home extends Component {
   render() {
@@ -44,6 +44,7 @@ class Home extends Component {
         </div>
 
         <TargetGroupList />
+        <ProblemDetail id="5e75f787e9dc4a70b54bb922"/>
 
     	</div>
 
