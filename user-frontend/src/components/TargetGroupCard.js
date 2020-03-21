@@ -7,6 +7,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link, withRouter } from 'react-router-dom';
+
+
 
 const useStyles = makeStyles({
   root: {
@@ -17,12 +20,18 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TargetGroupCard(props) {
+export default withRouter (function TargetGroupCard(props) {
 
   const classes = useStyles();
 
+  const linkUrl = `/targetgroup/${props.id}`
+
+  const navigateToTargetGroup = () => {
+    props.history.push(linkUrl)
+  }
+
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} onClick={navigateToTargetGroup}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -31,7 +40,7 @@ export default function TargetGroupCard(props) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {props.value}
+            {props.value} 
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             Erfahren Sie mehr darüber wie man {props.value}n helfen kann.
@@ -47,5 +56,6 @@ export default function TargetGroupCard(props) {
         </Button>
       </CardActions>
     </Card>
+
   );
-}
+})
