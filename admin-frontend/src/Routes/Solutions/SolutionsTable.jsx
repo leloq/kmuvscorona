@@ -14,6 +14,13 @@ const useStyles = makeStyles(theme => ({
 const SolutionsTable = () => {
     const solutions = useSelector(state => state.Solutions.data);
     const classes = useStyles();
+    const problems = useSelector(state => state.Problems.data);
+
+
+    const getMappedProblem = (solutionId) => {
+        var mappedProblem = problems.find(prob => prob.solutions.some(sol => sol === solutionId));
+        return mappedProblem ? mappedProblem.title : null;
+    };
 
     if (solutions === null || typeof solutions === 'undefined' || solutions.length === 0) {
         return null;
@@ -28,6 +35,7 @@ const SolutionsTable = () => {
                         <TableCell align="right">Beschreibung</TableCell>
                         <TableCell align="right">Geändert am</TableCell>
                         <TableCell align="right">Erstellt am</TableCell>
+                        <TableCell align="right">Gelöstes Problem</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -37,6 +45,7 @@ const SolutionsTable = () => {
                             <TableCell align="right">{solution.description}</TableCell>
                             <TableCell align="right">{moment(solutions.updatedAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
                             <TableCell align="right">{moment(solution.createdAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
+                            <TableCell align="right">{getMappedProblem(solution._id)}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
