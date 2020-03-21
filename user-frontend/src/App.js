@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 
 import NavBar from './components/NavBar'
 import ExpansionPanel from './components/ExpansionPanel'
+import TargetGroupList from './components/TargetGroupList'
 
 
 class App extends Component {
@@ -44,10 +45,10 @@ class App extends Component {
           </Container>
         </div>
 
-        
-        <ExpansionPanel />
+        <TargetGroupList />
 
     	</div>
+
     )
   }
 }
