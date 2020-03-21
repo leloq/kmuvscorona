@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles, TextField, Typography, Button, Grid } from '@material-ui/core';
+import { Autocomplete } from '@material-ui/lab'
 import { useSelector, useDispatch } from 'react-redux';
 import { navigate } from '@reach/router';
 import { useSnackbar } from 'notistack';
@@ -34,10 +35,12 @@ const NewSolutionForm = () => {
     const [description, setDescription] = useState('');
     const [selectedTargetGroups, setSelectedTargetGroups] = useState([]);
     const specificForTargetGroups = useSelector(state => state.TargetGroups.data);
+    const problems = useSelector(state => state.Problems.data);
     const dispatch = useDispatch();
     const { enqueueSnackbar } = useSnackbar();
 
     const hasTargetGroups = specificForTargetGroups !== null && typeof specificForTargetGroups !== 'undefined' && specificForTargetGroups.length > 0;
+
 
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
@@ -100,6 +103,17 @@ const NewSolutionForm = () => {
                             variant="outlined"
                             multiline />
                     </Grid>
+                </Grid>
+                <Grid item>
+                    <Autocomplete
+                        id="problems"
+                        options={problems}
+                        getOptionLabel={problem => problem.title}
+                        style={{ width: 500 }}
+                        renderInput={params => <TextField {...params}
+                        label="Welches Problem wird dadurch gelöst?"
+                        variant="outlined" />}
+                    />
                 </Grid>
                 <Grid item>
                     <Button variant="contained" onClick={handleSave} color="primary">Speichern</Button>

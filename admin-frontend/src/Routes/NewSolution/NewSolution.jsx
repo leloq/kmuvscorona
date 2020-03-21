@@ -5,7 +5,10 @@ import NewSolutionForm from './NewSolutionForm';
 const NewSolution = () => {
     const dispatch = useDispatch();
     dispatch({
-        type: 'Solutions/getSolutions',
+        type: 'TargetGroups/getTargetGroups',
+    });
+    dispatch({
+        type: 'Problems/getProblems',
     });
     return <NewSolutionForm />;
 };
