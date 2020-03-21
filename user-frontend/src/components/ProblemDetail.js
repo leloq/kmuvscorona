@@ -58,7 +58,7 @@ export default class ProblemDetail extends Component {
         <p>{this.state.description}</p>
         <SolutionsList solutions={this.state.solutions}/>    
         
-        <Link to="/">Back to Home</Link>
+        
       </div>
     )
   }

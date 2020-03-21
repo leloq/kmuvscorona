@@ -18,7 +18,7 @@ const solutionsList = () => {
 
   return (
       <div>
-          <SolutionsListPanel title="Leo" description="Theo" id="5e75f7f8e9dc4a70b54bb923"/>
+          
           {solutionsList()}         
       </div>
     )

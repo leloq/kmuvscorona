@@ -3,6 +3,7 @@ import axios from './../axiosInstance';
 import { Link } from 'react-router-dom';
 import { View, Image, Text } from 'react-native';
 import GridList from '@material-ui/core/GridList';
+import ProblemList from './ProblemList'
 
 export default class TargetGroupDetail extends Component {
   constructor(props) {
@@ -20,10 +21,22 @@ export default class TargetGroupDetail extends Component {
       .then(response => {
         this.setState({
           groupname: response.data.groupname,
-          problems: response.data.problems,
+          
           imageUrl: response.data.imageUrl,
           description: response.data.description
-        })   
+        })
+        response.data.problems.forEach((problemid)=>{
+          axios.get('problems/'+problemid)
+          .then(res => {
+            this.setState( (state) => {
+              return {
+                ...state,
+                problems: [
+                ...state.problems, res.data]
+              }
+            })
+          })
+        })    
       })
       .catch(function (error) {
         console.log(error);
@@ -45,8 +58,12 @@ export default class TargetGroupDetail extends Component {
   render() {
     return (
       <div>
-         { this.descriptionHeader() }  
+         { this.descriptionHeader() }
+         
+
       </div>
+
+
     )
   }
 }
