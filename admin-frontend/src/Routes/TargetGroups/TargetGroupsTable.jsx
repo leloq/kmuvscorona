@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles, Paper, TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
+import { Edit, Delete } from '@material-ui/icons';
 import { useSelector } from 'react-redux';
 import moment from 'moment';
 
@@ -28,6 +29,8 @@ const TargetGroupsTable = () => {
                         <TableCell align="right">Beschreibung</TableCell>
                         <TableCell align="right">Geändert am</TableCell>
                         <TableCell align="right">Erstellt am</TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -37,6 +40,8 @@ const TargetGroupsTable = () => {
                             <TableCell align="right">{targetGroups.description}</TableCell>
                             <TableCell align="right">{moment(targetGroups.updatedAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
                             <TableCell align="right">{moment(targetGroups.createdAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
+                            <TableCell><Edit /></TableCell>
+                            <TableCell><Delete /></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
