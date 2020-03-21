@@ -1,10 +1,7 @@
 .hero {
   padding: 100px;
 }
-.responsive {
-  max-width: 100%;
-  height: auto;
-}
+
 .centered {
   position: absolute;
   font-family: 'Open Sans';
@@ -24,16 +21,3 @@
 	font-size: 25px;
 	transform: translate(-50%, -50%);
 }
-
-img { 
-	margin-top: 50px;
-	opacity: 0.8;
-	z-index: -4;
-}
-.container {
-  position: relative;
-  text-align: center;
-  color: white;
-  z-index: -1;
-}
-
