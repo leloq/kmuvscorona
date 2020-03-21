@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, Typography, Divider, List } from '@material-ui/core';
-import { Home } from '@material-ui/icons';
+import { Home, ReportProblem } from '@material-ui/icons';
 import ListItemLink from './ListItemLink';
 
 const useStyles = makeStyles(theme => ({
@@ -35,6 +35,12 @@ const DrawerContent = (props) => {
                     to="/"
                     primary="Home"
                     icon={<Home />}
+                />
+                <ListItemLink
+                    onClick={onClose}
+                    to="/problems"
+                    primary="Probleme"
+                    icon={<ReportProblem />}
                 />
             </List>
         </div>
