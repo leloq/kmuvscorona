@@ -1,8 +1,11 @@
 import React from 'react';
 import { makeStyles, Paper, TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
 import { Edit, Delete } from '@material-ui/icons';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import moment from 'moment';
+import { useSnackbar } from 'notistack';
+
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -15,6 +18,21 @@ const useStyles = makeStyles(theme => ({
 const TargetGroupsTable = () => {
     const targetGroups = useSelector(state => state.TargetGroups.data);
     const classes = useStyles();
+    const dispatch = useDispatch();
+    const { enqueueSnackbar } = useSnackbar();
+
+    const handleRemove = (targetGroupId) => {
+        dispatch({
+            type: 'TargetGroups/deleteTargetGroup',
+            payload: {
+                targetGroupId,
+            },
+        });
+        enqueueSnackbar('Zielgruppe gelöscht', {
+            variant: 'success',
+        });
+    };
+
 
     if (targetGroups === null || typeof targetGroups === 'undefined' || targetGroups.length === 0) {
         return null;
@@ -41,7 +59,7 @@ const TargetGroupsTable = () => {
                             <TableCell align="right">{moment(targetGroups.updatedAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
                             <TableCell align="right">{moment(targetGroups.createdAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
                             <TableCell><Edit /></TableCell>
-                            <TableCell><Delete /></TableCell>
+                            <TableCell><Delete onClick={() => handleRemove(targetGroups._id)}/></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
