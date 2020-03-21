@@ -8,13 +8,11 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  const targetGroup = req.body.targetGroup;
   const title = req.body.title;
   const description = req.body.description;
   const severity = Number(req.body.severity);
 
   const newProblem = new Problem({
-    targetGroup,
     title,
     description,
     severity,
@@ -39,7 +37,6 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
   Problem.findById(req.params.id)
     .then(problem => {
-      problem.groupname = req.body.groupname;
       problem.title = req.body.title;
       problem.description = req.body.description;
       problem.severity = Number(req.body.severity);
