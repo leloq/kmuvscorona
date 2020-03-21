@@ -8,6 +8,8 @@ import AppBarTitleUpdater from './AppBarTitleUpdater';
 import Home from '../Routes/Home';
 import Problems from '../Routes/Problems/Problems';
 import NewProblem from '../Routes/NewProblem/NewProblem';
+import TargetGroups from '../Routes/TargetGroups/TargetGroups';
+import Solutions from '../Routes/Solutions/Solutions';
 
 const drawerWidth = 240;
 
@@ -129,8 +131,13 @@ const Main = () => {
                 <Router primary={false}>
                     <AppBarTitleUpdater path="/">
                         <Home path="/" />
+                        <TargetGroups path="/targetgroups" />
                         <Problems path="/problems" />
+<<<<<<< HEAD
                         <NewProblem path="/newProblem" />
+=======
+                        <Solutions path="/solutions" />
+>>>>>>> c35835e4762b6fc892521070f499b9c23c1228ee
                     </AppBarTitleUpdater>
                 </Router>
             </main>

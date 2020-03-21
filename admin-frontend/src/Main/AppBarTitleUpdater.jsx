@@ -3,8 +3,10 @@ import { useLocation } from '@reach/router';
 
 const RouteNames = {
     '/': 'Home',
+    '/targetgroups': 'Zielgruppe',
     '/problems': 'Probleme',
     '/newProblem': 'Neues Problem',
+    '/solutions': 'Lösungen',
 };
 
 
