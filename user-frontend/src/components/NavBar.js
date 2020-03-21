@@ -113,13 +113,20 @@ export default function SearchAppBar() {
                   Lösungsansätze
                 </Link>
               </MenuItem>
+              
               <MenuItem onClick={handleClose}>
               <Link to="/" style={{ textDecoration: 'none'}}>
                   Branchen
                 </Link>
               </MenuItem>
+
               <MenuItem onClick={handleClose}>Über Uns</MenuItem>
-              <MenuItem onClick={handleClose}>Kontakt</MenuItem>
+
+              <MenuItem onClick={handleClose}>
+                <Link to="/contact" style={{ textDecoration: 'none'}}>
+                    Kontakt
+                </Link>
+               </MenuItem>
             </Menu>
 
 
