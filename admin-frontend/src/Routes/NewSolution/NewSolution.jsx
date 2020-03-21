@@ -7,6 +7,9 @@ const NewSolution = () => {
     dispatch({
         type: 'TargetGroups/getTargetGroups',
     });
+    dispatch({
+        type: 'Problems/getProblems',
+    });
     return <NewSolutionForm />;
 };
 
