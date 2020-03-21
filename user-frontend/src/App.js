@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import NavBar from './components/NavBar'
 import Home from './components/Home'
+import Impressum from './components/Impressum'
 import About from './components/About'
 import TargetGroupDetail from './components/TargetGroupDetail.js'
 import SolutionsOverview from './components/SolutionsOverview.js'
@@ -20,6 +21,7 @@ class App extends Component {
                 <Route path="/solutions" component={SolutionsOverview} />
                 <Route path="/about" component={About} />
                 <Route path="/contact" component={ContactImpressum} />
+                <Route path="/impressum" component={Impressum} />
         	</div>
     	</Router>
 
