@@ -27,7 +27,7 @@ class Home extends Component {
             <div>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained" color="primary">
+                  <Button variant="outlined" color="primary">
                     Branchen
                   </Button>
                 </Grid>

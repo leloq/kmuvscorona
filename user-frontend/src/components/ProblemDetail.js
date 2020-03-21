@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from './../axiosInstance';
 import { Link } from 'react-router-dom';
 import SolutionsListPanel from './SolutionsListPanel'
 import SolutionsList from './SolutionsList'
@@ -16,14 +16,14 @@ export default class ProblemDetail extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/problems/'+this.props.id)
+    axios.get('problems/'+this.props.id)
       .then(response => {
         this.setState({
           title: response.data.title,
           description: response.data.description,
         })
         response.data.solutions.forEach((solution)=>{
-          axios.get('http://localhost:5000/solutions/'+solution)
+          axios.get('solutions/'+solution)
           .then(res => {
             this.setState( (state) => {
               return {
@@ -58,7 +58,7 @@ export default class ProblemDetail extends Component {
         <p>{this.state.description}</p>
         <SolutionsList solutions={this.state.solutions}/>    
         
-        <Link to="/">Back to Home</Link>
+        
       </div>
     )
   }
