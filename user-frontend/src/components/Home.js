@@ -5,6 +5,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 import TargetGroupList from './TargetGroupList'
 
@@ -32,7 +33,9 @@ class Home extends Component {
                 </Grid>
                 <Grid item>
                   <Button variant="outlined" color="primary">
-                    Lösungsansätze
+                    <Link to="/solutions" style={{ textDecoration: 'none'}}>
+                  Lösungsansätze
+                </Link>
                   </Button>
                 </Grid>
               </Grid>
