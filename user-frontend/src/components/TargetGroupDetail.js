@@ -59,7 +59,7 @@ export default class TargetGroupDetail extends Component {
     return (
       <div>
          { this.descriptionHeader() }
-         
+         <div><ProblemList problems={this.state.problems}/>  </div>
 
       </div>
 
