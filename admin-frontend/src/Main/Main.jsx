@@ -6,6 +6,7 @@ import AppBarTitle from './AppBarTitle';
 import DrawerContent from './DrawerContent';
 import AppBarTitleUpdater from './AppBarTitleUpdater';
 import Home from '../Routes/Home';
+import Problems from '../Routes/Problems/Problems';
 
 const drawerWidth = 240;
 
@@ -127,6 +128,7 @@ const Main = () => {
                 <Router primary={false}>
                     <AppBarTitleUpdater path="/">
                         <Home path="/" />
+                        <Problems path="/problems" />
                     </AppBarTitleUpdater>
                 </Router>
             </main>
