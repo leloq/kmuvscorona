@@ -81,6 +81,12 @@ const NewSolutionForm = () => {
         });
     };
 
+    const handleDropDownChange = (event, value) => {
+        if (value !== null) {
+            console.log(value._id);
+        }
+      }
+
     return (
         <Grid container direction="row">
             <Grid xs={6} item>
@@ -106,13 +112,15 @@ const NewSolutionForm = () => {
                 </Grid>
                 <Grid item>
                     <Autocomplete
+                        onChange={handleDropDownChange}
                         id="problems"
                         options={problems}
                         getOptionLabel={problem => problem.title}
                         style={{ width: 500 }}
                         renderInput={params => <TextField {...params}
                         label="Welches Problem wird dadurch gelöst?"
-                        variant="outlined" />}
+                        variant="outlined"
+                        />}
                     />
                 </Grid>
                 <Grid item>
