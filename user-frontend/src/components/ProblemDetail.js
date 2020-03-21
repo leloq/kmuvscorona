@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from './../axiosInstance';
 import { Link } from 'react-router-dom';
 import SolutionsListPanel from './SolutionsListPanel'
 import SolutionsList from './SolutionsList'
@@ -16,7 +16,7 @@ export default class ProblemDetail extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/problems/'+this.props.id)
+    axios.get('problems/'+this.props.id)
       .then(response => {
         this.setState({
           title: response.data.title,

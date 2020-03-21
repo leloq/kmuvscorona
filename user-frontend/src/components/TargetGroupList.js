@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import axios from './../axiosInstance';
 import TargetGroupCard from './TargetGroupCard'
 import Grid from '@material-ui/core/Grid';
 
@@ -11,7 +11,7 @@ export default class ExercisesList extends Component {
 }
 
 componentDidMount() {
-  axios.get('http://localhost:5000/targetGroups/')
+  axios.get('targetGroups/')
    .then(response => {
      this.setState({ targetgroups: response.data });
    })

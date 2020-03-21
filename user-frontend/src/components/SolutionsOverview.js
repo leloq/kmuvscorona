@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import SolutionsList from './SolutionsList'
 import Grid from '@material-ui/core/Grid';
+import axios from './../axiosInstance';
 
 export default class SolutionsOverview extends Component {
 
@@ -12,7 +12,7 @@ export default class SolutionsOverview extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/solutions/')
+    axios.get('solutions/')
      .then(response => {
        this.setState({ solutions: response.data });
      })
