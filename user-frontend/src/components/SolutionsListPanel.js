@@ -34,6 +34,7 @@ const useStyles = makeStyles(theme => ({
 
   },
   paragraph: {
+    fontFamily: 'Open Sans',
     fontSize: theme.typography.pxToRem(17),
   },
   secondaryHeading: {
@@ -65,7 +66,7 @@ export default withRouter (function SolutionsListPanel(props) {
         </ExpansionPanelSummary>
 
         <ExpansionPanelDetails>
-          <Markdown escapeHtml={false} source={props.description} />
+          <Typography><Markdown escapeHtml={false} source={props.description} /></Typography>
         </ExpansionPanelDetails>
 
       </ExpansionPanel>
