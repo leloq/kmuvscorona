@@ -118,7 +118,9 @@ export default function SearchAppBar() {
                   Branchen
                 </Link>
               </MenuItem>
-              <MenuItem onClick={handleClose}>Über Uns</MenuItem>
+              <MenuItem onClick={handleClose}><Link to="/about" style={{ textDecoration: 'none'}}>
+                  Über Uns
+                </Link></MenuItem>
               <MenuItem onClick={handleClose}>Kontakt</MenuItem>
             </Menu>
 
