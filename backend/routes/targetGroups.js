@@ -32,7 +32,7 @@ router.route('/:id').get((req, res) => {
 });
 router.route('/:id').delete((req, res) => {
   TargetGroup.findByIdAndDelete(req.params.id)
-    .then(() => res.json(req.params.id + ' deleted.'))
+    .then(() => res.json(req.params.id))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 router.route('/update/:id').post((req, res) => {
