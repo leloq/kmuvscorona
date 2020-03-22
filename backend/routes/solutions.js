@@ -68,6 +68,18 @@ router.route('/update/:id').post((req, res) => {
       solution.preliminary = req.body.preliminary;
 
       solution.save()
+        .then(() => {
+          return Problem.updateMany(
+            { "solutions": ObjectId(req.params.id) },
+            { $pull: { solutions: req.params.id } },
+          );
+        })
+        .then(() => {
+          return Problem.updateMany(
+            {"_id": ObjectId(req.body.problemId) },
+            { $push: { solutions: ObjectId(req.params.id) } },
+          )
+        })
         .then(() => res.json(solution))
         .catch(err => res.status(400).json('Error: ' + err));
     })
