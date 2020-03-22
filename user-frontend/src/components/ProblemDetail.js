@@ -39,7 +39,7 @@ export default withStyles(styles)(class ProblemDetail extends Component {
         response.data.solutions.forEach((solution)=>{
           axios.get('solutions/'+solution)
           .then(res => {
-            if(this.checkIfSpecific(res.data)){
+            if(this.checkIfSpecific(res.data) && (typeof res.data.preliminary === "undefined" || res.data.preliminary === false)){
               this.setState( (state) => {
                 return {
                   ...state,

@@ -14,7 +14,8 @@ export default class SolutionsOverview extends Component {
   componentDidMount() {
     axios.get('solutions/')
      .then(response => {
-       this.setState({ solutions: response.data });
+       const filteredSolutions = response.data.filter(solution =>  typeof solution.preliminary === "undefined" || solution.preliminary === false)
+       this.setState({ solutions: filteredSolutions });
      })
      .catch((error) => {
         console.log(error);
