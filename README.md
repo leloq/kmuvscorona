@@ -23,18 +23,7 @@ This is the fronted that shows business owners applicable solutions to their pro
 1. Install Node on your machine
 2. Change to the directories of the three packages and install through node package manager
 `$ npm install`
-3. In the src folder of user-frontend and admin-frontend add a axiosInstance.js file. For baseURL either enther the address of your hosted backend server or - in the development phase - use "localhost:5000/"
-<pre>
-import axios from 'axios';
-
-
-// Set config defaults when creating the instance
-const instance = axios.create({
-    baseURL: 'YOUR BACKEND SERVER BASE URL,
-});
-export default instance;
-</pre>
-4. We used a Atlas MongoDB (free tier) for our backend storage. So, in the /backend/ directory add a .env file with your ATLAS URI:
+3. We used a Atlas MongoDB (free tier) for our backend storage. So, in the /backend/ directory add a .env file with your ATLAS URI:
 `ATLAS_URI=mongodb+srv://YOUR_ID` 
 
 # How to run
