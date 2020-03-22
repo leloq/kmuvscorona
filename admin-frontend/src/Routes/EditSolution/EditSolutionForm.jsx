@@ -42,7 +42,6 @@ const NewSolutionForm = (props) => {
     const specificForTargetGroups = useSelector(state => state.TargetGroups.data);
     const problems = useSelector(state => state.Problems.data);
     const mappedProblem = problems.find(problem => problem.solutions.includes(_id));
-    if (mappedProblem){console.log(mappedProblem.title);}
     const [problemId, setProblemId] = useState(mappedProblem);
     const dispatch = useDispatch();
     const { enqueueSnackbar } = useSnackbar();
@@ -104,31 +103,19 @@ const NewSolutionForm = (props) => {
         setPreliminary(value);
     };
     const handleUpVoteChange = (event, value) => {
-        setUpVotes(value);
+        setUpVotes(event.target.value);
     };
     const handleDownVoteChange = (event, value) => {
-        setDownVotes(value);
+        setDownVotes(event.target.value);
     };
     const navigateToSolutions = () => {
         navigate('/solutions');
     };
 
     return (
-        <Grid container direction="row" spacing={100} padding={100}>
+        <Grid container direction="row">
             <Grid xs={6} item>
-                <Grid container direction="column">
-                <Grid item>
-                    <FormControlLabel
-                        control={
-                        <Checkbox
-                            checked={preliminary}
-                            onChange={handleChangePrelimStatus}
-                            name="preliminary"
-                            primary
-                        />}
-                        label="Preliminary"
-                    />
-                </Grid>
+                <Grid container direction="column" spacing={3}>
                     <Grid item>
                         <TextField
                             value={title}
@@ -147,7 +134,6 @@ const NewSolutionForm = (props) => {
                             variant="outlined"
                             multiline />
                     </Grid>
-                </Grid>
                 <Grid item>
                     <Autocomplete
                         id="problems"
@@ -167,8 +153,8 @@ const NewSolutionForm = (props) => {
                     <TextField
                         id="upvotes"
                         label="Upvotes"
-                        value={upVotes}
                         onChange={handleUpVoteChange}
+                        value={upVotes}
                         type="number"
                         InputLabelProps={{shrink: true,}}
                     />
@@ -177,12 +163,24 @@ const NewSolutionForm = (props) => {
                     <TextField
                         id="downvotes"
                         label="Downvotes"
-                        value={downVotes}
                         onChange={handleDownVoteChange}
+                        value={downVotes}
                         type="number"
                         InputLabelProps={{shrink: true,}}
                     />
                 </Grid>
+                </Grid>
+                <Grid item>
+                    <FormControlLabel
+                        control={
+                        <Checkbox
+                            checked={preliminary}
+                            onChange={handleChangePrelimStatus}
+                            name="preliminary"
+                            primary
+                        />}
+                        label="Preliminary"
+                    />
                 </Grid>
                 <Grid container item xs={12} spacing={3}>
                     <Grid item>
@@ -192,6 +190,7 @@ const NewSolutionForm = (props) => {
                         <Button variant="contained" onClick={handleSave} color="primary">Speichern</Button>
                     </Grid>
                 </Grid>
+            </Grid>
             </Grid>
             <Grid xs={6} item>
                 <Grid container direction="column">

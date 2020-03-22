@@ -34,6 +34,9 @@ const NewSolutionForm = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [selectedTargetGroups, setSelectedTargetGroups] = useState([]);
+    const [upVotes, setUpVotes] = useState(0);
+    const [downVotes, setDownVotes] = useState(0);
+    const [preliminary, setPreliminary] = useState(false);
     const specificForTargetGroups = useSelector(state => state.TargetGroups.data);
     const problems = useSelector(state => state.Problems.data);
     const [problemId, setProblemId] = useState('');
@@ -63,12 +66,24 @@ const NewSolutionForm = () => {
             ]);
         }
     };
+    const handleChangePrelimStatus = (event, value) => {
+        setPreliminary(value);
+    };
+    const handleUpVoteChange = (event, value) => {
+        setUpVotes(value);
+    };
+    const handleDownVoteChange = (event, value) => {
+        setDownVotes(value);
+    };
 
     const handleSave = () => {
         const newSolution = {
             title,
             description,
             specificForTargetGroups: selectedTargetGroups,
+            upVotes,
+            downVotes,
+            preliminary,
 			problemId,
         };
         dispatch({
