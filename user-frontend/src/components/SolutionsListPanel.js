@@ -12,7 +12,7 @@ import Voting from './Voting'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    marginTop: 10,
+    marginTop: 12,
     marginLeft: 15,
     marginRight: 15,
     width: '97%',
