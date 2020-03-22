@@ -21,6 +21,12 @@ const EditTargetGroup = (props) => {
     if (targetGroup === null || typeof targetGroup === 'undefined') {
         return null;
     }
+
+    dispatch({
+        type: 'UI/setAppBarTitle',
+        payload: `${targetGroup.groupname} bearbeiten`,
+    });
+
     return <EditTargetGroupForm targetGroupId={props.targetGroupId}/>;
 };
 
