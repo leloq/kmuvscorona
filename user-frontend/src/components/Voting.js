@@ -53,7 +53,7 @@ return(
         <ThumbDownIcon onClick={this.increaseDislikes.bind(this)} style={{ color: red[500] }} />
       </Fab>
       <Typography variant="overline" display="block" gutterBottom>
-          {this.state.likes} Gefällts, {this.state.dislikes} Gefällts.
+          {this.state.likes} Gefällts, {this.state.dislikes} Gefällts Nicht.
     </Typography>
        
     </div>

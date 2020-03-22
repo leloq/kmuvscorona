@@ -41,7 +41,7 @@ export default withRouter (function TargetGroupCard(props) {
             {props.value} 
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Erfahren Sie mehr darüber wie man {props.value}n helfen kann.
+            Erfahren Sie mehr darüber welche Möglichkeiten für diese Zielgruppe bestehen.
           </Typography>
         </CardContent>
       </CardActionArea>
