@@ -120,6 +120,12 @@ export default function SearchAppBar() {
                   Lösungsansätze
                 </Link>
               </MenuItem>
+
+              <MenuItem onClick={handleClose}>
+              <Link to="/NewSolution" style={{ textDecoration: 'none'}}>
+                  Lösung einreichen
+                </Link>
+              </MenuItem>
               
               <MenuItem onClick={handleClose}><Link to="/about" style={{ textDecoration: 'none'}}>
                   Über Uns

@@ -41,6 +41,15 @@ class Home extends Component {
                 </Link>
                   </Button>
                 </Grid>
+
+                <Grid item>
+                  <Button variant="outlined" color="primary">
+                    <Link to="/NewSolution" style={{ textDecoration: 'none'}}>
+                  Lösungsvorschlag einreichen
+                </Link>
+                  </Button>
+                </Grid>
+
               </Grid>
             </div>
           </Container>

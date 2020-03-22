@@ -60,6 +60,14 @@ const ContentEx = ({ classes }) => (
 <li>Armin Satzger</li>
 <li>Leo Semmelmann</li>
 </Typography>
+
+<Typography weight={"bold"} variant={"h5"} gutterBottom>
+      Open Source
+    </Typography>
+
+<Typography>Unser Projekt basiert auf NodeJS, React, Express und MongoDB. Wir stellen die Technologie für unsere Plattform via <a href="https://github.com/leloq/kmuvscorona" target="_blank">Github</a> zur Verfügung.</Typography>
+
+
   </div>
 
 );

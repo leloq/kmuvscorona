@@ -49,9 +49,9 @@ export default withStyles(styles)(class ProblemDetail extends Component {
   }
 
   increaseLikes = () => {
-      axios.post('solutions/update/'+this.props.solution._id, {
-      ...this.props.solution, 
-      upVotes: this.state.likes+1
+      axios.post('solutions/vote/'+this.props.solution._id, {
+      upVotes: this.state.likes+1,
+      downVotes: this.state.dislikes
     })
     .then(response => {
       console.log(response);
@@ -67,7 +67,7 @@ export default withStyles(styles)(class ProblemDetail extends Component {
 
   increaseDislikes = () => {
       axios.post('solutions/update/'+this.props.solution._id, {
-      ...this.props.solution, 
+      upVotes: this.state.likes,
       downVotes: this.state.dislikes+1
     })
     .then(response => {
