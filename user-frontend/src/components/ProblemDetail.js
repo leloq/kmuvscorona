@@ -21,6 +21,7 @@ const styles = theme => ({
 export default withStyles(styles)(class ProblemDetail extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props.targetgroupid)
     this.state = {
       title: '',
       description: '',
@@ -35,17 +36,19 @@ export default withStyles(styles)(class ProblemDetail extends Component {
           title: response.data.title,
           description: response.data.description,
         })
-        console.log(response.data)
         response.data.solutions.forEach((solution)=>{
           axios.get('solutions/'+solution)
           .then(res => {
-            this.setState( (state) => {
-              return {
-                ...state,
-                solutions: [
-                ...state.solutions, res.data]
+            if(this.checkIfSpecific(res.data)){
+              this.setState( (state) => {
+                return {
+                  ...state,
+                  solutions: [
+                  ...state.solutions, res.data]
               }
             })
+            }
+           
           })
         })   
       })
@@ -53,17 +56,13 @@ export default withStyles(styles)(class ProblemDetail extends Component {
         console.log(error);
       })
 
-
   }
 
-  solutionsList() {
-    return this.state.solutions.map(solution => {
-      return( 
-        <Grid item>
-          <SolutionsListPanel title={solution.title} description={solution.description} id={solution._id}/>
-        </Grid>);
-      })
-  }
+ checkIfSpecific (solution)  {
+    return (solution.specificForTargetGroups.length === 0) 
+    || (typeof solution.specificForTargetGroups.find(tgroup => tgroup === this.props.targetgroupid) !== "undefined");
+}
+
 
   render() {
     const { classes } = this.props;
