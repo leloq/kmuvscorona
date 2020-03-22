@@ -37,6 +37,9 @@ const SingleSolution = (props) => {
         isEqual
     );
 
+    console.log(solution);
+    console.log(problem);
+
     dispatch({
         type: 'Solutions/getSingleSolution',
         payload: {
@@ -51,9 +54,21 @@ const SingleSolution = (props) => {
         props.navigate('/problems');
     }
 
-    if (solution === null || typeof solution === 'undefined' || problem === null || typeof problem === 'undefined') {
+    if (solution === null || typeof solution === 'undefined') {
         return null;
     }
+
+    const hasProblem = problem !== null && typeof problem !== 'undefined';
+    const problemText = hasProblem ?
+        (
+            <Typography className={classes.problemHeading} variant="h6">
+                    Gelöstes Problem: <span onClick={navigateToProblem} className={classes.problemLink}>{problem.title}</span>
+                </Typography>
+        ) : (
+            <Typography className={classes.problemHeading} variant="h6">
+                Für diese Lösung ist kein Problem ausgewählt
+            </Typography>
+        );
 
     dispatch({
         type: 'UI/setAppBarTitle',
@@ -63,9 +78,7 @@ const SingleSolution = (props) => {
     return (
         <Grid spacing={3} container direction="column" justify="center" alignItems="center">
             <Grid item>
-                <Typography className={classes.problemHeading} variant="h6">
-                    Gelöstes Problem: <span onClick={navigateToProblem} className={classes.problemLink}>{problem.title}</span>
-                </Typography>
+                {problemText}
             </Grid>
             <Grid item>
                 <ReactMarkdown className={`${classes.markdownContainer} MuiPaper-elevation1 MuiPaper-root MuiTypography-root MuiTypography-body1`} source={solution.description} />
