@@ -60,7 +60,7 @@ const TargetGroups = {
     effects: dispatch => ({
         async getSingleTargetGroup(payload, rootState) {
             const result = await axios.get('/targetgroups/' + payload.targetGroupId);
-            dispatch.TargetGroups.getTargetGroupsSuccess({
+            dispatch.TargetGroups.getSingleTargetGroupSuccess({
                 singleTargetGroup: result.data,
             });
         },
