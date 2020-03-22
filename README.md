@@ -1,4 +1,4 @@
-### What is kmuvscorona?
+# What is kmuvscorona?
 
 KMU vs. Corona provides sector-specific and problem-specific knowledge and solution approaches for German SMEs. Working with experts and information from the internet, we identified the major challenges for SMEs right now, as well as potential solutions. KMU Vs. Corona maps solutions with problems and in turn links the problems to one or more of the six main target groups we defined. The end-user visits our website as a handyman, hairdresser or independent artist and chooses the target group or industry they identify with, finding relevant problems and solutions ready listed.
  
@@ -18,7 +18,7 @@ This is a React App which manages all targetGroups, problems and solutions
 
 This is the fronted that shows business owners applicable solutions to their problems
 
-### How to install
+# How to install
 
 1. Install Node on your machine
 2. Change to the directories of the three packages and install through node package manager
