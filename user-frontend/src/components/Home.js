@@ -9,6 +9,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 
 import TargetGroupList from './TargetGroupList'
 
+
 class Home extends Component {
 
   render() {
@@ -28,7 +29,7 @@ class Home extends Component {
               <Grid container spacing={2} justify="center">
                 <Grid item>
                   <Button variant="outlined" color="primary">
-                     <Link to="#branchen" style={{ textDecoration: 'none'}}>
+                     <Link smooth to="#branchen" style={{ textDecoration: 'none'}}>
                   Branchen
                 </Link>
                   </Button>
@@ -46,6 +47,19 @@ class Home extends Component {
         </div>
 
         <TargetGroupList />
+        <div>
+
+            <Grid container spacing={2} justify="center">
+            <Grid item>
+            <br />
+            <Typography color="red" fontStyle="italic" align="center" color="textSecondary" paragraph>
+              Gerne weisen wir an dieser Stelle auf den CoroNavigator an: eine Umfrage aus der konkrete Lösungsvorschläge für KMUs abgeleitet werden.
+            </Typography>
+            <br />
+            </Grid>
+            </Grid>
+        </div>
+
 
     	</div>
 
