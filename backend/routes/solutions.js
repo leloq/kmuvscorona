@@ -85,5 +85,15 @@ router.route('/update/:id').post((req, res) => {
     })
     .catch(err => res.status(400).json('Error: ' + err));
 });
+router.route('/vote/:id').post((req, res) => {
+  Solution.findById(req.params.id)
+    .then(solution => {
+      solution.upVotes = req.body.upVotes;
+      solution.downVotes = req.body.downVotes;
+      return solution.save();
+    })
+    .then(solution => res.json(solution))
+    .catch(error => res.status(400).json(error));
+});
 
 module.exports = router;
