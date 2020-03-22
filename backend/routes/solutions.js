@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const ObjectId = require('mongoose').Types.ObjectId;
 const Solution = require('../models/solution.model');
 const Problem = require('../models/problem.model');
 
@@ -41,6 +42,12 @@ router.route('/:id').get((req, res) => {
 });
 router.route('/:id').delete((req, res) => {
   Solution.findByIdAndDelete(req.params.id)
+    .then(() => {
+      return Problem.updateMany(
+        { "solutions": ObjectId(req.params.id) },
+        { $pull: { solutions: req.params.id } },
+      );
+    })
     .then(() => res.json(req.params.id))
     .catch(err => res.status(400).json('Error: ' + err));
 });
