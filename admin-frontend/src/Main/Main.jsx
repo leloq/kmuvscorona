@@ -13,6 +13,7 @@ import Solutions from '../Routes/Solutions/Solutions';
 import NewSolution from '../Routes/NewSolution/NewSolution';
 import NewTargetGroup from '../Routes/NewTargetGroup/NewTargetGroup';
 import EditTargetGroup from '../Routes/EditTargetGroup/EditTargetGroup';
+import EditProblem from '../Routes/EditProblem/EditProblem';
 
 const drawerWidth = 240;
 
@@ -139,6 +140,7 @@ const Main = () => {
                         <EditTargetGroup path="/editTargetGroup/:targetGroupId" />
                         <Problems path="/problems" />
                         <NewProblem path="/newProblem" />
+                        <EditProblem path="/editProblem/:problemId"/>
                         <Solutions path="/solutions" />
                         <NewSolution path="/newSolution" />
                     </AppBarTitleUpdater>

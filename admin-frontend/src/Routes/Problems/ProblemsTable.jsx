@@ -17,6 +17,10 @@ const ProblemsTable = () => {
     const problems = useSelector(state => state.Problems.data);
     const classes = useStyles();
 
+const navigateToEditProblemForm = problemId => () => {
+    navigate('/editProblem/' + problemId);
+}
+
     if (problems === null || typeof problems === 'undefined' || problems.length === 0) {
         return null;
     }
@@ -41,6 +45,16 @@ const ProblemsTable = () => {
                                 <TableCell align="right">{problem.severity}</TableCell>
                                 <TableCell align="right">{moment(problem.updatedAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
                                 <TableCell align="right">{moment(problem.createdAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
+                                <TableCell>
+                                    <IconButton onClick={navigateToEditProblemForm(problem._id)}>
+                                        <Edit />
+                                    </IconButton>
+                                </TableCell>
+                                <TableCell>
+                                    <IconButton onClick={openDeleteDialog(problem._id)}>
+                                        <Delete />
+                                    </IconButton>
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
