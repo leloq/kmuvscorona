@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { makeStyles, TextField, Typography, Button, Grid } from '@material-ui/core';
+import { makeStyles, TextField, Typography, Button, Grid, Checkbox, FormControlLabel } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab'
 import { useSelector, useDispatch } from 'react-redux';
 import { navigate } from '@reach/router';
@@ -107,40 +107,74 @@ const NewSolutionForm = () => {
 
     return (
         <Grid container direction="row">
-            <Grid xs={6} item>
-                <Grid container direction="column">
-                    <Grid item>
-                        <TextField
-                            value={title}
-                            onChange={handleTitleChange}
-                            className={classes.textField}
-                            label="Titel"
-                            variant="outlined"
-                        />
-                    </Grid>
-                    <Grid item>
-                        <TextField
-                            value={description}
-                            onChange={handleDescriptionChange}
-                            className={classes.textArea}
-                            label="Beschreibung"
-                            variant="outlined"
-                            multiline />
-                    </Grid>
-                </Grid>
+        <Grid xs={6} item>
+            <Grid container direction="column" spacing={3}>
                 <Grid item>
-                    <Autocomplete
-                        onChange={handleDropDownChange}
-                        id="problems"
-                        options={problems}
-                        getOptionLabel={problem => problem.title}
-                        style={{ width: 500 }}
-                        renderInput={params => <TextField {...params}
-                        label="Welches Problem wird dadurch gelöst?"
+                    <TextField
+                        value={title}
+                        onChange={handleTitleChange}
+                        className={classes.textField}
+                        label="Titel"
                         variant="outlined"
-                        />}
                     />
                 </Grid>
+                <Grid item>
+                    <TextField
+                        value={description}
+                        onChange={handleDescriptionChange}
+                        className={classes.textArea}
+                        label="Beschreibung"
+                        variant="outlined"
+                        multiline />
+                </Grid>
+            <Grid item>
+                <Autocomplete
+                    id="problems"
+                    onChange={handleDropDownChange}
+                    options={problems}
+                    getOptionLabel={problem => problem.title}
+                    style={{ width: 500 }}
+                    renderInput={params => <TextField {...params}
+                    label="Welches Problem wird dadurch gelöst?"
+                    variant="outlined"
+                    />}
+                />
+            </Grid>
+            <Grid container item xs={12} spacing={3}>
+            <Grid item>
+                <TextField
+                    id="upvotes"
+                    label="Upvotes"
+                    onChange={handleUpVoteChange}
+                    value={upVotes}
+                    type="number"
+                    InputLabelProps={{shrink: true,}}
+                />
+            </Grid>
+            <Grid item>
+                <TextField
+                    id="downvotes"
+                    label="Downvotes"
+                    onChange={handleDownVoteChange}
+                    value={downVotes}
+                    type="number"
+                    InputLabelProps={{shrink: true,}}
+                />
+            </Grid>
+            </Grid>
+            <Grid item>
+                <FormControlLabel
+                    control={
+                    <Checkbox
+                        checked={preliminary}
+                        onChange={handleChangePrelimStatus}
+                        name="preliminary"
+                        primary
+                    />}
+                    label="Preliminary"
+                />                
+            </Grid>
+            </Grid>
                 <Grid item>
                     <Button variant="contained" onClick={handleSave} color="primary">Speichern</Button>
                 </Grid>
