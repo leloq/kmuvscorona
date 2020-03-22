@@ -3,29 +3,52 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import {  FormControl, InputLabel, Input, Button, TextField} from "@material-ui/core";
+import Popup from "reactjs-popup";
+import DoneRoundedIcon from '@material-ui/icons/DoneRounded';
+import green from '@material-ui/core/colors/green';
 
 export default class FeedbackForm extends Component {
+
   constructor(props) {
   super(props);
     this.state = {
+      open: false,
       name: '',
       email: '',
-      message: ''
+      message: '',
     }
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    //this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  sendAndGiveFeedback(event) {
+    this.openModal();
+    this.handleSubmit(event);
+  }
+
+  openModal() {
+    this.setState({ open: true});
+  }
+
+  closeModal() {
+    this.setState({ open: false});
   }
 
   onNameChange(event) {
+    console.log("Update Name");
     this.setState({name: event.target.value})
   }
 
   onMailChange(event) {
+    console.log("Update Mail");
     this.setState({email: event.target.value})
   }
 
   onMessageChange(event) {
+    console.log("Update Message");
     this.setState({message: event.target.value})
   }
-
 
   handleSubmit(event) {
     event.preventDefault();
@@ -35,31 +58,28 @@ export default class FeedbackForm extends Component {
       this.state.email,
       this.state.message
     );
+    window.location = '/contact';
   }
 
- // Note: this is using default_service, which will map to whatever
- // default email provider you've set in your EmailJS account.
   sendFeedback(senderName, senderEmail, feedback) {
-
     window.emailjs.send("gmail", "contact_form", {"message_html":feedback,
     "senderMail":senderEmail, "from_name":senderName, "recipientMail":"info@kmuvscorona.de"})
       .then(res => {
-        console.log("E Mail Sent successfully")
+        console.log("E Mail Sent successfully");
       })
-      // Handle errors here however you like
       .catch(err => console.error('Failed to send feedback. Error: ', err));
   }
 
   render() {
     return (
        <div>
-          <Button variant="outlined" color="primary" style= {{ margin:10, padding:10}}>
+          <Button variant="outlined" color="primary" style= {{ margin:10, padding:15, marginLeft:(window.innerWidth/2) }}>
             <Link to="/impressum" style={{ textDecoration: 'none'}}>
             Impressum
             </Link>
           </Button>
         
-        <div style={{display: "flex", justifyContent: 'center', margin:20, padding: 20}} >
+        <div style={{display: "flex", justifyContent: 'center', margin:5, padding: 20}} >
         <form style={{ width: "70%", align: "center"}} className='feedback-form'>
           <Typography variant='h3' style={{margin:20}} >Kontaktieren Sie uns:</Typography>
 
@@ -78,9 +98,15 @@ export default class FeedbackForm extends Component {
               <Input id="message" multiline rows={10} />
             </FormControl>
 
-          <Button variant="contained" color="primary" size="medium" onClick={this.handleSubmit.bind(this)} >
-            Send
-          </Button>
+            <Button className="button" variant="contained" color="primary" size="medium" onClick={this.sendAndGiveFeedback.bind(this)}>
+              Send 
+            </Button>
+            <Popup open={this.state.open}
+            closeOnDocumentClick
+            onClose={this.closeModal}>
+              <Typography style={{color: green[500], marginBottom:"20px"}}> <DoneRoundedIcon fontSize='large' style={{ color: green[500] }}/> Email successfully sent.</Typography>
+          </Popup>
+
         </form>
       </div>
     </div>
