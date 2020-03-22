@@ -5,11 +5,13 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 
 import TargetGroupList from './TargetGroupList'
 
+
 class Home extends Component {
+
   render() {
 
     return (
@@ -23,11 +25,13 @@ class Home extends Component {
               Wir sammeln Ideen, Hilfsmittel, Finanzierungsquellen und mehr um Klein- und Mittelstandsunternehmen
               aus der Corona-Krise zu helfen. 
             </Typography>
-            <div>
+            <div id="branchen">
               <Grid container spacing={2} justify="center">
                 <Grid item>
                   <Button variant="outlined" color="primary">
-                    Branchen
+                     <Link smooth to="#branchen" style={{ textDecoration: 'none'}}>
+                  Branchen
+                </Link>
                   </Button>
                 </Grid>
                 <Grid item>
@@ -43,6 +47,19 @@ class Home extends Component {
         </div>
 
         <TargetGroupList />
+        <div>
+
+            <Grid container spacing={2} justify="center">
+            <Grid item>
+            <br />
+            <Typography color="red" fontStyle="italic" align="center" color="textSecondary" paragraph>
+              Gerne weisen wir an dieser Stelle auf den CoroNavigator an: eine <a style={{textDecoration: 'none'}}href="https://docs.google.com/forms/d/e/1FAIpQLSe9kDJfiUcfWB-1iZozRErlTmj5kb9eb5yer5h4YLPNbSKCSQ/viewform" target="_blank">Umfrage</a> aus der konkrete Lösungsvorschläge für KMUs abgeleitet werden. Es würde uns freuen wenn Sie das Team mit einer Teilnahmer an der <a style={{textDecoration: 'none'}} href="https://docs.google.com/forms/d/e/1FAIpQLSe9kDJfiUcfWB-1iZozRErlTmj5kb9eb5yer5h4YLPNbSKCSQ/viewform" target="_blank">Umfrage</a> unterstützen.
+            </Typography>
+            <br />
+            </Grid>
+            </Grid>
+        </div>
+
 
     	</div>
 

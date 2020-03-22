@@ -4,6 +4,7 @@ import { Edit, Delete } from '@material-ui/icons';
 import { useSelector, useDispatch } from 'react-redux';
 import moment from 'moment';
 import { useSnackbar } from 'notistack';
+import { navigate } from '@reach/router';
 import TargetGroupsDeleteDialog from './TargetGroupsDeleteDialog';
 
 
@@ -33,6 +34,10 @@ const TargetGroupsTable = () => {
         setDeleteDialog(false);
     };
 
+    const navigateToEditTargetGroupForm = tgroupId => () => {
+        navigate('/editTargetGroup/' + tgroupId);
+    }
+
     if (targetGroups === null || typeof targetGroups === 'undefined' || targetGroups.length === 0) {
         return null;
     }
@@ -58,7 +63,7 @@ const TargetGroupsTable = () => {
                             <TableCell align="right">{moment(targetGroup.updatedAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
                             <TableCell align="right">{moment(targetGroup.createdAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
                             <TableCell>
-                                <IconButton>
+                                <IconButton onClick={navigateToEditTargetGroupForm(targetGroup._id)}>
                                     <Edit />
                                 </IconButton>
                             </TableCell>

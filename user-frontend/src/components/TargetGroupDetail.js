@@ -89,7 +89,7 @@ class TargetGroupDetail extends Component {
     return (
       <div className={this.props.classes.root}>
          { this.descriptionHeader() }
-         <div><ProblemList problems={this.state.problems}/>  </div>
+         <div><ProblemList targetgroupid={this.props.match.params.id} problems={this.state.problems}/>  </div>
       </div>
     );
   }

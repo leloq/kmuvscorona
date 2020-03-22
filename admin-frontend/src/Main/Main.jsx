@@ -12,6 +12,7 @@ import TargetGroups from '../Routes/TargetGroups/TargetGroups';
 import Solutions from '../Routes/Solutions/Solutions';
 import NewSolution from '../Routes/NewSolution/NewSolution';
 import NewTargetGroup from '../Routes/NewTargetGroup/NewTargetGroup';
+import EditTargetGroup from '../Routes/EditTargetGroup/EditTargetGroup';
 
 const drawerWidth = 240;
 
@@ -135,6 +136,7 @@ const Main = () => {
                         <Home path="/" />
                         <TargetGroups path="/targetgroups" />
                         <NewTargetGroup path="/newTargetGroup" />
+                        <EditTargetGroup path="/editTargetGroup/:targetGroupId" />
                         <Problems path="/problems" />
                         <NewProblem path="/newProblem" />
                         <Solutions path="/solutions" />
