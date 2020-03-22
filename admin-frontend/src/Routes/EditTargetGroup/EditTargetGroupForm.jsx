@@ -9,6 +9,9 @@ const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
+        '& > *': {
+            margin: theme.spacing(3),
+          },
     },
     textFieldsContainer: {
         display: 'flex',
@@ -77,11 +80,15 @@ const EditTargetGroupForm = (props) => {
                 editedTargetGroup,
             },
         });
-        navigate('/targetgroups');
+        navigateToTargetGroups();
         enqueueSnackbar('Zielgruppe bearbeitet', {
             variant: 'success',
         });
     };
+    const navigateToTargetGroups = () => {
+        navigate('/targetgroups');
+    }
+
 
     return (
         <Grid container direction="row">
@@ -115,8 +122,13 @@ const EditTargetGroupForm = (props) => {
                             multiline />
                     </Grid>
                 </Grid>
-                <Grid item>
-                    <Button variant="contained" onClick={handleSave} color="primary">Speichern</Button>
+                <Grid container item xs={12} spacing={3}>
+                    <Grid item>
+                        <Button variant="outlined" onClick={navigateToTargetGroups} color="secondary">Abbrechen</Button>
+                    </Grid>
+                    <Grid item>
+                        <Button variant="contained" onClick={handleSave} color="primary">Speichern</Button>
+                    </Grid>
                 </Grid>
             </Grid>
             <Grid xs={6} item>
