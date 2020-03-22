@@ -1,6 +1,8 @@
-import React from 'react';
-import { makeStyles, Paper, TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
+import React, { useState } from 'react';
+import { makeStyles, Paper, TableContainer, Table, TableHead, TableBody, TableRow, TableCell, IconButton } from '@material-ui/core';
 import { useSelector } from 'react-redux';
+import { Edit, Delete } from '@material-ui/icons';
+import { navigate } from '@reach/router';
 import moment from 'moment';
 import ProblemsDeleteDialog from './ProblemsDeleteDialog';
 
@@ -14,12 +16,23 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const ProblemsTable = () => {
+    const [isDeleteDialogOpen, setDeleteDialog] = useState(false);
+    const [problemToDelete, setProblemToDelete] = useState(null);
     const problems = useSelector(state => state.Problems.data);
     const classes = useStyles();
 
-const navigateToEditProblemForm = problemId => () => {
-    navigate('/editProblem/' + problemId);
-}
+    const navigateToEditProblemForm = problemId => () => {
+        navigate('/editProblem/' + problemId);
+    }
+    const openDeleteDialog = problemId => () => {
+        setDeleteDialog(true);
+        console.log(problemId);
+        const problemToDelete = problems.find(problem => problem._id === problemId);
+        setProblemToDelete(problemToDelete);
+    };
+    const closeDeleteDialog = () => {
+        setDeleteDialog(false);
+    };
 
     if (problems === null || typeof problems === 'undefined' || problems.length === 0) {
         return null;
@@ -60,6 +73,11 @@ const navigateToEditProblemForm = problemId => () => {
                     </TableBody>
                 </Table>
             </TableContainer>
+            <ProblemsDeleteDialog
+                open={isDeleteDialogOpen}
+                onClose={closeDeleteDialog}
+                problem={problemToDelete}
+        />
         </div>
     )
 };

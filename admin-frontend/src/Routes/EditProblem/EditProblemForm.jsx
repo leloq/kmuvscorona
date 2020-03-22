@@ -28,12 +28,13 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const EditProblemForm = () => {
+const EditProblemForm = (props) => {
+    const problem = useSelector(state => state.Problems.data.find(problem => problem._id === props.problemId));
     const classes = useStyles();
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [severity, setSeverity] = useState(3);
-    const [selectedSolutions, setSelectedSolutions] = useState([]);
+    const [title, setTitle] = useState(problem.title);
+    const [description, setDescription] = useState(problem.title);
+    const [severity, setSeverity] = useState(problem.severity);
+    const [selectedSolutions, setSelectedSolutions] = useState(problem.solutions);
     const solutions = useSelector(state => state.Solutions.data);
     const dispatch = useDispatch();
     const { enqueueSnackbar } = useSnackbar();
@@ -65,26 +66,26 @@ const EditProblemForm = () => {
     };
 
     const handleSave = () => {
-        const newProblem = {
+        const editedProblem = {
             title,
             description,
             severity,
             solutions: selectedSolutions,
         };
         dispatch({
-            type: 'Problems/saveNewProblem',
+            type: 'Problems/updateProblem',
             payload: {
-                newProblem,
+                editedProblem,
             },
         });
         navigateToProblems();
-        enqueueSnackbar('Neues Problem hinzugefügt', {
+        enqueueSnackbar('Problem bearbeitet', {
             variant: 'success',
         });
     };
 
     const navigateToProblems = () => {
-        NavigationPreloadManager('/problems');
+        navigate('/problems');
     }
 
     return (
