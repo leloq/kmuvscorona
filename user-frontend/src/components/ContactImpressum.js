@@ -72,14 +72,7 @@ export default class FeedbackForm extends Component {
 
   render() {
     return (
-       <div>
-
-          <Button variant="outlined" color="primary" style={{padding:15, marginLeft:(window.innerWidth/2.15) }}>
-            <Link to="/impressum" style={{textDecoration: 'none'}}>
-            Impressum
-            </Link>
-          </Button>
-        
+       <div>        
         <div style={{display: "flex", justifyContent: 'center', margin:5, padding: 20}} >
         <form style={{ width: "70%", align: "center"}} className='feedback-form'>
           <Typography variant='h3' style={{margin:20}} >Kontaktieren Sie uns:</Typography>
@@ -107,9 +100,13 @@ export default class FeedbackForm extends Component {
             onClose={this.closeModal}>
               <Typography style={{color: green[500], marginBottom:"20px"}}> <DoneRoundedIcon fontSize='large' style={{ color: green[500] }}/> Email successfully sent.</Typography>
           </Popup>
-
         </form>
       </div>
+          <Button variant="outlined" color="primary" style={{padding:15, marginLeft:(window.innerWidth/2.15) }}>
+            <Link to="/impressum" style={{textDecoration: 'none'}}>
+            Impressum
+            </Link>
+          </Button>
     </div>
     );
   }
