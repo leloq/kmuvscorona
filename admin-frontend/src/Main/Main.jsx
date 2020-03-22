@@ -8,6 +8,7 @@ import AppBarTitleUpdater from './AppBarTitleUpdater';
 import Home from '../Routes/Home';
 import Problems from '../Routes/Problems/Problems';
 import NewProblem from '../Routes/NewProblem/NewProblem';
+import EditProblem from '../Routes/EditProblem/EditProblem';
 import TargetGroups from '../Routes/TargetGroups/TargetGroups';
 import NewTargetGroup from '../Routes/NewTargetGroup/NewTargetGroup';
 import EditTargetGroup from '../Routes/EditTargetGroup/EditTargetGroup';
@@ -140,6 +141,7 @@ const Main = () => {
                         <EditTargetGroup path="/editTargetGroup/:targetGroupId" />
                         <Problems path="/problems" />
                         <NewProblem path="/newProblem" />
+                        <EditProblem path="/editProblem/:problemId"/>
                         <Solutions path="/solutions" />
                         <SingleSolution path="/solutions/:solutionId" />
                         <NewSolution path="/newSolution" />

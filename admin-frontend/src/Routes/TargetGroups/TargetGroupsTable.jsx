@@ -20,8 +20,6 @@ const useStyles = makeStyles(theme => ({
 const TargetGroupsTable = () => {
     const [isDeleteDialogOpen, setDeleteDialog] = useState(false);
     const [targetGroupToDelete, setTargetGroupToDelete] = useState(null);
-    const [isEditDialogOpen, setEditDialog] = useState(false);
-    const [targetGroupToEdit, setTargetGroupToEdit] = useState(null);
     const targetGroups = useSelector(state => state.TargetGroups.data);
     const classes = useStyles();
     const dispatch = useDispatch();
