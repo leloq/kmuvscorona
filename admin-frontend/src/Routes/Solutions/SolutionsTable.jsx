@@ -3,6 +3,7 @@ import { makeStyles, Paper, TableContainer, Table, TableHead, TableBody, TableRo
 import { useSelector } from 'react-redux';
 import { Edit, Delete } from '@material-ui/icons';
 import moment from 'moment';
+import { navigate } from '@reach/router';
 import SolutionsDeleteDialog from './SolutionsDeleteDialog';
 
 
@@ -19,12 +20,6 @@ const SolutionsTable = () => {
     const [solutionToDelete, setSolutionToDelete] = useState(null);
     const solutions = useSelector(state => state.Solutions.data);
     const classes = useStyles();
-    const problems = useSelector(state => state.Problems.data);
-
-    const getMappedProblem = (solutionId) => {
-        var mappedProblem = problems.find(prob => prob.solutions.some(sol => sol === solutionId));
-        return mappedProblem ? mappedProblem.title : null;
-    };
 
     const openDeleteDialog = solutionId => () => {
         setDeleteDialog(true);
@@ -36,9 +31,16 @@ const SolutionsTable = () => {
         setDeleteDialog(false);
     };
 
+    const navigateToSingleSolution = (solutionId) => () => {
+        navigate(`/solutions/${solutionId}`);
+    };
+
     if (solutions === null || typeof solutions === 'undefined' || solutions.length === 0) {
         return null;
     }
+
+    const getDescriptionPreview = solution => `${solution.description.substring(0, 150)}...`
+
     return (
         <div className={classes.root}>
         <TableContainer component={Paper}>
@@ -49,7 +51,6 @@ const SolutionsTable = () => {
                         <TableCell align="right">Beschreibung</TableCell>
                         <TableCell align="right">Geändert am</TableCell>
                         <TableCell align="right">Erstellt am</TableCell>
-                        <TableCell align="right">Gelöstes Problem</TableCell>
                         <TableCell></TableCell>
                         <TableCell></TableCell>
                     </TableRow>
@@ -57,11 +58,10 @@ const SolutionsTable = () => {
                 <TableBody>
                     {solutions.map(solution => (
                         <TableRow key={solution._id}>
-                            <TableCell>{solution.title}</TableCell>
-                            <TableCell align="right">{solution.description}</TableCell>
-                            <TableCell align="right">{moment(solutions.updatedAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
-                            <TableCell align="right">{moment(solution.createdAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
-                            <TableCell align="right">{getMappedProblem(solution._id)}</TableCell>
+                            <TableCell onClick={navigateToSingleSolution(solution._id)}>{solution.title}</TableCell>
+                            <TableCell onClick={navigateToSingleSolution(solution._id)} align="right">{getDescriptionPreview(solution)}</TableCell>
+                            <TableCell onClick={navigateToSingleSolution(solution._id)} align="right">{moment(solutions.updatedAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
+                            <TableCell onClick={navigateToSingleSolution(solution._id)} align="right">{moment(solution.createdAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
                             <TableCell>
                                 <IconButton>
                                     <Edit />

@@ -9,6 +9,17 @@ const Solutions = {
             ...state,
             data: payload.data,
         }),
+        getSingleSolutionSuccess: (state, payload) => {
+            const index = state.data.findIndex(solution => solution._id === payload.singleSolution._id);
+            return {
+                ...state,
+                data: [
+                    ...state.data.slice(0, index),
+                    payload.singleSolution,
+                    ...state.data.slice(index + 1),
+                ],
+            };
+        },
         saveNewSolutionSuccess: (state, payload) => ({
             ...state,
             data: [
@@ -32,6 +43,12 @@ const Solutions = {
             const result = await axios.get('/solutions/');
             dispatch.Solutions.getSolutionsSuccess({
                 data: result.data,
+            });
+        },
+        async getSingleSolution(payload, rootState) {
+            const result = await axios.get(`/solutions/${payload.solutionId}`);
+            dispatch.Solutions.getSingleSolutionSuccess({
+                singleSolution: result.data,
             });
         },
         async saveNewSolution(payload, rootState) {

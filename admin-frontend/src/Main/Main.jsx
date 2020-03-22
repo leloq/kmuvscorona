@@ -9,10 +9,11 @@ import Home from '../Routes/Home';
 import Problems from '../Routes/Problems/Problems';
 import NewProblem from '../Routes/NewProblem/NewProblem';
 import TargetGroups from '../Routes/TargetGroups/TargetGroups';
-import Solutions from '../Routes/Solutions/Solutions';
-import NewSolution from '../Routes/NewSolution/NewSolution';
 import NewTargetGroup from '../Routes/NewTargetGroup/NewTargetGroup';
 import EditTargetGroup from '../Routes/EditTargetGroup/EditTargetGroup';
+import Solutions from '../Routes/Solutions/Solutions';
+import SingleSolution from '../Routes/SingleSolution/SingleSolution';
+import NewSolution from '../Routes/NewSolution/NewSolution';
 
 const drawerWidth = 240;
 
@@ -140,6 +141,7 @@ const Main = () => {
                         <Problems path="/problems" />
                         <NewProblem path="/newProblem" />
                         <Solutions path="/solutions" />
+                        <SingleSolution path="/solutions/:solutionId" />
                         <NewSolution path="/newSolution" />
                     </AppBarTitleUpdater>
                 </Router>

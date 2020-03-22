@@ -5,7 +5,6 @@ const RouteNames = {
     '/': 'Home',
     '/targetgroups': 'Zielgruppe',
     '/newTargetGroup': 'Neue Zielgruppe',
-    '/editTargetGroup': 'Zielgruppe bearbeiten',
     '/problems': 'Probleme',
     '/newProblem': 'Neues Problem',
     '/solutions': 'Lösungen',
