@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles, Paper, TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import moment from 'moment';
+import ProblemsDeleteDialog from './ProblemsDeleteDialog';
+
 
 const useStyles = makeStyles(theme => ({
     root: {

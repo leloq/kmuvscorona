@@ -50,6 +50,8 @@ const SolutionsTable = () => {
                         <TableCell align="right">Geändert am</TableCell>
                         <TableCell align="right">Erstellt am</TableCell>
                         <TableCell align="right">Gelöstes Problem</TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
