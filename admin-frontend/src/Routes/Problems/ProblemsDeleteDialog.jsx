@@ -14,7 +14,7 @@ const ProblemsDeleteDialog = (props) => {
                 problemId: props.problem._id,
             },
         });
-        enqueueSnackbar('Lösungansatz gelöscht', {
+        enqueueSnackbar('Problem gelöscht', {
             variant: 'success',
         });
         props.onClose();
