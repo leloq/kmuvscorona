@@ -10,7 +10,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import AddIcon from '@material-ui/icons/Add';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { Autocomplete } from '@material-ui/lab'
@@ -29,7 +29,7 @@ const styles = {
   },
   form: {
     width: '100%', // Fix IE 11 issue.
-    marginTop: 3,
+    marginTop: 10,
   },
   submit: {
     margin:  5
@@ -136,7 +136,7 @@ export default withStyles(styles)(class NewSolution extends Component {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          <AddIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           Jetzt Lösungsvorschlag einreichen!

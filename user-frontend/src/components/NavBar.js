@@ -109,6 +109,12 @@ export default function SearchAppBar() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
+            <MenuItem onClick={handleClose}>
+              <Link to="/" style={{ textDecoration: 'none'}}>
+                  Startseite
+                </Link>
+              </MenuItem>
+
               <MenuItem onClick={handleClose}>
               <Link to="/solutions" style={{ textDecoration: 'none'}}>
                   Lösungsansätze

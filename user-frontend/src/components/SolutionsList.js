@@ -8,7 +8,7 @@ const solutionsList = () => {
     return props.solutions.map(solution => {
       return( 
         <Grid item>
-          <SolutionsListPanel title={solution.title} description={solution.description} id={solution._id}/>
+          <SolutionsListPanel solution={solution}/>
         </Grid>);
       })
   }
