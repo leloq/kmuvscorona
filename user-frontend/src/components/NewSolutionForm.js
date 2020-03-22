@@ -16,7 +16,7 @@ import Container from '@material-ui/core/Container';
 
 const styles = {
  paper: {
-    marginTop: 8,
+    marginTop: 80,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

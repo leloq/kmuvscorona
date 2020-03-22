@@ -22,7 +22,7 @@ This is the fronted that shows business owners applicable solutions to their pro
 
 1. Install Node on your machine
 2. Change to the directories of the three packages and install through node package manager
-`$ npm install marked`
+`$ npm install`
 3. In the src folder of user-frontend and admin-frontend add a axiosInstance.js file. For baseURL either enther the address of your hosted backend server or - in the development phase - use "localhost:5000/"
 <pre>
 import axios from 'axios';
@@ -34,4 +34,13 @@ const instance = axios.create({
 });
 export default instance;
 </pre>
-4. We used a MongoDB 
+4. We used a Atlas MongoDB (free tier) for our backend storage. So, in the /backend/ directory add a .env file with your ATLAS URI:
+`ATLAS_URI=mongodb+srv://YOUR_ID` 
+
+# How to run
+
+1. First go to backend server, run nodemon server
+`$ nodemon server`
+2. Go to the admin-frontend and user-frontend and launch npm start
+`$ npm start`
+3. You will find your app at http://localhost:3000
