@@ -13,11 +13,17 @@ router.route('/add').post((req, res) => {
   const title = req.body.title;
   const description = req.body.description;
   const specificForTargetGroups = req.body.specificForTargetGroups;
+  const upVotes = req.body.upVotes;
+  const downVotes = req.body.downVotes;
+  const preliminary = req.body.preliminary;
 
   const newSolution = new Solution({
     title,
     description,
     specificForTargetGroups,
+    upVotes,
+    downVotes,
+    preliminary,
   });
 
   newSolution.save()
@@ -57,6 +63,9 @@ router.route('/update/:id').post((req, res) => {
       solution.title = req.body.title;
       solution.description = req.body.description;
       solution.specificForTargetGroups = req.body.specificForTargetGroups;
+      solution.upVotes = req.body.upVotes;
+      solution.downVotes = req.body.downVotes;
+      solution.preliminary = req.body.preliminary;
 
       solution.save()
         .then(() => {

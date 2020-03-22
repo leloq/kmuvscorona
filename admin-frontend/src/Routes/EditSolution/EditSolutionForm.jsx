@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { makeStyles, TextField, Typography, Button, Grid } from '@material-ui/core';
+import { makeStyles, TextField, Typography, Button, Grid, Checkbox, FormControlLabel } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab'
 import { useSelector, useDispatch } from 'react-redux';
 import { navigate } from '@reach/router';
 import { useSnackbar } from 'notistack';
-import TargetGroupsSelect from './TargetGroupsSelect';
+import EditTargetGroupsSelect from './EditTargetGroupsSelect';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -29,17 +29,20 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const NewSolutionForm = () => {
+const NewSolutionForm = (props) => {
+    const solution = useSelector(state => state.Solutions.data.find(solution => solution._id === props.solutionId));
     const classes = useStyles();
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [selectedTargetGroups, setSelectedTargetGroups] = useState([]);
-    const [upVotes, setUpVotes] = useState(0);
-    const [downVotes, setDownVotes] = useState(0);
-    const [preliminary, setPreliminary] = useState(false);
+    const _id = solution._id;
+    const [title, setTitle] = useState(solution.title);
+    const [description, setDescription] = useState(solution.description);
+    const [selectedTargetGroups, setSelectedTargetGroups] = useState(solution.specificForTargetGroups);
+    const [upVotes, setUpVotes] = useState((typeof solution.upVotes !== 'undefined') ? solution.upVotes : 0);
+    const [downVotes, setDownVotes] = useState((typeof solution.downVotes !== 'undefined') ? solution.downVotes : 0);
+    const [preliminary, setPreliminary] = useState((typeof solution.preliminary !== 'undefined') ? solution.preliminary : false);
     const specificForTargetGroups = useSelector(state => state.TargetGroups.data);
     const problems = useSelector(state => state.Problems.data);
-    const [problemId, setProblemId] = useState('');
+    const mappedProblem = problems.find(problem => problem.solutions.includes(_id));
+    const [problemId, setProblemId] = useState(mappedProblem);
     const dispatch = useDispatch();
     const { enqueueSnackbar } = useSnackbar();
 
@@ -66,18 +69,10 @@ const NewSolutionForm = () => {
             ]);
         }
     };
-    const handleChangePrelimStatus = (event, value) => {
-        setPreliminary(value);
-    };
-    const handleUpVoteChange = (event, value) => {
-        setUpVotes(value);
-    };
-    const handleDownVoteChange = (event, value) => {
-        setDownVotes(value);
-    };
 
-    const handleSave = () => {
-        const newSolution = {
+    const handleSave = (props) => {
+        const editedSolution = {
+            _id,
             title,
             description,
             specificForTargetGroups: selectedTargetGroups,
@@ -87,28 +82,40 @@ const NewSolutionForm = () => {
 			problemId,
         };
         dispatch({
-            type: 'Solutions/saveNewSolution',
+            type: 'Solutions/updateSolution',
             payload: {
-                newSolution,
+                editedSolution,
             },
         });
-        navigate('/solutions');
-        enqueueSnackbar('Neue Lösung hinzugefügt', {
+        navigateToSolutions();
+        enqueueSnackbar('Lösung bearbeitet', {
             variant: 'success',
         });
-    }
-
+    };
 
     const handleDropDownChange = (event, value) => {
         if (value !== null) {
             setProblemId(value._id);
         }
-      }
+    };
+    
+    const handleChangePrelimStatus = (event, value) => {
+        setPreliminary(value);
+    };
+    const handleUpVoteChange = (event, value) => {
+        setUpVotes(event.target.value);
+    };
+    const handleDownVoteChange = (event, value) => {
+        setDownVotes(event.target.value);
+    };
+    const navigateToSolutions = () => {
+        navigate('/solutions');
+    };
 
     return (
         <Grid container direction="row">
             <Grid xs={6} item>
-                <Grid container direction="column">
+                <Grid container direction="column" spacing={3}>
                     <Grid item>
                         <TextField
                             value={title}
@@ -127,11 +134,11 @@ const NewSolutionForm = () => {
                             variant="outlined"
                             multiline />
                     </Grid>
-                </Grid>
                 <Grid item>
                     <Autocomplete
-                        onChange={handleDropDownChange}
                         id="problems"
+                        value={mappedProblem ? mappedProblem : null}
+                        onChange={handleDropDownChange}
                         options={problems}
                         getOptionLabel={problem => problem.title}
                         style={{ width: 500 }}
@@ -141,9 +148,49 @@ const NewSolutionForm = () => {
                         />}
                     />
                 </Grid>
+                <Grid container item xs={12} spacing={3}>
                 <Grid item>
-                    <Button variant="contained" onClick={handleSave} color="primary">Speichern</Button>
+                    <TextField
+                        id="upvotes"
+                        label="Upvotes"
+                        onChange={handleUpVoteChange}
+                        value={upVotes}
+                        type="number"
+                        InputLabelProps={{shrink: true,}}
+                    />
                 </Grid>
+                <Grid item>
+                    <TextField
+                        id="downvotes"
+                        label="Downvotes"
+                        onChange={handleDownVoteChange}
+                        value={downVotes}
+                        type="number"
+                        InputLabelProps={{shrink: true,}}
+                    />
+                </Grid>
+                </Grid>
+                <Grid item>
+                    <FormControlLabel
+                        control={
+                        <Checkbox
+                            checked={preliminary}
+                            onChange={handleChangePrelimStatus}
+                            name="preliminary"
+                            primary
+                        />}
+                        label="Preliminary"
+                    />
+                </Grid>
+                <Grid container item xs={12} spacing={3}>
+                    <Grid item>
+                        <Button variant="outlined" onClick={navigateToSolutions} color="secondary">Abbrechen</Button>
+                    </Grid>
+                    <Grid item>
+                        <Button variant="contained" onClick={handleSave} color="primary">Speichern</Button>
+                    </Grid>
+                </Grid>
+            </Grid>
             </Grid>
             <Grid xs={6} item>
                 <Grid container direction="column">
@@ -152,7 +199,7 @@ const NewSolutionForm = () => {
                     </Grid>
                     {hasTargetGroups &&
                         <Grid item>
-                            <TargetGroupsSelect
+                            <EditTargetGroupsSelect
                                 handleCheckboxChange={handleCheckboxChange}
                                 selectedTargetGroups={selectedTargetGroups}
                                 specificForTargetGroups={specificForTargetGroups}

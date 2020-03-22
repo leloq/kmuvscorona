@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import {  FormControl, InputLabel, Input, Button, TextField} from "@material-ui/core";
@@ -19,7 +19,6 @@ export default class FeedbackForm extends Component {
     }
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    //this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   sendAndGiveFeedback(event) {
@@ -33,6 +32,7 @@ export default class FeedbackForm extends Component {
 
   closeModal() {
     this.setState({ open: false});
+    window.location = '/contact';
   }
 
   onNameChange(event) {
@@ -52,18 +52,18 @@ export default class FeedbackForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    
+    const user = "user_4Di9yfv15C5InFaLCNNbG";
     this.sendFeedback(
       this.state.name,
       this.state.email,
-      this.state.message
+      this.state.message,
+      user
     );
-    window.location = '/contact';
   }
 
-  sendFeedback(senderName, senderEmail, feedback) {
-    window.emailjs.send("gmail", "contact_form", {"message_html":feedback,
-    "senderMail":senderEmail, "from_name":senderName, "recipientMail":"info@kmuvscorona.de"})
+  sendFeedback(senderName, senderEmail, feedback, user) {
+    window.emailjs.send("default_service", "contact_form", {"message_html":feedback,
+    "senderMail":senderEmail, "from_name":senderName, "recipientMail":'info@kmuvscorona.de'}, user)
       .then(res => {
         console.log("E Mail Sent successfully");
       })
@@ -72,13 +72,7 @@ export default class FeedbackForm extends Component {
 
   render() {
     return (
-       <div>
-          <Button variant="outlined" color="primary" style= {{ margin:10, padding:15, marginLeft:(window.innerWidth/2) }}>
-            <Link to="/impressum" style={{ textDecoration: 'none'}}>
-            Impressum
-            </Link>
-          </Button>
-        
+       <div>        
         <div style={{display: "flex", justifyContent: 'center', margin:5, padding: 20}} >
         <form style={{ width: "70%", align: "center"}} className='feedback-form'>
           <Typography variant='h3' style={{margin:20}} >Kontaktieren Sie uns:</Typography>
@@ -106,9 +100,13 @@ export default class FeedbackForm extends Component {
             onClose={this.closeModal}>
               <Typography style={{color: green[500], marginBottom:"20px"}}> <DoneRoundedIcon fontSize='large' style={{ color: green[500] }}/> Email successfully sent.</Typography>
           </Popup>
-
         </form>
       </div>
+          <Button variant="outlined" color="primary" style={{padding:15, marginLeft:(window.innerWidth/2.15) }}>
+            <Link to="/impressum" style={{textDecoration: 'none'}}>
+            Impressum
+            </Link>
+          </Button>
     </div>
     );
   }

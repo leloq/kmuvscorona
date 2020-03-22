@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -13,7 +12,7 @@ import Voting from './Voting'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    marginTop: 0,
+    marginTop: 12,
     marginLeft: 15,
     marginRight: 15,
     width: '97%',
@@ -46,20 +45,21 @@ export default withRouter (function SolutionsListPanel(props) {
   return (
     <div className={classes.root}>
       <ExpansionPanel expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+        
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1ah-content"
           id="panel1ah-header">
-
           <Typography variant="h6"> {props.title} </Typography>
           <Typography variant="h6">  </Typography>
-
         </ExpansionPanelSummary>
 
         <ExpansionPanelDetails>
           <Typography><Markdown escapeHtml={false} source={props.description} /></Typography>
         </ExpansionPanelDetails>
+
         <div className={classes.voting}><Voting /></div>
+        
       </ExpansionPanel>
     </div>
   );

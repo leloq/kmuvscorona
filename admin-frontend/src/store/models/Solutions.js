@@ -27,6 +27,17 @@ const Solutions = {
                 payload.newSolution,
             ],
         }),
+        updateSolutionSuccess: (state, payload) => {
+            const editedIdx = state.data.findIndex(solution => solution._id === payload.editedSolution._id);
+            return {
+                ...state,
+                data: [
+                    ...state.data.slice(0,editedIdx),
+                    payload.editedSolution,
+                    ...state.data.slice(editedIdx + 1),
+                ],
+            };
+        },
         deleteSolutionSuccess: (state, payload) => {
             const deleteIdx = state.data.findIndex(solution => solution._id === payload.solutionId);
             return {
@@ -55,6 +66,12 @@ const Solutions = {
             const result = await axios.post('/solutions/add', payload.newSolution);
             dispatch.Solutions.saveNewSolutionSuccess({
                 newSolution: result.data,
+            });
+        },
+        async updateSolution(payload, rootState) {
+            const result = await axios.post('/solutions/update/' + payload.editedSolution._id, payload.editedSolution);
+            dispatch.Solutions.updateSolutionSuccess({
+                editedSolution: result.data,
             });
         },
         async deleteSolution(payload, rootState) {
