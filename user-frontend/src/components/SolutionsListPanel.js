@@ -29,20 +29,6 @@ const useStyles = makeStyles(theme => ({
       margin: 'auto',
     },
   },
-  heading: {
-    fontFamily: 'Open Sans',
-    fontSize: theme.typography.pxToRem(23),
-    fontWeight: 'bold',
-
-  },
-  paragraph: {
-    fontFamily: 'Open Sans',
-    fontSize: theme.typography.pxToRem(17),
-  },
-  secondaryHeading: {
-    fontSize: theme.typography.pxToRem(18),
-    color: theme.palette.text.secondary,
-  },
   voting: {
     marginLeft: 15
   },
@@ -65,8 +51,8 @@ export default withRouter (function SolutionsListPanel(props) {
           aria-controls="panel1ah-content"
           id="panel1ah-header">
 
-          <Typography className={classes.heading}> {props.title} </Typography>
-          <Typography className={classes.secondaryHeading}>  </Typography>
+          <Typography variant="h6"> {props.title} </Typography>
+          <Typography variant="h6">  </Typography>
 
         </ExpansionPanelSummary>
 
