@@ -58,7 +58,7 @@ export default withRouter (function SolutionsListPanel(props) {
           <Typography><Markdown escapeHtml={false} source={props.description} /></Typography>
         </ExpansionPanelDetails>
 
-        <div className={classes.voting}><Voting /></div>
+        <div className={classes.voting}><Voting id={props.id} title={props.title}/></div>
         
       </ExpansionPanel>
     </div>
