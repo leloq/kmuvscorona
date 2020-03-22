@@ -29,17 +29,18 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const NewSolutionForm = () => {
+const NewSolutionForm = (props) => {
     const solution = useSelector(state => state.Solutions.data.find(solution => solution._id === props.solutionId));
     const classes = useStyles();
     const _id = solution._id;
     const [title, setTitle] = useState(solution.title);
     const [description, setDescription] = useState(solution.description);
-    const [selectedTargetGroups, setSelectedTargetGroups] = useState(solutino.specificForTargetGroups);
+    const [selectedTargetGroups, setSelectedTargetGroups] = useState(solution.specificForTargetGroups);
     const specificForTargetGroups = useSelector(state => state.TargetGroups.data);
     const problems = useSelector(state => state.Problems.data);
-    // TODO: GET THE PROBLEM THAT IS ASSIGNED TO THIS SOLUTION
-    const [problemId, setProblemId] = useState('');
+    const mappedProblem = problems.find(problem => problem.solutions.includes(_id));
+    if (mappedProblem){console.log(mappedProblem.title);}
+    const [problemId, setProblemId] = useState(mappedProblem);
     const dispatch = useDispatch();
     const { enqueueSnackbar } = useSnackbar();
 
@@ -67,8 +68,9 @@ const NewSolutionForm = () => {
         }
     };
 
-    const handleSave = () => {
-        const newSolution = {
+    const handleSave = (props) => {
+        const editedSolution = {
+            _id,
             title,
             description,
             specificForTargetGroups: selectedTargetGroups,
@@ -77,10 +79,10 @@ const NewSolutionForm = () => {
         dispatch({
             type: 'Solutions/updateSolution',
             payload: {
-                newSolution,
+                editedSolution,
             },
         });
-        navigateToSolutions
+        navigateToSolutions();
         enqueueSnackbar('Lösung bearbeitet', {
             variant: 'success',
         });
@@ -121,8 +123,9 @@ const NewSolutionForm = () => {
                 </Grid>
                 <Grid item>
                     <Autocomplete
-                        onChange={handleDropDownChange}
                         id="problems"
+                        value={mappedProblem ? mappedProblem : null}
+                        onChange={handleDropDownChange}
                         options={problems}
                         getOptionLabel={problem => problem.title}
                         style={{ width: 500 }}
@@ -132,8 +135,13 @@ const NewSolutionForm = () => {
                         />}
                     />
                 </Grid>
-                <Grid item>
-                    <Button variant="contained" onClick={handleSave} color="primary">Speichern</Button>
+                <Grid container item xs={12} spacing={3}>
+                    <Grid item>
+                        <Button variant="outlined" onClick={navigateToSolutions} color="secondary">Abbrechen</Button>
+                    </Grid>
+                    <Grid item>
+                        <Button variant="contained" onClick={handleSave} color="primary">Speichern</Button>
+                    </Grid>
                 </Grid>
             </Grid>
             <Grid xs={6} item>

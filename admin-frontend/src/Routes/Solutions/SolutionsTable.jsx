@@ -39,6 +39,10 @@ const SolutionsTable = () => {
         return null;
     }
 
+    const navigateToEditSolutionForm = solutionId => () => {
+        navigate('/editSolution/' + solutionId);
+    }
+
     const getDescriptionPreview = solution => `${solution.description.substring(0, 150)}...`
 
     return (
@@ -63,7 +67,7 @@ const SolutionsTable = () => {
                             <TableCell onClick={navigateToSingleSolution(solution._id)} align="right">{moment(solutions.updatedAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
                             <TableCell onClick={navigateToSingleSolution(solution._id)} align="right">{moment(solution.createdAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
                             <TableCell>
-                                <IconButton>
+                                <IconButton onClick={navigateToEditSolutionForm(solution._id)}>
                                     <Edit />
                                 </IconButton>
                             </TableCell>

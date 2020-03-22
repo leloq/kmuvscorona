@@ -5,25 +5,6 @@ const Solutions = {
         data: [],
     },
     reducers: {
-        getSingleSolutionSuccess: (state, payload) => {
-            const singleIdx = state.data.findIndex(solution => solution._id === payload.singleSolution._id);
-            if (singleIdx === -1) {
-                return {
-                    ...state,
-                    data: [
-                        payload.singleSolution,
-                    ],
-                };
-            }
-            return {
-                ...state,
-                data: [
-                    ...state.data.slice(0,singleIdx),
-                    payload.singleSolution,
-                    ...state.data.slice(singleIdx + 1),
-                ],
-            };
-        },
         getSolutionsSuccess: (state, payload) => ({
             ...state,
             data: payload.data,

@@ -4,7 +4,7 @@ import { isEqual } from 'lodash';
 import EditSolutionForm from './EditSolutionForm';
 
 
-const EditSolution = () => {
+const EditSolution = (props) => {
     const dispatch = useDispatch();
     dispatch({
         type: 'TargetGroups/getTargetGroups',
