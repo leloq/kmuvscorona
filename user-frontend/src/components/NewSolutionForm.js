@@ -13,6 +13,8 @@ import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import { Autocomplete } from '@material-ui/lab'
+
 
 const styles = {
  paper: {
@@ -48,10 +50,22 @@ export default withStyles(styles)(class NewSolution extends Component {
     this.state = {
       title: '',
       description: '',
-      problem: '',
       name: '',
-      specificForTargetGroups: []
+      specificForTargetGroups: [],
+      problems: [],
+      problemId: '',
     }
+  }
+
+  componentDidMount() {
+    axios.get('problems/')
+     .then(response => {
+       this.setState({ problems: response.data });
+       console.log(response.data);
+     })
+     .catch((error) => {
+        console.log(error);
+     })
   }
 
     onChangeName(e) {
@@ -60,10 +74,10 @@ export default withStyles(styles)(class NewSolution extends Component {
     })
   }
 
-    onChangeProblem(e) {
-    this.setState({
-      problem: e.target.value
-    })
+    onChangeProblem(event, value) {
+      this.setState({
+        problemId: (value ? value._id : null)
+      })
   }
 
 
@@ -89,23 +103,23 @@ export default withStyles(styles)(class NewSolution extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const exercise = {
+    const solution = {
       title: this.state.title,
       description: this.state.description,
       specificForTargetGroups: this.state.specificForTargetGroups,
+      problemId: this.state.problemId,
+      preliminary: true,
     }
 
     this.setState({
       title: "",
-      problem: "",
+      problemId: "",
       description: "",
       name: ""
 
     })
 
-    console.log(exercise);
-
-    axios.post('solutions/', exercise)
+    axios.post('solutions/add', solution)
       .then(res => console.log(res.data));
 
     //window.location = '/';
@@ -129,7 +143,7 @@ export default withStyles(styles)(class NewSolution extends Component {
         </Typography>
         <form onSubmit={this.onSubmit} className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
                 autoComplete="fname"
                 name="firstName"
@@ -143,18 +157,17 @@ export default withStyles(styles)(class NewSolution extends Component {
                 autoFocus
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                
-                fullWidth
-                id="problem"
-                value={this.state.problem}
-                label="Zu lösendes Problem"
-                name="problem"
-                autoComplete="lname"
-                onChange={this.onChangeProblem}
-              />
+            <Grid item xs={12}>
+                <Autocomplete
+                    id="problems"
+                    onChange={this.onChangeProblem}
+                    options={this.state.problems}
+                    getOptionLabel={problem => problem.title}
+                    renderInput={params => <TextField {...params}
+                    label="Welches Problem wird dadurch gelöst?"
+                    variant="outlined"
+                    />}
+                />
             </Grid>
             <Grid item xs={12}>
               <TextField
