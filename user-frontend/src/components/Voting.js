@@ -66,7 +66,7 @@ export default withStyles(styles)(class ProblemDetail extends Component {
 }
 
   increaseDislikes = () => {
-      axios.post('solutions/update/'+this.props.solution._id, {
+      axios.post('solutions/vote/'+this.props.solution._id, {
       upVotes: this.state.likes,
       downVotes: this.state.dislikes+1
     })
