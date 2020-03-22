@@ -14,11 +14,6 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const checkIfSpecific = (solution, targetGroupId) => {
-    return (solution.specificForTargetGroups.length == 0) 
-    || solution.specificForTargetGroups.find(tgroup => tgroup === targetGroupId);
-}
-
 const SolutionsTable = () => {
     const [isDeleteDialogOpen, setDeleteDialog] = useState(false);
     const [solutionToDelete, setSolutionToDelete] = useState(null);
