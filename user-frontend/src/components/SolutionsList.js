@@ -15,7 +15,6 @@ const solutionsList = () => {
 
   return (
       <div>
-          
           {solutionsList()}         
       </div>
     )
