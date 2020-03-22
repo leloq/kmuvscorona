@@ -31,6 +31,7 @@ const useStyles = makeStyles(theme => ({
 const EditProblemForm = (props) => {
     const problem = useSelector(state => state.Problems.data.find(problem => problem._id === props.problemId));
     const classes = useStyles();
+    const _id = problem._id;
     const [title, setTitle] = useState(problem.title);
     const [description, setDescription] = useState(problem.title);
     const [severity, setSeverity] = useState(problem.severity);
@@ -65,8 +66,9 @@ const EditProblemForm = (props) => {
         }
     };
 
-    const handleSave = () => {
+    const handleSave = (props) => {
         const editedProblem = {
+            _id,
             title,
             description,
             severity,

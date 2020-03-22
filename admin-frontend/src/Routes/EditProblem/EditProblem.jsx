@@ -21,7 +21,7 @@ const EditProblem = (props) => {
     if (problem === null || typeof problem === 'undefined') {
         return null;
     }
-    return <EditProblem problemId={props.problemId}/>;
+    return <EditProblemForm problemId={props.problemId}/>;
 };
 
 export default EditProblem;
