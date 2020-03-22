@@ -66,7 +66,8 @@ const ContentEx = ({ classes }) => (
     </Typography>
 
 <Typography>Unser Projekt basiert auf NodeJS, React, Express und MongoDB. Wir stellen die Technologie für unsere Plattform via <a href="https://github.com/leloq/kmuvscorona" target="_blank">Github</a> zur Verfügung.</Typography>
-
+<br />
+<iframe width="560" height="315" src="https://www.youtube.com/embed/byQKwivaTFI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   </div>
 
