@@ -31,7 +31,7 @@ const ContentEx = ({ classes }) => (
     </Typography>
     <br />
 
-    <Typography>Unter diesem Motto hat die <a href="http://wirvsvirushackathon.org" target="_blank">Wir Vs. Virus Hackathon"</a> Initative der Bundesregierung - nach estnischem Vorbild - zu einem Hackathon für digitale Lösungen zur Bewältigung der Corona Krise aufgerufen.  KMU Vs. Corona ist unser Beitrag: eine Seite die den Kampf der kleinen und mittelständischen Unternehmen gegen die wirtschaftlichen Verwerfungen durch die Krise unterstützen soll.
+    <Typography>Unter diesem Motto hat die <a style={{textDecoration: 'none'}} href="http://wirvsvirushackathon.org" target="_blank">Wir Vs. Virus Hackathon"</a> Initative der Bundesregierung - nach estnischem Vorbild - zu einem Hackathon für digitale Lösungen zur Bewältigung der Corona Krise aufgerufen.  KMU Vs. Corona ist unser Beitrag: eine Seite die den Kampf der kleinen und mittelständischen Unternehmen gegen die wirtschaftlichen Verwerfungen durch die Krise unterstützen soll.
   </Typography>
   <br />
       <img ahref="www.google.de" src="https://wirvsvirushackathon.org/wp-content/uploads/2020/03/12-scaled.jpg" width="40%" height="auto" />
