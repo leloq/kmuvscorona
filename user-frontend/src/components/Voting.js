@@ -31,7 +31,7 @@ export default withStyles(styles)(class ProblemDetail extends Component {
 
    checkUpvotes = () => {
     console.log(this.props.solution)
-    if(typeof this.props.solution === "undefined" || this.props.solution.upVotes === "undefined"){
+    if(typeof this.props.solution === "undefined" || typeof this.props.solution.upVotes === "undefined"){
       return 0;
     }
     else {
