@@ -73,8 +73,9 @@ export default class FeedbackForm extends Component {
   render() {
     return (
        <div>
-          <Button variant="outlined" color="primary" style= {{ margin:10, padding:15, marginLeft:(window.innerWidth/2) }}>
-            <Link to="/impressum" style={{ textDecoration: 'none'}}>
+
+          <Button variant="outlined" color="primary" style={{padding:15, marginLeft:(window.innerWidth/2.15) }}>
+            <Link to="/impressum" style={{textDecoration: 'none'}}>
             Impressum
             </Link>
           </Button>
