@@ -15,6 +15,7 @@ import EditTargetGroup from '../Routes/EditTargetGroup/EditTargetGroup';
 import Solutions from '../Routes/Solutions/Solutions';
 import SingleSolution from '../Routes/SingleSolution/SingleSolution';
 import NewSolution from '../Routes/NewSolution/NewSolution';
+import EditSolution from '../Routes/EditSolution/EditSolution';
 
 const drawerWidth = 240;
 
@@ -145,6 +146,7 @@ const Main = () => {
                         <Solutions path="/solutions" />
                         <SingleSolution path="/solutions/:solutionId" />
                         <NewSolution path="/newSolution" />
+                        <EditSolution path="/editSolution/:solutionId" />
                     </AppBarTitleUpdater>
                 </Router>
             </main>
