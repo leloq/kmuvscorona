@@ -42,6 +42,8 @@ export default withRouter (function SolutionsListPanel(props) {
     setExpanded(isExpanded ? panel : false);
   };
 
+
+
   return (
     <div className={classes.root}>
       <ExpansionPanel expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
@@ -50,15 +52,14 @@ export default withRouter (function SolutionsListPanel(props) {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1ah-content"
           id="panel1ah-header">
-          <Typography variant="h6"> {props.title} </Typography>
+          <Typography variant="h6"> {props.solution.title} </Typography>
           <Typography variant="h6">  </Typography>
         </ExpansionPanelSummary>
-
         <ExpansionPanelDetails>
-          <Typography><Markdown escapeHtml={false} source={props.description} /></Typography>
+          <Typography><Markdown escapeHtml={false} source={props.solution.description} /></Typography>
         </ExpansionPanelDetails>
 
-        <div className={classes.voting}><Voting id={props.id} title={props.title}/></div>
+        <div className={classes.voting}><Voting solution={props.solution}/></div>
         
       </ExpansionPanel>
     </div>

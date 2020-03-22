@@ -24,16 +24,34 @@ export default withStyles(styles)(class ProblemDetail extends Component {
  constructor(props) {
     super(props);
     this.state = {
-      likes: 0,
-      dislikes: 0,
-      title: this.props.title,
-      id: this.props.id
+      likes: this.checkUpvotes(),
+      dislikes: this.checkDownvotes()
+    }
+  }
+
+   checkUpvotes = () => {
+    console.log(this.props.solution)
+    if(typeof this.props.solution === "undefined" || this.props.solution.upVotes === "undefined"){
+      return 0;
+    }
+    else {
+      return this.props.solution.upVotes ;
+    }
+  }
+
+   checkDownvotes = () => {
+    if(typeof this.props.solution === "undefined" || typeof this.props.solution.downVotes === "undefined"){
+      return 0;
+    }
+    else {
+      return this.props.solution.downVotes ;
     }
   }
 
   increaseLikes = () => {
-      axios.put('solutions/'+this.state.id, {
-      likes: this.state.likes+1
+      axios.post('solutions/update/'+this.props.solution._id, {
+      ...this.props.solution, 
+      upVotes: this.state.likes+1
     })
     .then(response => {
       console.log(response);
@@ -48,8 +66,9 @@ export default withStyles(styles)(class ProblemDetail extends Component {
 }
 
   increaseDislikes = () => {
-      axios.put('solutions/'+this.state.id, {
-      dislikes: this.state.dislikes+1
+      axios.post('solutions/update/'+this.props.solution._id, {
+      ...this.props.solution, 
+      downVotes: this.state.dislikes+1
     })
     .then(response => {
       console.log(response);
