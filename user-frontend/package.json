@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^7.2.1",
     "contentful": "^7.14.0",
     "emailjs-com": "^2.4.1",
+    "notistack": "^0.9.9",
     "react": "^16.13.1",
     "react-art": "^16.13.1",
     "react-dom": "^16.13.1",

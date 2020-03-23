@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import axios from './../axiosInstance';
+import Snackbar from './FormSnackbar';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import AddIcon from '@material-ui/icons/Add';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { Autocomplete } from '@material-ui/lab'
+import { Autocomplete } from '@material-ui/lab';
+import { withSnackbar } from 'notistack';
 
 
 const styles = {
@@ -36,7 +35,8 @@ const styles = {
   },
 };
 
-export default withStyles(styles)(class NewSolution extends Component {
+
+export default withSnackbar( withStyles(styles)(class NewSolution extends Component {
 
   constructor(props) {
     super(props);
@@ -53,7 +53,7 @@ export default withStyles(styles)(class NewSolution extends Component {
       name: '',
       specificForTargetGroups: [],
       problems: [],
-      problemId: '',
+      problemId: ''
     }
   }
 
@@ -100,6 +100,7 @@ export default withStyles(styles)(class NewSolution extends Component {
   }
 
 
+
   onSubmit(e) {
     e.preventDefault();
 
@@ -115,22 +116,31 @@ export default withStyles(styles)(class NewSolution extends Component {
       title: "",
       problemId: "",
       description: "",
-      name: ""
+      name: "",
 
     })
 
     axios.post('solutions/add', solution)
-      .then(res => console.log(res.data));
+      .then(res => {
+        this.props.enqueueSnackbar('Vielen Dank! Ihre Eingabe wurde registriert und erscheint an der entsprechenden Stelle, sobald sie von einem Administrator freigeschalten wurde.', {variant:"success"});
+        console.log(res.data)
+      })
+      .catch((error) => {
+        this.props.enqueueSnackbar('Mist, mit der Eingabe hat wohl etwas nicht geklappt.', {variant:"error"});
+      console.log(error);
+   })
+      ;
+
 
     //window.location = '/';
   }
 
   render() {
     const { classes } = this.props;
+
+
     return (
-
       <div>
-
 
       <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -213,11 +223,13 @@ export default withStyles(styles)(class NewSolution extends Component {
       <Box mt={5}>
         
       </Box>
+
+      
     </Container>
-
-
       
     </div>
     )
   }
-})
+}))
+
+
