@@ -62,7 +62,7 @@ class Home extends Component {
             <Grid item>
             <br />
             <Typography color="red" fontStyle="italic" align="center" color="textSecondary" paragraph>
-              Gerne weisen wir an dieser Stelle auf den CoroNavigator hin: eine <a style={{textDecoration: 'none'}}href="https://docs.google.com/forms/d/e/1FAIpQLSe9kDJfiUcfWB-1iZozRErlTmj5kb9eb5yer5h4YLPNbSKCSQ/viewform" target="_blank">Umfrage</a>, aus der konkrete Lösungsvorschläge für KMUs abgeleitet werden. Es würde uns freuen, wenn Sie das Team mit einer Teilnahme an der <a style={{textDecoration: 'none'}} href="https://docs.google.com/forms/d/e/1FAIpQLSe9kDJfiUcfWB-1iZozRErlTmj5kb9eb5yer5h4YLPNbSKCSQ/viewform" target="_blank">Umfrage</a> unterstützen.
+              Nutzen Sie auch unser Umfrage-Tool <a style={{textDecoration: 'none'}}href="https://docs.google.com/forms/d/e/1FAIpQLSe9kDJfiUcfWB-1iZozRErlTmj5kb9eb5yer5h4YLPNbSKCSQ/viewform" target="_blank">CoroNavigator</a>: Aus den einzelnen Ergebnissen der Umfrage leiten wir konkrete Lösungsvorschläge für KMUs ab. Es würde uns freuen, wenn Sie das Team mit einer Teilnahme an der Umfrage unterstützen.
             </Typography>
             <br />
             </Grid>
