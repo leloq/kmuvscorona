@@ -16,6 +16,9 @@ import Solutions from '../Routes/Solutions/Solutions';
 import SingleSolution from '../Routes/SingleSolution/SingleSolution';
 import NewSolution from '../Routes/NewSolution/NewSolution';
 import EditSolution from '../Routes/EditSolution/EditSolution';
+import { Security, ImplicitCallback, SecureRoute } from '@okta/okta-react';
+import {  Route } from 'react-router-dom';
+
 
 const drawerWidth = 240;
 
@@ -75,6 +78,9 @@ const useStyles = makeStyles(theme => ({
     toolbar: theme.mixins.toolbar,
 }));
 
+
+
+
 const Main = () => {
     const classes = useStyles();
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -133,22 +139,38 @@ const Main = () => {
                 </Hidden>
             </nav>
             <main className={classes.content}>
+           
                 <div className={classes.toolbar} />
                 <Router primary={false}>
+                
                     <AppBarTitleUpdater path="/">
+                     
+                    
                         <Home path="/" />
-                        <TargetGroups path="/targetgroups" />
+                        
                         <NewTargetGroup path="/newTargetGroup" />
                         <EditTargetGroup path="/editTargetGroup/:targetGroupId" />
-                        <Problems path="/problems" />
+                        
                         <NewProblem path="/newProblem" />
                         <EditProblem path="/editProblem/:problemId"/>
-                        <Solutions path="/solutions" />
                         <SingleSolution path="/solutions/:solutionId" />
                         <NewSolution path="/newSolution" />
                         <EditSolution path="/editSolution/:solutionId" />
-                    </AppBarTitleUpdater>
+                        <ImplicitCallback path="/implicit/callback" />
+                        
+                        
+                    </AppBarTitleUpdater> 
+        
                 </Router>
+                <Router>
+                <AppBarTitleUpdater path="/">
+                <SecureRoute path="/targetgroups" component={TargetGroups}/>
+                <SecureRoute path='/problems' component={Problems} />
+                <SecureRoute path="/solutions" component={Solutions} />
+
+                </AppBarTitleUpdater> 
+                </Router>
+
             </main>
         </div>
     );

@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles, Typography, Divider, List } from '@material-ui/core';
 import { Home, ReportProblem, Group, CheckCircle } from '@material-ui/icons';
 import ListItemLink from './ListItemLink';
+import LoginButton from './LoginButton';
 
 const useStyles = makeStyles(theme => ({
     toolbarTop: {
@@ -54,6 +55,7 @@ const DrawerContent = (props) => {
                     primary="Lösungen"
                     icon={<CheckCircle />}
                 />
+                <LoginButton  />
             </List>
         </div>
     );
