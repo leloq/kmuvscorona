@@ -9,9 +9,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { Security } from '@okta/okta-react';
 
 const oktaConfig = {
-  issuer: `${process.env.REACT_APP_OKTA_ORG_URL}/oauth2/default`,
+  issuer: `https://dev-388005.okta.com/oauth2/default`,
   redirect_uri: `${window.location.origin}/implicit/callback`,
-  client_id: process.env.REACT_APP_OKTA_CLIENT_ID,
+  client_id: "0oa4swbm2bNk0Lyhq4x6",
 };
 
 
