@@ -72,9 +72,10 @@ class Home extends Component {
         <div>
             <CookieConsent
               buttonText="Einverstanden">
-              Um Ihnen ein besseres Nutzererlebnis zu bieten, verwenden wir Cookies. Durch Nutzung unserer Dienste stimmen Sie unserer Verwendung von Cookies zu. &nbsp;
+              <Typography>
+              Um Ihnen ein besseres Nutzererlebnis zu bieten, verwenden wir Cookies. Durch Nutzung unserer Dienste stimmen Sie unserer Verwendung von Cookies zu. &nbsp;</Typography>
               <Link to="/DataPrivacy" style={{ color: '#FFF' }}>
-			          Weitere Informationen
+			          <Typography>Weitere Informationen</Typography>
 			        </Link>
             </CookieConsent>
         </div>
