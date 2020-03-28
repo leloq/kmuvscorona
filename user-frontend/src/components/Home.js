@@ -63,7 +63,7 @@ class Home extends Component {
             <Grid item>
             <br />
             <Typography color="red" fontStyle="italic" align="center" color="textSecondary" paragraph>
-              Nutzen Sie auch unser Umfrage-Tool <a style={{textDecoration: 'none'}}href="https://docs.google.com/forms/d/e/1FAIpQLSe9kDJfiUcfWB-1iZozRErlTmj5kb9eb5yer5h4YLPNbSKCSQ/viewform" target="_blank">CoroNavigator</a>: Aus den einzelnen Ergebnissen der Umfrage leiten wir konkrete Lösungsvorschläge für KMUs ab. Es würde uns freuen, wenn Sie das Team mit einer Teilnahme an der Umfrage unterstützen.
+              Nutzen Sie auch unser Umfrage-Tool <a style={{textDecoration: 'none'}}href="https://docs.google.com/forms/d/e/1FAIpQLSe9kDJfiUcfWB-1iZozRErlTmj5kb9eb5yer5h4YLPNbSKCSQ/viewform" target="_blank" rel="noopener noreferrer">CoroNavigator</a>: Aus den einzelnen Ergebnissen der Umfrage leiten wir konkrete Lösungsvorschläge für KMUs ab. Es würde uns freuen, wenn Sie das Team mit einer Teilnahme an der Umfrage unterstützen.
             </Typography>
             <br />
             </Grid>

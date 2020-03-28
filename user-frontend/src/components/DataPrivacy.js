@@ -20,11 +20,13 @@ class DataPrivacy extends Component {
     
     render() {
         return (
+            <Grid container spacing={2} justify="center">
+                <Grid item>
             <div className="DataPrivacy">
             <h1 className="adsimple-311165473">Datenschutzerklärung</h1>
             <h2 className="adsimple-311165473">Datenschutz</h2>
-            <p>Wir haben diese Datenschutzerklärung (Fassung 28.03.2020-311165473) verfasst, um Ihnen gemäß der Vorgaben der 
-            <a className="adsimple-311165473" href="https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=celex%3A32016R0679&amp;tid=311165473" rel="noopener" target="_blank">Datenschutz-Grundverordnung (EU) 2016/679</a> zu erklären, welche Informationen wir sammeln, wie wir Daten verwenden und welche Entscheidungsmöglichkeiten Sie als Besucher dieser Webseite haben.
+            <p>Wir haben diese Datenschutzerklärung (Fassung 28.03.2020-311165473) verfasst, um Ihnen gemäß der Vorgaben der&nbsp; 
+            <a className="adsimple-311165473" href="https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=celex%3A32016R0679&amp;tid=311165473" rel="noopener noreferrer" target="_blank">Datenschutz-Grundverordnung (EU) 2016/679</a> zu erklären, welche Informationen wir sammeln, wie wir Daten verwenden und welche Entscheidungsmöglichkeiten Sie als Besucher dieser Webseite haben.
             </p>
             <p>Leider liegt es in der Natur der Sache, dass diese Erklärungen sehr technisch klingen, wir haben uns bei der Erstellung jedoch bemüht die wichtigsten Dinge so einfach und klar wie möglich zu beschreiben.</p>
             <h2 className="adsimple-311165473">Cookies</h2>
@@ -69,32 +71,32 @@ class DataPrivacy extends Component {
             <p>Wie und ob Sie Cookies verwenden wollen, entscheiden Sie selbst. Unabhängig von welchem Service oder welcher Website die Cookies stammen, haben Sie immer die Möglichkeit&nbsp;Cookies zu löschen, nur teilweise zuzulassen oder zu deaktivieren. Zum Beispiel können Sie Cookies von Drittanbietern blockieren, aber alle anderen Cookies zulassen.</p>
             <p>Wenn Sie feststellen möchten, welche Cookies in Ihrem Browser gespeichert wurden, wenn Sie Cookie-Einstellungen ändern oder löschen wollen, können Sie dies in Ihren Browser-Einstellungen finden:</p>
             <p>
-            <a className="adsimple-311165473" href="https://support.google.com/chrome/answer/95647?tid=311165473" rel="noopener" target="_blank">Chrome: Cookies in Chrome löschen, aktivieren und verwalten</a>
+            <a className="adsimple-311165473" href="https://support.google.com/chrome/answer/95647?tid=311165473" rel="noopener noreferrer" target="_blank">Chrome: Cookies in Chrome löschen, aktivieren und verwalten</a>
             </p>
             <p>
-            <a className="adsimple-311165473" href="https://support.apple.com/de-at/guide/safari/sfri11471/mac?tid=311165473" rel="noopener" target="_blank">Safari: Verwalten von Cookies und Websitedaten mit Safari</a>
+            <a className="adsimple-311165473" href="https://support.apple.com/de-at/guide/safari/sfri11471/mac?tid=311165473" rel="noopener noreferrer" target="_blank">Safari: Verwalten von Cookies und Websitedaten mit Safari</a>
             </p>
             <p>
-            <a className="adsimple-311165473" href="https://support.mozilla.org/de/kb/cookies-und-website-daten-in-firefox-loschen?tid=311165473" rel="noopener" target="_blank">Firefox: Cookies löschen, um Daten zu entfernen, die Websites auf Ihrem Computer abgelegt haben</a>
+            <a className="adsimple-311165473" href="https://support.mozilla.org/de/kb/cookies-und-website-daten-in-firefox-loschen?tid=311165473" rel="noopener noreferrer" target="_blank">Firefox: Cookies löschen, um Daten zu entfernen, die Websites auf Ihrem Computer abgelegt haben</a>
             </p>
             <p>
-            <a className="adsimple-311165473" href="https://support.microsoft.com/de-at/help/17442/windows-internet-explorer-delete-manage-cookies?tid=311165473" rel="noopener" target="_blank">Internet Explorer: Löschen und Verwalten von Cookies</a>
+            <a className="adsimple-311165473" href="https://support.microsoft.com/de-at/help/17442/windows-internet-explorer-delete-manage-cookies?tid=311165473" rel="noopener noreferrer" target="_blank">Internet Explorer: Löschen und Verwalten von Cookies</a>
             </p>
             <p>
-            <a className="adsimple-311165473" href="https://support.microsoft.com/de-at/help/4027947/windows-delete-cookies?tid=311165473" rel="noopener" target="_blank">Microsoft Edge: Löschen und Verwalten von Cookies</a>
+            <a className="adsimple-311165473" href="https://support.microsoft.com/de-at/help/4027947/windows-delete-cookies?tid=311165473" rel="noopener noreferrer" target="_blank">Microsoft Edge: Löschen und Verwalten von Cookies</a>
             </p>
             <p>Falls Sie grundsätzlich keine Cookies haben wollen, können Sie Ihren Browser so einrichten, dass er Sie immer informiert, wenn ein Cookie gesetzt werden soll. So können Sie bei jedem einzelnen Cookie entscheiden, ob Sie das Cookie erlauben oder nicht. Die Vorgangsweise ist je nach Browser verschieden. Am besten ist es Sie suchen die Anleitung in Google mit dem Suchbegriff “Cookies löschen Chrome” oder “Cookies deaktivieren Chrome” im Falle eines Chrome Browsers oder tauschen das Wort “Chrome” gegen den Namen Ihres Browsers, z.B. Edge, Firefox, Safari aus.</p>
             <h3 className="adsimple-311165473">Wie sieht es mit meinem Datenschutz aus?</h3>
             <p>Seit 2009 gibt es die sogenannten „Cookie-Richtlinien“. Darin ist festgehalten, dass das Speichern von Cookies eine Einwilligung des Website-Besuchers (also von Ihnen) verlangt. Innerhalb der EU-Länder gibt es allerdings noch sehr unterschiedliche Reaktionen auf diese Richtlinien. In Deutschland wurden die Cookie-Richtlinien nicht als nationales Recht umgesetzt. Stattdessen erfolgte die Umsetzung dieser Richtlinie weitgehend in § 15 Abs.3 des Telemediengesetzes (TMG).</p>
-            <p>Wenn Sie mehr über Cookies wissen möchten und vor technischen Dokumentationen nicht zurückscheuen, empfehlen wir 
-            <a className="adsimple-311165473" href="https://tools.ietf.org/html/rfc6265" rel="nofollow noopener" target="_blank">https://tools.ietf.org/html/rfc6265</a>, dem Request for Comments der Internet Engineering Task Force (IETF) namens “HTTP State Management Mechanism”.
+            <p>Wenn Sie mehr über Cookies wissen möchten und vor technischen Dokumentationen nicht zurückscheuen, empfehlen wir&nbsp;  
+            <a className="adsimple-311165473" href="https://tools.ietf.org/html/rfc6265" rel="nofollow noopener noreferrer" target="_blank">https://tools.ietf.org/html/rfc6265</a>, dem Request for Comments der Internet Engineering Task Force (IETF) namens “HTTP State Management Mechanism”.
             </p>
             <h2 className="adsimple-311165473">Speicherung persönlicher Daten</h2>
             <p>Persönliche Daten, die Sie uns auf dieser Website elektronisch übermitteln, wie zum Beispiel Name, E-Mail-Adresse, Adresse oder andere persönlichen Angaben im Rahmen der Übermittlung eines Formulars oder Kommentaren im Blog, werden von uns gemeinsam mit dem Zeitpunkt und der IP-Adresse nur zum jeweils angegebenen Zweck verwendet, sicher verwahrt und nicht an Dritte weitergegeben.</p>
             <p>Wir nutzen Ihre persönlichen Daten somit nur für die Kommunikation mit jenen Besuchern, die Kontakt ausdrücklich wünschen und für die Abwicklung der auf dieser Webseite angebotenen Dienstleistungen und Produkte. Wir geben Ihre persönlichen Daten ohne Zustimmung nicht weiter, können jedoch nicht ausschließen, dass diese Daten beim Vorliegen von rechtswidrigem Verhalten eingesehen werden.</p>
             <p>Wenn Sie uns persönliche Daten per E-Mail schicken – somit abseits dieser Webseite – können wir keine sichere Übertragung und den Schutz Ihrer Daten garantieren. Wir empfehlen Ihnen, vertrauliche Daten niemals unverschlüsselt per E-Mail zu übermitteln.</p>
-            <p>Die Rechtsgrundlage besteht nach 
-            <a className="adsimple-311165473" href="https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&amp;from=DE&amp;tid=311165473" rel="noopener" target="_blank">Artikel 6 &nbsp;Absatz 1 a DSGVO</a> (Rechtmäßigkeit der Verarbeitung) darin, dass Sie uns die Einwilligung zur Verarbeitung der von Ihnen eingegebenen Daten geben. Sie können diesen Einwilligung jederzeit widerrufen – eine formlose E-Mail reicht aus, Sie finden unsere Kontaktdaten im Impressum.
+            <p>Die Rechtsgrundlage besteht nach&nbsp;  
+            <a className="adsimple-311165473" href="https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&amp;from=DE&amp;tid=311165473" rel="noopener noreferrer" target="_blank">Artikel 6 &nbsp;Absatz 1 a DSGVO</a> (Rechtmäßigkeit der Verarbeitung) darin, dass Sie uns die Einwilligung zur Verarbeitung der von Ihnen eingegebenen Daten geben. Sie können diesen Einwilligung jederzeit widerrufen – eine formlose E-Mail reicht aus, Sie finden unsere Kontaktdaten im Impressum.
             </p>
             <h2 className="adsimple-311165473">Rechte laut Datenschutzgrundverordnung</h2>
             <p>Ihnen stehen laut den Bestimmungen der DSGVO grundsätzlich die folgende Rechte zu:</p>
@@ -107,15 +109,15 @@ class DataPrivacy extends Component {
             <li className="adsimple-311165473">Widerspruchsrecht (Artikel 21 DSGVO)</li>
             <li className="adsimple-311165473">Recht, nicht einer ausschließlich auf einer automatisierten Verarbeitung — einschließlich Profiling — beruhenden Entscheidung unterworfen zu werden (Artikel 22 DSGVO)</li>
             </ul>
-            <p>Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder Ihre datenschutzrechtlichen Ansprüche sonst in einer Weise verletzt worden sind, können Sie sich an die 
-            <a className="adsimple-311165473" href="https://www.bfdi.bund.de" rel="noopener" target="_blank">Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI)</a> wenden.
+            <p>Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder Ihre datenschutzrechtlichen Ansprüche sonst in einer Weise verletzt worden sind, können Sie sich an die&nbsp;  
+            <a className="adsimple-311165473" href="https://www.bfdi.bund.de" rel="noopener noreferrer" target="_blank">Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI)</a> wenden.
             </p>
             <h2 className="adsimple-311165473">Auswertung des Besucherverhaltens</h2>
             <p>In der folgenden Datenschutzerklärung informieren wir Sie darüber, ob und wie wir Daten Ihres Besuchs dieser Website auswerten. Die Auswertung der gesammelten Daten erfolgt in der Regel anonym und wir können von Ihrem Verhalten auf dieser Website nicht auf Ihre Person schließen.</p>
             <p>Mehr über Möglichkeiten dieser Auswertung der Besuchsdaten zu widersprechen erfahren Sie in der folgenden Datenschutzerklärung.</p>
             <h2 className="adsimple-311165473">TLS-Verschlüsselung mit https</h2>
-            <p>Wir verwenden https um Daten abhörsicher im Internet zu übertragen (Datenschutz durch Technikgestaltung 
-            <a className="adsimple-311165473" href="https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&amp;from=DE&amp;tid=311165473" rel="noopener" target="_blank">Artikel 25 Absatz 1 DSGVO</a>). Durch den Einsatz von TLS (Transport Layer Security), einem Verschlüsselungsprotokoll zur sicheren Datenübertragung im Internet können wir den Schutz vertraulicher Daten sicherstellen. Sie erkennen die Benutzung dieser Absicherung der Datenübertragung am kleinen Schloßsymbol links oben im Browser und der Verwendung des Schemas https (anstatt http) als Teil unserer Internetadresse.
+            <p>Wir verwenden https um Daten abhörsicher im Internet zu übertragen (Datenschutz durch Technikgestaltung&nbsp;  
+            <a className="adsimple-311165473" href="https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&amp;from=DE&amp;tid=311165473" rel="noopener noreferrer" target="_blank">Artikel 25 Absatz 1 DSGVO</a>). Durch den Einsatz von TLS (Transport Layer Security), einem Verschlüsselungsprotokoll zur sicheren Datenübertragung im Internet können wir den Schutz vertraulicher Daten sicherstellen. Sie erkennen die Benutzung dieser Absicherung der Datenübertragung am kleinen Schloßsymbol links oben im Browser und der Verwendung des Schemas https (anstatt http) als Teil unserer Internetadresse.
             </p>
             <h2 className="adsimple-311165473">Google Analytics Datenschutzerklärung</h2>
             <p>Wir verwenden auf unserer Website das Analyse-Tracking Tool Google Analytics (GA) des amerikanischen Unternehmens Google LLC (1600 Amphitheatre Parkway Mountain View, CA 94043, USA). Google Analytics sammelt Daten über Ihre Handlungen auf unserer Website. Wenn Sie beispielsweise einen Link anklicken, wird diese Aktion in einem Cookie gespeichert und an Google Analytics versandt. Mithilfe der Berichte, die wir von Google Analytics erhalten, können wir unsere Website und unser Service besser an Ihre Wünsche anpassen. Im Folgenden gehen wir näher auf das Tracking Tool ein und informieren Sie vor allem darüber, welche Daten gespeichert werden und wie Sie das verhindern können.</p>
@@ -189,8 +191,8 @@ class DataPrivacy extends Component {
             <p><strong className="adsimple-311165473">Herkunftsquelle:</strong> Google Analytics beziehungsweise uns interessiert natürlich auch über welche Website oder welche Werbung Sie auf unsere Seite gekommen sind.</p>
             <p>Weitere Daten sind Kontaktdaten, etwaige Bewertungen, das Abspielen von Medien (z.B., wenn Sie ein Video über unsere Seite abspielen), das Teilen von Inhalten über Social Media oder das Hinzufügen zu Ihren Favoriten. Die Aufzählung hat keinen Vollständigkeitsanspruch und dient nur zu einer allgemeinen Orientierung der Datenspeicherung durch Google Analytics.</p>
             <h3 className="adsimple-311165473">Wie lange und wo werden die Daten gespeichert?</h3>
-            <p>Google hat Ihre Server auf der ganzen Welt verteilt. Die meisten Server befinden sich in Amerika und folglich werden Ihr Daten meist auf amerikanischen Servern gespeichert. Hier können Sie genau nachlesen wo sich die Google-Rechenzentren befinden: 
-            <a className="adsimple-311165473" href="https://www.google.com/about/datacenters/inside/locations/?hl=de" rel="noopener" target="_blank">https://www.google.com/about/datacenters/inside/locations/?hl=de</a>
+            <p>Google hat Ihre Server auf der ganzen Welt verteilt. Die meisten Server befinden sich in Amerika und folglich werden Ihr Daten meist auf amerikanischen Servern gespeichert. Hier können Sie genau nachlesen wo sich die Google-Rechenzentren befinden:&nbsp;  
+            <a className="adsimple-311165473" href="https://www.google.com/about/datacenters/inside/locations/?hl=de" rel="noopener noreferrer" target="_blank">https://www.google.com/about/datacenters/inside/locations/?hl=de</a>
             </p>
             <p>Ihre Daten werden auf verschiedenen physischen Datenträgern verteilt. Das hat den Vorteil, dass die Daten schneller abrufbar sind und vor Manipulation besser geschützt sind. In jedem Google-Rechenzentrum gibt es entsprechende Notfallprogramme für Ihre Daten. Wenn beispielsweise die Hardware bei Google ausfällt oder Naturkatastrophen Server lahmlegen, bleibt das Risiko einer Dienstunterbrechung bei Google dennoch gering.</p>
             <p>Standardisiert ist bei Google Analytics eine Aufbewahrungsdauer Ihrer Userdaten von 26 Monaten eingestellt. Dann werden Ihre Userdaten gelöscht. Allerdings haben wir die Möglichkeit, die Aufbewahrungsdauer von Nutzdaten selbst zu wählen. Dafür stehen uns fünf Varianten zur Verfügung:</p>
@@ -203,29 +205,29 @@ class DataPrivacy extends Component {
             </ul>
             <p>Wenn der festgelegte Zeitraum abgelaufen ist, werden einmal im Monat die Daten gelöscht. Diese Aufbewahrungsdauer gilt für Ihre Daten, die mit Cookies, Usererkennung und Werbe-IDs (z.B. Cookies der DoubleClick-Domain) verknüpft sind. Berichtergebnisse basieren auf aggregierten Daten und werden unabhängig von Nutzerdaten gespeichert. Aggregierte Daten sind eine Zusammenschmelzung von Einzeldaten zu einer größeren Einheit.</p>
             <h3 className="adsimple-311165473">Wie kann ich meine Daten löschen bzw. die Datenspeicherung verhindern?</h3>
-            <p>Nach dem Datenschutzrecht der Europäischen Union haben Sie das Recht, Auskunft über Ihre Daten zu erhalten, sie zu aktualisieren, zu löschen oder einzuschränken. Mithilfe des Browser-Add-ons zur Deaktivierung von Google Analytics-JavaScript (ga.js, analytics.js, dc.js) verhindern Sie, dass Google Analytics Ihre Daten verwendet. Das Browser-Add-on können Sie unter 
-            <a className="adsimple-311165473" href="https://tools.google.com/dlpage/gaoptout?hl=de" rel="noopener" target="_blank">https://tools.google.com/dlpage/gaoptout?hl=de</a> runterladen und installieren. Beachten Sie bitte, dass durch dieses Add-on nur die Datenerhebung durch Google Analytics deaktiviert wird.
+            <p>Nach dem Datenschutzrecht der Europäischen Union haben Sie das Recht, Auskunft über Ihre Daten zu erhalten, sie zu aktualisieren, zu löschen oder einzuschränken. Mithilfe des Browser-Add-ons zur Deaktivierung von Google Analytics-JavaScript (ga.js, analytics.js, dc.js) verhindern Sie, dass Google Analytics Ihre Daten verwendet. Das Browser-Add-on können Sie unter&nbsp;  
+            <a className="adsimple-311165473" href="https://tools.google.com/dlpage/gaoptout?hl=de" rel="noopener noreferrer" target="_blank">https://tools.google.com/dlpage/gaoptout?hl=de</a> runterladen und installieren. Beachten Sie bitte, dass durch dieses Add-on nur die Datenerhebung durch Google Analytics deaktiviert wird.
             </p>
             <p>Falls Sie grundsätzlich Cookies (unabhängig von Google Analytics) deaktivieren, löschen oder verwalten wollen, gibt es für jeden Browser eine eigene Anleitung:</p>
             <p>
-            <a className="adsimple-311165473" href="https://support.google.com/chrome/answer/95647?tid=311165473" rel="noopener" target="_blank">Chrome: Cookies in Chrome löschen, aktivieren und verwalten</a>
+            <a className="adsimple-311165473" href="https://support.google.com/chrome/answer/95647?tid=311165473" rel="noopener noreferrer" target="_blank">Chrome: Cookies in Chrome löschen, aktivieren und verwalten</a>
             </p>
             <p>
-            <a className="adsimple-311165473" href="https://support.apple.com/de-at/guide/safari/sfri11471/mac?tid=311165473" rel="noopener" target="_blank">Safari: Verwalten von Cookies und Websitedaten mit Safari</a>
+            <a className="adsimple-311165473" href="https://support.apple.com/de-at/guide/safari/sfri11471/mac?tid=311165473" rel="noopener noreferrer" target="_blank">Safari: Verwalten von Cookies und Websitedaten mit Safari</a>
             </p>
             <p>
-            <a className="adsimple-311165473" href="https://support.mozilla.org/de/kb/cookies-und-website-daten-in-firefox-loschen?tid=311165473" rel="noopener" target="_blank">Firefox: Cookies löschen, um Daten zu entfernen, die Websites auf Ihrem Computer abgelegt haben</a>
+            <a className="adsimple-311165473" href="https://support.mozilla.org/de/kb/cookies-und-website-daten-in-firefox-loschen?tid=311165473" rel="noopener noreferrer" target="_blank">Firefox: Cookies löschen, um Daten zu entfernen, die Websites auf Ihrem Computer abgelegt haben</a>
             </p>
             <p>
-            <a className="adsimple-311165473" href="https://support.microsoft.com/de-at/help/17442/windows-internet-explorer-delete-manage-cookies?tid=311165473" rel="noopener" target="_blank">Internet Explorer: Löschen und Verwalten von Cookies</a>
+            <a className="adsimple-311165473" href="https://support.microsoft.com/de-at/help/17442/windows-internet-explorer-delete-manage-cookies?tid=311165473" rel="noopener noreferrer" target="_blank">Internet Explorer: Löschen und Verwalten von Cookies</a>
             </p>
             <p>
-            <a className="adsimple-311165473" href="https://support.microsoft.com/de-at/help/4027947/windows-delete-cookies?tid=311165473" rel="noopener" target="_blank">Microsoft Edge: Löschen und Verwalten von Cookies</a>
+            <a className="adsimple-311165473" href="https://support.microsoft.com/de-at/help/4027947/windows-delete-cookies?tid=311165473" rel="noopener noreferrer" target="_blank">Microsoft Edge: Löschen und Verwalten von Cookies</a>
             </p>
-            <p>Google Analytics ist aktiver Teilnehmer beim EU-U.S. Privacy Shield Framework, wodurch der korrekte und sichere Datentransfer persönlicher Daten geregelt wird. Mehr Informationen dazu finden Sie auf 
-            <a className="adsimple-311165473" href="https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI" rel="follow noopener" target="_blank">https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI&amp;tid=311165473</a>. Wir hoffen wir konnten Ihnen die wichtigsten Informationen rund um die Datenverarbeitung von Google Analytics näherbringen. Wenn Sie mehr über den Tracking-Dienst erfahren wollen, empfehlen wir diese beiden Links: 
-            <a className="adsimple-311165473" href="http://www.google.com/analytics/terms/de.html" rel="noopener" target="_blank">http://www.google.com/analytics/terms/de.html</a> und 
-            <a className="adsimple-311165473" href="https://support.google.com/analytics/answer/6004245?hl=de" rel="noopener" target="_blank">https://support.google.com/analytics/answer/6004245?hl=de</a>.
+            <p>Google Analytics ist aktiver Teilnehmer beim EU-U.S. Privacy Shield Framework, wodurch der korrekte und sichere Datentransfer persönlicher Daten geregelt wird. Mehr Informationen dazu finden Sie auf&nbsp;  
+            <a className="adsimple-311165473" href="https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI" rel="follow noopener noreferrer" target="_blank">https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI&amp;tid=311165473</a>. Wir hoffen wir konnten Ihnen die wichtigsten Informationen rund um die Datenverarbeitung von Google Analytics näherbringen. Wenn Sie mehr über den Tracking-Dienst erfahren wollen, empfehlen wir diese beiden Links:&nbsp;  
+            <a className="adsimple-311165473" href="http://www.google.com/analytics/terms/de.html" rel="noopener noreferrer" target="_blank">http://www.google.com/analytics/terms/de.html</a> und&nbsp;  
+            <a className="adsimple-311165473" href="https://support.google.com/analytics/answer/6004245?hl=de" rel="noopener noreferrer" target="_blank">https://support.google.com/analytics/answer/6004245?hl=de</a>.
             </p>
             <h2 className="adsimple-311165473">Automatische Datenspeicherung</h2>
             <p>Wenn Sie heutzutage Webseiten besuchen, werden gewisse Informationen automatisch erstellt und gespeichert, so auch auf dieser Webseite.</p>
@@ -240,17 +242,16 @@ class DataPrivacy extends Component {
             </ul>
             <p>in Dateien (Webserver-Logfiles).</p>
             <p>In der Regel werden Webserver-Logfiles zwei Wochen gespeichert und danach automatisch gelöscht. Wir geben diese Daten nicht weiter, können jedoch nicht ausschließen, dass diese Daten beim Vorliegen von rechtswidrigem Verhalten eingesehen werden.</p>
-            <p style={{marginTop:'15px'}}>Quelle: Erstellt mit dem 
-            <a href="https://www.adsimple.de/datenschutz-generator/" rel="follow" style={{textDecoration:'none'}} target="_blank" title="Datenschutz Generator Deutschland">Datenschutz Generator</a> von AdSimple in Kooperation mit  
-            <a href="https://www.bauenwir.de" rel="follow" target="_blank" title="">bauenwir.de</a>&nbsp;
+            <p style={{marginTop:'15px'}}>Quelle: Erstellt mit dem&nbsp; 
+            <a href="https://www.adsimple.de/datenschutz-generator/" rel="follow noopener noreferrer" style={{textDecoration:'none'}} target="_blank" title="Datenschutz Generator Deutschland">Datenschutz Generator</a> von AdSimple in Kooperation mit&nbsp; 
+            <a href="https://www.bauenwir.de" rel="follow noopener noreferrer" target="_blank" title="">bauenwir.de</a>&nbsp;
             </p>
             </div> 
+            </Grid>
+            </Grid>
         )
     }
 }
-
-DataPrivacy.propTypes = {};
-DataPrivacy.defaultProps = {};
 
 
 export default withStyles(styles)(DataPrivacy);
