@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { HashLink as Link } from 'react-router-hash-link';
+import CookieConsent from "react-cookie-consent";
 
 import TargetGroupList from './TargetGroupList'
 
@@ -55,10 +56,9 @@ class Home extends Component {
             </div>
           </Container>
         </div>
-
         <TargetGroupList />
-        <div>
 
+        <div>
             <Grid container spacing={2} justify="center">
             <Grid item>
             <br />
@@ -68,6 +68,15 @@ class Home extends Component {
             <br />
             </Grid>
             </Grid>
+        </div>
+        <div>
+            <CookieConsent
+              buttonText="Einverstanden">
+              Um Ihnen ein besseres Nutzererlebnis zu bieten, verwenden wir Cookies. Durch Nutzung unserer Dienste stimmen Sie unserer Verwendung von Cookies zu. &nbsp;
+              <Link to="/DataPrivacy" style={{ color: '#FFF' }}>
+			          Weitere Informationen
+			        </Link>
+            </CookieConsent>
         </div>
 
 

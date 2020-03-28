@@ -10,6 +10,7 @@ import TargetGroupDetail from './components/TargetGroupDetail.js'
 import SolutionsOverview from './components/SolutionsOverview.js'
 import ContactImpressum from './components/ContactImpressum.js'
 import NewSolutionForm from './components/NewSolutionForm.js'
+import DataPrivacy from './components/DataPrivacy.js'
 
 class App extends Component {
   render() {
@@ -26,6 +27,8 @@ class App extends Component {
                 <Route path="/impressum" component={Impressum} />
                 <Route path="/Voting" component={Voting} />
                 <Route path="/NewSolution" component={NewSolutionForm} />
+                <Route path="/DataPrivacy" component={DataPrivacy} />
+
         	</div>
     	</Router>
 
