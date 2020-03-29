@@ -21,7 +21,7 @@ class Home extends Component {
     	<div>
           <Container maxWidth="sm" class="hero">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              KMUs Vs. Corona
+              KMUs vs. Corona
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
               Wir sammeln Ideen, Hilfsmittel, Finanzierungsquellen und mehr um Klein- und Mittelstandsunternehmen
