@@ -24,7 +24,7 @@ class Home extends Component {
               KMUs Vs. Corona
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Wir sammeln Ideen, Hilfsmittel, Finanzierungsquellen und mehr um Klein- und Mittelstandsunternehmen
+              Wir sammeln Ideen, Hilfsmittel, Finanzierungsquellen und mehr, um Klein- und Mittelstandsunternehmen
               aus der Corona-Krise zu helfen. 
             </Typography>
             <div id="branchen">
