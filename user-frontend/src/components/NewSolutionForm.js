@@ -80,7 +80,6 @@ export default withSnackbar( withStyles(styles)(class NewSolution extends Compon
       })
   }
 
-
   onChangeTitle(e) {
     this.setState({
       title: e.target.value
@@ -100,9 +99,9 @@ export default withSnackbar( withStyles(styles)(class NewSolution extends Compon
   }
 
 
-
   onSubmit(e) {
     e.preventDefault();
+    const user = "user_4Di9yfv15C5InFaLCNNbG";
 
     const solution = {
       title: this.state.title,
@@ -111,6 +110,14 @@ export default withSnackbar( withStyles(styles)(class NewSolution extends Compon
       problemId: this.state.problemId,
       preliminary: true,
     }
+
+    this.sendFeedback(
+      this.state.title,
+      this.state.name,
+      this.state.problemId,
+      this.state.description,
+      user
+    );
 
     this.setState({
       title: "",
@@ -130,9 +137,17 @@ export default withSnackbar( withStyles(styles)(class NewSolution extends Compon
       console.log(error);
    })
       ;
-
-
     //window.location = '/';
+  }
+
+  sendFeedback(title, senderName, problemID, description, user) { // info@kmuvscorona.de
+    window.emailjs.send("default_service", "template_rrFRhJqM", {"message_html":description,
+    "title":title, "from_name":senderName, "problem_id":problemID,
+    "recipientMail":'semmelmann.leo@gmail.com'}, user)
+      .then(res => {
+        console.log("E Mail Sent successfully");
+      })
+      .catch(err => console.error('Failed to send feedback. Error: ', err));
   }
 
   render() {
