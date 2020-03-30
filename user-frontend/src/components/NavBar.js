@@ -90,7 +90,7 @@ export default function SearchAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" style={{ backgroundColor: 'rgba(63, 81, 181, 0.8)', boxShadow: 'none'}}>
+      <AppBar position="fixed" style={{ backgroundColor: 'rgba(63, 81, 181, 1)', boxShadow: 'none'}}>
         <Toolbar>
         <ClickAwayListener onClickAway={handleClickAway}>
           <IconButton

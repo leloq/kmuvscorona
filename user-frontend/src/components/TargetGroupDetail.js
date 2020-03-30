@@ -30,9 +30,11 @@ const styles = {
   smallHeadingWrapper: {
     marginTop: '1rem',
   },
-  subheading: {marginTop: '1rem',
+  subheading: {marginTop: '3rem',
               align: 'center',
              marginBottom: '1rem',},
+
+  social: {marginBottom: '3rem'},
 };
 
 class TargetGroupDetail extends Component {
@@ -76,8 +78,16 @@ class TargetGroupDetail extends Component {
   descriptionHeader() {
     return (
       <div style={{backgroundImage: `url(${this.state.imageUrl})`}} className={this.props.classes.imageContainer}>
-          <Grid container justify="center" direction="column">
-            <Grid item>
+          <Grid container 
+          spacing={0}
+          direction="row"
+          alignItems="center"
+          justify="center"
+          >
+            <Grid item
+
+
+            >
               <div className={this.props.classes.bigHeadingWrapper}>
                 <Typography component="span" className={this.props.classes.heading} variant="h3">{this.state.groupname}</Typography>
               </div>
@@ -96,7 +106,7 @@ class TargetGroupDetail extends Component {
          { this.descriptionHeader() }
          <div><ProblemList targetgroupid={this.props.match.params.id} problems={this.state.problems}/>  </div>
          <div className={this.props.classes.subheading}><Typography align="center">Sie kennen jemanden aus der Zielgruppe dem unsere Sammlung an Lösungen und Möglichkeiten weiterhelfen könnte? Dann empfehlen Sie KMU Vs. Corona gerne weiter.</Typography></div>
-         <div><SocialSharing zielgruppe={this.state.groupname} url={window.location.href}/></div>
+         <div className={this.props.classes.social}><SocialSharing zielgruppe={this.state.groupname} url={window.location.href}/></div>
       </div>
     );
   }

@@ -9,12 +9,16 @@ import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
   root: {
-    paddingTop: "25px",
-    paddingBottom : "25px"
+    paddingTop: "2rem",
+    paddingBottom: "0.5rem"
   },
   down: {
-    paddingBottom : "25px"
-  }
+    paddingBottom : "1.5rem",
+    marginLeft: "1rem"
+  },
+  title:{
+    marginLeft: "1rem"
+  },
 
 });
 
@@ -70,7 +74,7 @@ export default withStyles(styles)(class ProblemDetail extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <Typography variant="h5">{this.state.title}</Typography>
+        <Typography className={classes.title} variant="h5">{this.state.title}</Typography>
         <Typography className={classes.down}>{this.state.description}</Typography>
         <SolutionsList solutions={this.state.solutions}/>    
         
