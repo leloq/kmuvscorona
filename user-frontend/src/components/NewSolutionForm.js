@@ -98,10 +98,9 @@ export default withSnackbar( withStyles(styles)(class NewSolution extends Compon
     })
   }
 
-
   onSubmit(e) {
     e.preventDefault();
-    const user = "user_4Di9yfv15C5InFaLCNNbG";
+    const user = process.env.EMAILJS_USER;
 
     const solution = {
       title: this.state.title,
@@ -124,7 +123,6 @@ export default withSnackbar( withStyles(styles)(class NewSolution extends Compon
       problemId: "",
       description: "",
       name: "",
-
     })
 
     axios.post('solutions/add', solution)
@@ -135,9 +133,7 @@ export default withSnackbar( withStyles(styles)(class NewSolution extends Compon
       .catch((error) => {
         this.props.enqueueSnackbar('Mist, mit der Eingabe hat wohl etwas nicht geklappt.', {variant:"error"});
       console.log(error);
-   })
-      ;
-    //window.location = '/';
+   });
   }
 
   sendFeedback(title, senderName, problemID, description, user) { // info@kmuvscorona.de
@@ -152,7 +148,6 @@ export default withSnackbar( withStyles(styles)(class NewSolution extends Compon
 
   render() {
     const { classes } = this.props;
-
 
     return (
       <div>

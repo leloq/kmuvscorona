@@ -52,7 +52,7 @@ export default class FeedbackForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const user = "user_4Di9yfv15C5InFaLCNNbG";
+    const user = process.env.EMAILJS_USER;
     this.sendFeedback(
       this.state.name,
       this.state.email,

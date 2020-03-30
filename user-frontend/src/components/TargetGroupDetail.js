@@ -111,7 +111,6 @@ class TargetGroupDetail extends Component {
                 ],
                 padding: 14,          // padding within buttons (INTEGER)
                 radius: 5,            // the corner radius on each button (INTEGER)
-                show_total: true,
                 size: 35,             // the size of each button (INTEGER)
 
                 // OPTIONAL PARAMETERS
