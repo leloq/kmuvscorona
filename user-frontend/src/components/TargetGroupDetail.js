@@ -29,7 +29,10 @@ const styles = {
   },
   smallHeadingWrapper: {
     marginTop: '1rem',
-  }
+  },
+  subheading: {marginTop: '1rem',
+              align: 'center',
+             marginBottom: '1rem',},
 };
 
 class TargetGroupDetail extends Component {
@@ -92,6 +95,7 @@ class TargetGroupDetail extends Component {
       <div className={this.props.classes.root}>
          { this.descriptionHeader() }
          <div><ProblemList targetgroupid={this.props.match.params.id} problems={this.state.problems}/>  </div>
+         <div className={this.props.classes.subheading}><Typography align="center">Sie kennen jemanden aus der Zielgruppe dem unsere Sammlung an Lösungen und Möglichkeiten weiterhelfen könnte? Dann empfehlen Sie KMU Vs. Corona gerne weiter.</Typography></div>
          <div><SocialSharing zielgruppe={this.state.groupname} url={window.location.href}/></div>
       </div>
     );

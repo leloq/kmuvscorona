@@ -33,7 +33,7 @@ let targeturl = props.url;
                 description: 'Das Portal KmuVsCorona.de ist im Rahmen des Hackathons der Bundesregierung entstanden und vermittelt Hilfsvorschläge, Nützliche Seiten und finanzielle Unterstützungsmöglichkeiten für KMUs und Selbständige. Schau vorbei - vielleicht ist etwas interessantes dabei!',       // (defaults to og:description or twitter:description)
                 title: 'KMU versus Corona: Hilfsvorschläge und Lösungsansätze in der Coronakrise | Zielgruppe: '+props.Zielgruppe,            // (defaults to og:title or twitter:title)
                 message: 'Das Portal KmuVsCorona.de ist im Rahmen des Hackathons der Bundesregierung entstanden und vermittelt Hilfsvorschläge, Nützliche Seiten und finanzielle Unterstützungsmöglichkeiten für KMUs und Selbständige. Schau vorbei - vielleicht ist etwas interessantes dabei! '+props.url,    // (only for email sharing)
-                subject: 'KMU versus Corona Hilfeseite',  // (only for email sharing)
+                subject: 'KMU versus Corona: Lösungsvorschläge für '+props.Zielgruppe,  // (only for email sharing)
                 // username: 'custom twitter handle' // (only for twitter sharing)
               }}
             />
