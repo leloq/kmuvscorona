@@ -109,18 +109,18 @@ class TargetGroupDetail extends Component {
                   'twitter',
                   'email'
                 ],
-                padding: 12,          // padding within buttons (INTEGER)
-                radius: 4,            // the corner radius on each button (INTEGER)
+                padding: 14,          // padding within buttons (INTEGER)
+                radius: 5,            // the corner radius on each button (INTEGER)
                 show_total: true,
-                size: 40,             // the size of each button (INTEGER)
+                size: 35,             // the size of each button (INTEGER)
 
                 // OPTIONAL PARAMETERS
-                // url: 'https://www.sharethis.com', // (defaults to current url)
+                url: 'https://www.kmuvscorona.de', // (defaults to current url)
                 // image: 'https://bit.ly/2CMhCMC',  // (defaults to og:image or twitter:image)
-                // description: 'custom text',       // (defaults to og:description or twitter:description)
-                // title: 'custom title',            // (defaults to og:title or twitter:title)
-                // message: 'custom email text',     // (only for email sharing)
-                //subject: 'custom email subject',  // (only for email sharing)
+                description: 'KMU versus Corona',       // (defaults to og:description or twitter:description)
+                title: 'KMU versus Corona',            // (defaults to og:title or twitter:title)
+                message: 'Ich habe hier etwas gefunden, dass dir behilflich sein kann: \n https://www.kmuvscorona.de \n',     // (only for email sharing)
+                subject: 'KMU versus Corona Hilfeseite',  // (only for email sharing)
                 // username: 'custom twitter handle' // (only for twitter sharing)
               }}
             />
