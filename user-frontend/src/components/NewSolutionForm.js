@@ -100,7 +100,7 @@ export default withSnackbar( withStyles(styles)(class NewSolution extends Compon
 
   onSubmit(e) {
     e.preventDefault();
-    const user = process.env.EMAILJS_USER;
+    const user = process.env.REACT_APP_EMAILUSER;
 
     const solution = {
       title: this.state.title,

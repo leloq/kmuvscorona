@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from './../axiosInstance';
 import { withStyles, Grid, Typography } from '@material-ui/core/';
 import ProblemList from './ProblemList';
+import SocialSharing from './SocialSharing';
 import Button from '@material-ui/core/Button';
-import {InlineShareButtons} from 'sharethis-reactjs';
 
 const styles = {
   root: {
@@ -92,39 +92,7 @@ class TargetGroupDetail extends Component {
       <div className={this.props.classes.root}>
          { this.descriptionHeader() }
          <div><ProblemList targetgroupid={this.props.match.params.id} problems={this.state.problems}/>  </div>
-          
-          <div> 
-            <InlineShareButtons
-              config={{
-                alignment: 'center',  // alignment of buttons (left, center, right)
-                color: 'social',      // set the color of buttons (social, white)
-                enabled: true,        // show/hide buttons (true, false)
-                font_size: 16,        // font size for the buttons
-                labels: 'cta',        // button labels (cta, counts, null)
-                language: 'en',       // which language to use (see LANGUAGES)
-                networks: [           // which networks to include (see SHARING NETWORKS)
-                  'whatsapp',
-                  'linkedin',
-                  'facebook',
-                  'twitter',
-                  'email'
-                ],
-                padding: 14,          // padding within buttons (INTEGER)
-                radius: 5,            // the corner radius on each button (INTEGER)
-                size: 35,             // the size of each button (INTEGER)
-
-                // OPTIONAL PARAMETERS
-                url: 'https://www.kmuvscorona.de', // (defaults to current url)
-                // image: 'https://bit.ly/2CMhCMC',  // (defaults to og:image or twitter:image)
-                description: 'KMU versus Corona',       // (defaults to og:description or twitter:description)
-                title: 'KMU versus Corona',            // (defaults to og:title or twitter:title)
-                message: 'Ich habe hier etwas gefunden, dass dir behilflich sein kann: \n https://www.kmuvscorona.de \n',     // (only for email sharing)
-                subject: 'KMU versus Corona Hilfeseite',  // (only for email sharing)
-                // username: 'custom twitter handle' // (only for twitter sharing)
-              }}
-            />
-          </div>
-
+         <div><SocialSharing zielgruppe={this.state.groupname} url={window.location.href}/></div>
       </div>
     );
   }
