@@ -12,12 +12,14 @@ router.route('/add').post((req, res) => {
   const description = req.body.description;
   const problems = req.body.problems;
   const imageUrl = req.body.imageUrl;
+  const slug = req.body.slug;
 
   const newTargetGroup = new TargetGroup({
     groupname,
     description,
     problems,
     imageUrl,
+    slug,
   });
 
   newTargetGroup.save()
@@ -25,23 +27,24 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/:groupname').get((req, res) => {
-  TargetGroup.findOne({ groupname: req.params.groupname })
+router.route('/:slug').get((req, res) => {
+  TargetGroup.findOne({ slug: req.params.slug })
     .then(targetGroup => res.json(targetGroup))
     .catch(err => res.status(400).json('Error: ' + err));
 });
-router.route('/:groupname').delete((req, res) => {
-  TargetGroup.findOneAndDelete({ groupname: req.params.groupname })
-    .then(() => res.json(req.params.groupname))
+router.route('/:slug').delete((req, res) => {
+  TargetGroup.findOneAndDelete({ slug: req.params.slug })
+    .then(() => res.json(req.params.slug))
     .catch(err => res.status(400).json('Error: ' + err));
 });
-router.route('/update/:groupname').post((req, res) => {
-  TargetGroup.findOne({ groupname: req.params.groupname })
+router.route('/update/:slug').post((req, res) => {
+  TargetGroup.findOne({ slug: req.params.slug })
     .then(targetGroup => {
       targetGroup.groupname = req.body.groupname;
       targetGroup.description = req.body.description;
       targetGroup.problems = req.body.problems;
       targetGroup.imageUrl = req.body.imageUrl;
+      targetGroup.slug = req.body.slug;
 
       targetGroup.save()
         .then(() => res.json(targetGroup))
