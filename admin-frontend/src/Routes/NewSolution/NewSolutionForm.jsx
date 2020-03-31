@@ -52,9 +52,9 @@ const NewSolutionForm = () => {
     const handleDescriptionChange = (event) => {
         setDescription(event.target.value);
     };
-    const handleCheckboxChange = (targetGroupID) => {
-        if (selectedTargetGroups.includes(targetGroupID)) {
-            const index = selectedTargetGroups.indexOf(targetGroupID);
+    const handleCheckboxChange = (targetGroupName) => {
+        if (selectedTargetGroups.includes(targetGroupName)) {
+            const index = selectedTargetGroups.indexOf(targetGroupName);
             setSelectedTargetGroups([
                 ...selectedTargetGroups.slice(0, index),
                 ...selectedTargetGroups.slice(index + 1),
@@ -62,7 +62,7 @@ const NewSolutionForm = () => {
         } else {
             setSelectedTargetGroups([
                 ...selectedTargetGroups,
-                targetGroupID,
+                targetGroupName,
             ]);
         }
     };

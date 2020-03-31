@@ -3,17 +3,17 @@ import { List, ListItem, ListItemIcon, ListItemText, Checkbox } from '@material-
 
 const TargetGroupsSelect = (props) => {
 
-    const handleCheckboxChange = (targetGroupID) => () => {
-        props.handleCheckboxChange(targetGroupID);
+    const handleCheckboxChange = (targetGroupName) => () => {
+        props.handleCheckboxChange(targetGroupName);
     };
 
     return (
         <List>
             {props.specificForTargetGroups.map(targetGroup => (
-                <ListItem dense button key={targetGroup._id} onClick={handleCheckboxChange(targetGroup._id)}>
+                <ListItem dense button key={targetGroup.groupname} onClick={handleCheckboxChange(targetGroup.groupname)}>
                     <ListItemIcon>
                         <Checkbox
-                            checked={props.selectedTargetGroups.includes(targetGroup._id)}
+                            checked={props.selectedTargetGroups.includes(targetGroup.groupname)}
                             edge="start"
                             tabIndex={-1}
                             disableRipple

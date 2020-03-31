@@ -11,7 +11,7 @@ const TargetGroupsDeleteDialog = (props) => {
         dispatch({
             type: 'TargetGroups/deleteTargetGroup',
             payload: {
-                targetGroupId: props.targetGroup._id,
+                targetGroupName: props.targetGroup.groupname,
             },
         });
         enqueueSnackbar('Zielgruppe gelöscht', {
