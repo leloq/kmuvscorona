@@ -33,7 +33,7 @@ const EditProblemForm = (props) => {
     const classes = useStyles();
     const _id = problem._id;
     const [title, setTitle] = useState(problem.title);
-    const [description, setDescription] = useState(problem.title);
+    const [description, setDescription] = useState(problem.description);
     const [severity, setSeverity] = useState(problem.severity);
     const [selectedSolutions, setSelectedSolutions] = useState(problem.solutions);
     const solutions = useSelector(state => state.Solutions.data);
