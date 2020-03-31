@@ -25,17 +25,17 @@ const TargetGroupsTable = () => {
     const dispatch = useDispatch();
     const { enqueueSnackbar } = useSnackbar();
 
-    const openDeleteDialog = targetGroupName => () => {
+    const openDeleteDialog = targetGroupSlug => () => {
         setDeleteDialog(true);
-        const targetGroupToDelete = targetGroups.find(targetGroup => targetGroup.groupname=== targetGroupName);
+        const targetGroupToDelete = targetGroups.find(targetGroup => targetGroup.slug === targetGroupSlug);
         setTargetGroupToDelete(targetGroupToDelete);
     };
     const closeDeleteDialog = () => {
         setDeleteDialog(false);
     };
 
-    const navigateToEditTargetGroupForm = tgroupName => () => {
-        navigate('/editTargetGroup/' + tgroupName);
+    const navigateToEditTargetGroupForm = tgroupSlug => () => {
+        navigate('/editTargetGroup/' + tgroupSlug);
     }
 
     if (targetGroups === null || typeof targetGroups === 'undefined' || targetGroups.length === 0) {
@@ -57,18 +57,18 @@ const TargetGroupsTable = () => {
                 </TableHead>
                 <TableBody>
                     {targetGroups.map(targetGroup => (
-                        <TableRow key={targetGroup.groupname}>
-                            <TableCell>{targetGroup.groupname}</TableCell>
+                        <TableRow key={targetGroup.slug}>
+                            <TableCell>{targetGroup.slug}</TableCell>
                             <TableCell align="right">{targetGroup.description}</TableCell>
                             <TableCell align="right">{moment(targetGroup.updatedAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
                             <TableCell align="right">{moment(targetGroup.createdAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
                             <TableCell>
-                                <IconButton onClick={navigateToEditTargetGroupForm(targetGroup.groupname)}>
+                                <IconButton onClick={navigateToEditTargetGroupForm(targetGroup.slug)}>
                                     <Edit />
                                 </IconButton>
                             </TableCell>
                             <TableCell>
-                                <IconButton onClick={openDeleteDialog(targetGroup.groupname)}>
+                                <IconButton onClick={openDeleteDialog(targetGroup.slug)}>
                                     <Delete />
                                 </IconButton>
                             </TableCell>

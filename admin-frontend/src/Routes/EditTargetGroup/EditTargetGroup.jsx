@@ -11,11 +11,11 @@ const EditTargetGroup = (props) => {
     dispatch({
         type: 'TargetGroups/getSingleTargetGroup',
         payload: {
-            targetGroupName: props.targetGroupName,
+            targetGroupSlug: props.targetGroupSlug,
         } 
     });
     const targetGroup = useSelector(
-        state => state.TargetGroups.data.find(targetGroup => targetGroup.groupname === props.targetGroupName),
+        state => state.TargetGroups.data.find(targetGroup => targetGroup.slug === props.targetGroupSlug),
         isEqual,
     );
     if (targetGroup === null || typeof targetGroup === 'undefined') {
@@ -27,7 +27,7 @@ const EditTargetGroup = (props) => {
         payload: `${targetGroup.groupname} bearbeiten`,
     });
 
-    return <EditTargetGroupForm targetGroupName={props.targetGroupName}/>;
+    return <EditTargetGroupForm targetGroupSlug={props.targetGroupSlug}/>;
 };
 
 export default EditTargetGroup;

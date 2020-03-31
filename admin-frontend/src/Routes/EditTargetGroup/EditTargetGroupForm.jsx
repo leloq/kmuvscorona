@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
 
 const EditTargetGroupForm = (props) => {
 
-    const targetGroup = useSelector(state => state.TargetGroups.data.find(targetGroup => targetGroup.groupname === props.targetGroupName));
+    const targetGroup = useSelector(state => state.TargetGroups.data.find(targetGroup => targetGroup.slug === props.targetGroupSlug));
     const classes = useStyles();
     const _id = targetGroup._id;
     const [groupname, setGroupname] = useState(targetGroup.groupname);
