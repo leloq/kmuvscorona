@@ -22,7 +22,7 @@ export default withRouter (function TargetGroupCard(props) {
 
   const classes = useStyles();
 
-  const linkUrl = `/targetgroup/${props.groupname}`
+  const linkUrl = `/targetgroup/${props.slug}`
 
   const navigateToTargetGroup = () => {
     props.history.push(linkUrl)

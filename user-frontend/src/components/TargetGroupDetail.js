@@ -45,17 +45,18 @@ class TargetGroupDetail extends Component {
       imageUrl: '',
       description: '',
       problems: [],
+      slug: '',
     }
   }
 
   componentDidMount() {
-    axios.get('targetGroups/'+this.props.match.params.groupname)
+    axios.get('targetGroups/'+this.props.match.params.slug)
       .then(response => {
         this.setState({
           groupname: response.data.groupname,
-          
           imageUrl: response.data.imageUrl,
-          description: response.data.description
+          description: response.data.description,
+          slug: response.data.slug,
         })
         response.data.problems.forEach((problemid)=>{
           axios.get('problems/'+problemid)
@@ -104,7 +105,7 @@ class TargetGroupDetail extends Component {
     return (
       <div className={this.props.classes.root}>
          { this.descriptionHeader() }
-         <div><ProblemList targetgroupname={this.props.match.params.groupname} problems={this.state.problems}/>  </div>
+         <div><ProblemList slug={this.props.match.params.slug} problems={this.state.problems}/>  </div>
          <div className={this.props.classes.subheading}><Typography align="center">Sie kennen jemanden aus der Zielgruppe dem unsere Sammlung an Lösungen und Möglichkeiten weiterhelfen könnte? Dann empfehlen Sie KMU Vs. Corona gerne weiter.</Typography></div>
          <div className={this.props.classes.social}><SocialSharing zielgruppe={this.state.groupname} url={window.location.href}/></div>
       </div>
