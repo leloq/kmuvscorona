@@ -20,7 +20,7 @@ class App extends Component {
         	<div>
         	   <NavBar />
             	<Route path="/" exact component={Home} />
-                <Route path="/targetgroup/:id" component={TargetGroupDetail} />
+                <Route path="/targetgroup/:groupname" component={TargetGroupDetail} />
                 <Route path="/solutions" component={SolutionsOverview} />
                 <Route path="/about" component={About} />
                 <Route path="/contact" component={ContactImpressum} />

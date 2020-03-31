@@ -49,7 +49,7 @@ class TargetGroupDetail extends Component {
   }
 
   componentDidMount() {
-    axios.get('targetGroups/'+this.props.match.params.id)
+    axios.get('targetGroups/'+this.props.match.params.groupname)
       .then(response => {
         this.setState({
           groupname: response.data.groupname,
