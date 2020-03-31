@@ -149,8 +149,7 @@ const Main = () => {
                         <Home path="/" />
                         
                         <NewTargetGroup path="/newTargetGroup" />
-                        <EditTargetGroup path="/editTargetGroup/:targetGroupId" />
-                        
+                        <EditTargetGroup path="/editTargetGroup/:targetGroupSlug" />
                         <NewProblem path="/newProblem" />
                         <EditProblem path="/editProblem/:problemId"/>
                         <SingleSolution path="/solutions/:solutionId" />

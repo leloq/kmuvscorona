@@ -10,7 +10,7 @@ const TargetGroups = {
             data: payload.data,
         }),
         getSingleTargetGroupSuccess: (state, payload) => {
-            const singleIdx = state.data.findIndex(targetGroup => targetGroup._id === payload.singleTargetGroup._id);
+            const singleIdx = state.data.findIndex(targetGroup => targetGroup.slug === payload.singleTargetGroup.slug);
             if (singleIdx === -1) {
                 return {
                     ...state,
@@ -36,7 +36,7 @@ const TargetGroups = {
             ],
         }),
         updateTargetGroupSuccess: (state, payload) => {
-            const editedIdx = state.data.findIndex(targetGroup => targetGroup._id === payload.editedTargetGroup._id);
+            const editedIdx = state.data.findIndex(targetGroup => targetGroup.slug === payload.editedTargetGroup.slug);
             return {
                 ...state,
                 data: [
@@ -47,7 +47,7 @@ const TargetGroups = {
             };
         },
         deleteTargetGroupSuccess: (state, payload) => {
-            const deleteIdx = state.data.findIndex(targetGroup => targetGroup._id === payload.targetGroupId);
+            const deleteIdx = state.data.findIndex(targetGroup => targetGroup.slug === payload.targetGroupSlug);
             return {
                 ...state,
                 data: [
@@ -59,7 +59,7 @@ const TargetGroups = {
     },
     effects: dispatch => ({
         async getSingleTargetGroup(payload, rootState) {
-            const result = await axios.get('/targetgroups/' + payload.targetGroupId);
+            const result = await axios.get('/targetgroups/' + payload.targetGroupSlug);
             dispatch.TargetGroups.getSingleTargetGroupSuccess({
                 singleTargetGroup: result.data,
             });
@@ -77,15 +77,15 @@ const TargetGroups = {
             });
         },
         async updateTargetGroup(payload, rootState) {
-            const result = await axios.post('/targetgroups/update/' + payload.editedTargetGroup._id, payload.editedTargetGroup);
+            const result = await axios.post('/targetgroups/update/' + payload.editedTargetGroup.slug, payload.editedTargetGroup);
             dispatch.TargetGroups.updateTargetGroupSuccess({
                 editedTargetGroup: result.data,
             });
         },
         async deleteTargetGroup(payload, rootState) {
-            const result = await axios.delete('/targetgroups/' + payload.targetGroupId);
+            const result = await axios.delete('/targetgroups/' + payload.targetGroupSlug);
             dispatch.TargetGroups.deleteTargetGroupSuccess({
-                targetGroupId: result.data,
+                targetGroupSlug: result.data,
             });
         },
     }),

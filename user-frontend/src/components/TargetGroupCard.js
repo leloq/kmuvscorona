@@ -22,7 +22,7 @@ export default withRouter (function TargetGroupCard(props) {
 
   const classes = useStyles();
 
-  const linkUrl = `/targetgroup/${props.id}`
+  const linkUrl = `/targetgroup/${props.slug}`
 
   const navigateToTargetGroup = () => {
     props.history.push(linkUrl)
@@ -38,7 +38,7 @@ export default withRouter (function TargetGroupCard(props) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {props.value} 
+            {props.groupname} 
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             Erfahren Sie mehr darüber, welche Möglichkeiten für diese Zielgruppe bestehen.

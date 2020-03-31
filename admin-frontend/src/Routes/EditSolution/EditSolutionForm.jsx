@@ -42,7 +42,9 @@ const NewSolutionForm = (props) => {
     const specificForTargetGroups = useSelector(state => state.TargetGroups.data);
     const problems = useSelector(state => state.Problems.data);
     const mappedProblem = problems.find(problem => problem.solutions.includes(_id));
-    const [problemId, setProblemId] = useState(mappedProblem);
+    var mappedProblemId = "";
+    if (typeof mappedProblem !== "undefined") mappedProblemId = mappedProblem._id;
+    const [problemId, setProblemId] = useState(mappedProblemId);
     const dispatch = useDispatch();
     const { enqueueSnackbar } = useSnackbar();
 
@@ -55,9 +57,9 @@ const NewSolutionForm = (props) => {
     const handleDescriptionChange = (event) => {
         setDescription(event.target.value);
     };
-    const handleCheckboxChange = (targetGroupID) => {
-        if (selectedTargetGroups.includes(targetGroupID)) {
-            const index = selectedTargetGroups.indexOf(targetGroupID);
+    const handleCheckboxChange = (targetGroupSlug) => {
+        if (selectedTargetGroups.includes(targetGroupSlug)) {
+            const index = selectedTargetGroups.indexOf(targetGroupSlug);
             setSelectedTargetGroups([
                 ...selectedTargetGroups.slice(0, index),
                 ...selectedTargetGroups.slice(index + 1),
@@ -65,7 +67,7 @@ const NewSolutionForm = (props) => {
         } else {
             setSelectedTargetGroups([
                 ...selectedTargetGroups,
-                targetGroupID,
+                targetGroupSlug,
             ]);
         }
     };
@@ -91,6 +93,7 @@ const NewSolutionForm = (props) => {
         enqueueSnackbar('Lösung bearbeitet', {
             variant: 'success',
         });
+        console.log(problemId);
     };
 
     const handleDropDownChange = (event, value) => {

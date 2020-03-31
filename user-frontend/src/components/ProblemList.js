@@ -6,7 +6,7 @@ const problemList = () => {
     return props.problems.map(problem => {
       return( 
         <div>
-          <ProblemDetail targetgroupid={props.targetgroupid} id={problem._id}/>
+          <ProblemDetail targetgroupslug={props.targetgroupslug} id={problem._id}/>
         </div>);
       })
   }

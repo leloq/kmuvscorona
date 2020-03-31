@@ -24,7 +24,7 @@ exerciseList() {
   return this.state.targetgroups.map(currenttargetgroup => {
     return( 
     <Grid item>
-    <TargetGroupCard description={currenttargetgroup.description} value={currenttargetgroup.groupname} url={currenttargetgroup.imageUrl} id={currenttargetgroup._id}/>
+    <TargetGroupCard description={currenttargetgroup.description} groupname={currenttargetgroup.groupname} slug={currenttargetgroup.slug} url={currenttargetgroup.imageUrl} id={currenttargetgroup._id}/>
     </Grid>);
   })
 }
