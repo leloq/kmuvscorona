@@ -8,7 +8,7 @@ const targetGroupSchema = new Schema({
   description: { type: String, required: false },
   problems: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Problem', required: false }],
   imageUrl: { type: String, required: false },
-  slug: { type: String, slug: "groupname", unique: true },
+  slug: { type: String, slug: "groupname", slug_padding_size: 1, unique: true },
 
 }, {
   timestamps: true,
