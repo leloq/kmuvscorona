@@ -25,18 +25,18 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/:id').get((req, res) => {
-  TargetGroup.findById(req.params.id)
+router.route('/:groupname').get((req, res) => {
+  TargetGroup.findOne({ groupname: req.params.groupname })
     .then(targetGroup => res.json(targetGroup))
     .catch(err => res.status(400).json('Error: ' + err));
 });
-router.route('/:id').delete((req, res) => {
-  TargetGroup.findByIdAndDelete(req.params.id)
-    .then(() => res.json(req.params.id))
+router.route('/:groupname').delete((req, res) => {
+  TargetGroup.findOneAndDelete({ groupname: req.params.groupname })
+    .then(() => res.json(req.params.groupname))
     .catch(err => res.status(400).json('Error: ' + err));
 });
-router.route('/update/:id').post((req, res) => {
-  TargetGroup.findById(req.params.id)
+router.route('/update/:groupname').post((req, res) => {
+  TargetGroup.findOne({ groupname: req.params.groupname })
     .then(targetGroup => {
       targetGroup.groupname = req.body.groupname;
       targetGroup.description = req.body.description;
