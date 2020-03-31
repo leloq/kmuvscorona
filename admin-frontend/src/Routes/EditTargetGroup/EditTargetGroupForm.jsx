@@ -33,6 +33,7 @@ const EditTargetGroupForm = (props) => {
     const classes = useStyles();
     const _id = targetGroup._id;
     const [groupname, setGroupname] = useState(targetGroup.groupname);
+    const [slug, setSlug] = useState(targetGroup.slug);
     const [description, setDescription] = useState(targetGroup.description);
     const [selectedProblems, setSelectedProblems] = useState(targetGroup.problems ? targetGroup.problems : '');
     const [imageUrl, setImageUrl] = useState(targetGroup.imageUrl);
@@ -73,6 +74,7 @@ const EditTargetGroupForm = (props) => {
             description,
             problems: selectedProblems,
             imageUrl,
+            slug,
         };
         dispatch({
             type: 'TargetGroups/updateTargetGroup',
