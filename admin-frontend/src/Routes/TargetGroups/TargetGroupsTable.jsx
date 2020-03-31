@@ -58,7 +58,7 @@ const TargetGroupsTable = () => {
                 <TableBody>
                     {targetGroups.map(targetGroup => (
                         <TableRow key={targetGroup.slug}>
-                            <TableCell>{targetGroup.slug}</TableCell>
+                            <TableCell>{targetGroup.groupname}</TableCell>
                             <TableCell align="right">{targetGroup.description}</TableCell>
                             <TableCell align="right">{moment(targetGroup.updatedAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
                             <TableCell align="right">{moment(targetGroup.createdAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>
