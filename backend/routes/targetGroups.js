@@ -44,7 +44,6 @@ router.route('/update/:slug').post((req, res) => {
       targetGroup.description = req.body.description;
       targetGroup.problems = req.body.problems;
       targetGroup.imageUrl = req.body.imageUrl;
-      targetGroup.slug = req.body.slug;
 
       targetGroup.save()
         .then(() => res.json(targetGroup))
