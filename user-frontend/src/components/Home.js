@@ -6,7 +6,6 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { HashLink as Link } from 'react-router-hash-link';
 import CookieConsent from "react-cookie-consent";
-
 import TargetGroupList from './TargetGroupList'
 
 
@@ -79,8 +78,6 @@ class Home extends Component {
 			        </Link>
             </CookieConsent>
         </div>
-
-
     	</div>
 
     )
