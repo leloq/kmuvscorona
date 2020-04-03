@@ -126,7 +126,12 @@ export default function SearchAppBar() {
                   Lösung einreichen
                 </Link>
               </MenuItem>
-              
+
+              <MenuItem onClick={handleClose}>
+                <Link to="/help" style={{ textDecoration: 'none'}}>
+                    Helfen
+                </Link></MenuItem>
+                              
               <MenuItem onClick={handleClose}><Link to="/about" style={{ textDecoration: 'none'}}>
                   Über Uns
                 </Link></MenuItem>
@@ -134,8 +139,9 @@ export default function SearchAppBar() {
               <MenuItem onClick={handleClose}>
                 <Link to="/contact" style={{ textDecoration: 'none'}}>
                     Kontakt
-                </Link>
-               </MenuItem>
+                </Link></MenuItem>
+
+
 
             </Menu>
 

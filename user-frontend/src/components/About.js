@@ -20,8 +20,7 @@ const styles = ({ breakpoints }) => ({
 
 const ContentEx = ({ classes }) => (
   <div className={classes.root}>
-    <Typography variant={"overline"}>INTRODUCING</Typography>
-    <Typography weight={"bold"} variant={"h4"} gutterBottom>
+    <Typography weight={"bold"} variant={"h4"} align={"center"} gutterBottom>
       Über Uns 
     </Typography>
     <Typography gutterBottom>
@@ -60,12 +59,12 @@ const ContentEx = ({ classes }) => (
 <li>Armin Satzger</li>
 <li>Leo Semmelmann</li>
 </Typography>
-
+<br />
 <Typography weight={"bold"} variant={"h5"} gutterBottom>
       Open Source
     </Typography>
 
-<Typography>Unser Projekt basiert auf NodeJS, React, Express und MongoDB. Wir stellen die Technologie für unsere Plattform via <a href="https://github.com/leloq/kmuvscorona" target="_blank">Github</a> zur Verfügung.</Typography>
+<Typography>Unser Projekt basiert auf NodeJS, React, Express und MongoDB. Wir stellen die Technologie für unsere Plattform via <a href="https://github.com/leloq/kmuvscorona" target="_blank">GitHub</a> zur Verfügung.</Typography>
 <br />
 <iframe width="560" height="315" src="https://www.youtube.com/embed/byQKwivaTFI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

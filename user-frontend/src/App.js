@@ -5,6 +5,7 @@ import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Impressum from './components/Impressum'
 import About from './components/About'
+import Help from './components/Help' 
 import Voting from './components/Voting'
 import TargetGroupDetail from './components/TargetGroupDetail.js'
 import SolutionsOverview from './components/SolutionsOverview.js'
@@ -28,6 +29,7 @@ class App extends Component {
                 <Route path="/Voting" component={Voting} />
                 <Route path="/NewSolution" component={NewSolutionForm} />
                 <Route path="/DataPrivacy" component={DataPrivacy} />
+                <Route path="/help" component={Help} />
 
         	</div>
     	</Router>
