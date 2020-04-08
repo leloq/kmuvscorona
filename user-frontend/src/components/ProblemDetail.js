@@ -43,8 +43,8 @@ export default withStyles(styles)(class ProblemDetail extends Component {
         response.data.solutions.forEach((solution)=>{
           axios.get('solutions/'+solution)
           .then(res => {
-            console.log(res.data)
-            console.log(typeof res.data.preliminary === "undefined" || res.data.preliminary === false)
+            //console.log(res.data)
+            //console.log(typeof res.data.preliminary === "undefined" || res.data.preliminary === false)
             if(this.checkIfSpecific(res.data) && (typeof res.data.preliminary === "undefined" || res.data.preliminary === false)){
               this.setState( (state) => {
                 return {
@@ -65,8 +65,15 @@ export default withStyles(styles)(class ProblemDetail extends Component {
   }
 
  checkIfSpecific (solution)  {
-    return (solution.specificForTargetGroups.length === 0) 
+  console.log("Props ID: "+this.props.id)
+  console.log("Specific for Target Groups: "+solution.specificForTargetGroups)
+  console.log("Slug: "+this.props.targetgroupslug)
+
+    let result = (solution.specificForTargetGroups.length === 0) 
     || (typeof solution.specificForTargetGroups.find(tgroup => tgroup === this.props.targetgroupslug) !== "undefined");
+    console.log(result)
+    return result
+
 }
 
 
