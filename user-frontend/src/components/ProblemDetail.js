@@ -25,7 +25,6 @@ const styles = theme => ({
 export default withStyles(styles)(class ProblemDetail extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.targetgroupslug)
     this.state = {
       title: '',
       description: '',

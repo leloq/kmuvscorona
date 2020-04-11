@@ -56,7 +56,7 @@ class TargetGroupDetail extends Component {
           groupname: response.data.groupname,
           imageUrl: response.data.imageUrl,
           description: response.data.description,
-          slug: response.data._id,
+          slug: response.data.slug,
         })
         response.data.problems.forEach((problemid)=>{
           axios.get('problems/'+problemid)
