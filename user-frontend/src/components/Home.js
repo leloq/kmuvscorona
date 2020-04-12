@@ -73,7 +73,7 @@ class Home extends Component {
                 location="bottom"
                 buttonText="OK"
                 cookieName="cookieConsent"
-                style={{ background: "#BBBBBB" }}
+                style={{ background: "#999999" }}
                 buttonStyle={{ background: "#2F36A9", color: "#FFFFFF", fontSize: "13px" }}
                 expires={150}>
                 <Typography>
