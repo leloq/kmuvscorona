@@ -68,14 +68,19 @@ class Home extends Component {
             </Grid>
             </Grid>
         </div>
-        <div>
+        <div>       
             <CookieConsent
-              buttonText="Einverstanden">
-              <Typography>
-              Um Ihnen ein besseres Nutzererlebnis zu bieten, verwenden wir Cookies. Durch Nutzung unserer Dienste stimmen Sie unserer Verwendung von Cookies zu. &nbsp;</Typography>
-              <Link to="/DataPrivacy" style={{ color: '#FFF' }}>
+                location="bottom"
+                buttonText="OK"
+                cookieName="cookieConsent"
+                style={{ background: "#BBBBBB" }}
+                buttonStyle={{ background: "#2F36A9", color: "#FFFFFF", fontSize: "13px" }}
+                expires={150}>
+                <Typography>
+                Um Ihnen ein besseres Nutzererlebnis zu bieten, verwenden wir Cookies. Durch Nutzung unserer Dienste stimmen Sie unserer Verwendung von Cookies zu. &nbsp;</Typography>
+                <Link to="/DataPrivacy" style={{ color: '#FFFFFF' }}>
 			          <Typography>Weitere Informationen</Typography>
-			        </Link>
+			          </Link>
             </CookieConsent>
         </div>
     	</div>
