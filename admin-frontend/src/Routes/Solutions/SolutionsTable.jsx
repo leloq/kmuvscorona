@@ -35,7 +35,7 @@ function descendingComparator(a, b, orderBy) {
   }
   
   const headCells = [
-    { id: 'preliminary', align: 'left', disablePadding: false, label: 'Gültig' },
+    { id: 'preliminary', align: 'left', disablePadding: false, label: 'Gültig (non-preliminary)' },
     { id: 'title', align: 'left', disablePadding: false, label: 'Titel' },
     { id: 'description', align: 'right', disablePadding: false, label: 'Beschreibung' },
     { id: 'changedAt', alignR: 'right', disablePadding: true, label: 'Geändert Am' },
