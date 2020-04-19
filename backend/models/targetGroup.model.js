@@ -1,7 +1,10 @@
 const mongoose = require('mongoose'); // import mongoose
 const Schema = mongoose.Schema; // import Schema
-var slug = require('mongoose-slug-generator');
-mongoose.plugin(slug);
+var slug = require('mongoose-slug-generator'),
+options = {
+  lang: "de",
+};
+mongoose.plugin(slug, options);
 
 const targetGroupSchema = new Schema({
   groupname: { type: String, required: true, unique: true, trim: true, minlength: 3},
