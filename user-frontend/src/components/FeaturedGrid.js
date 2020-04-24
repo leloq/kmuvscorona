@@ -24,21 +24,21 @@ export default function FeaturedGrid() {
       <div>
           <Grid container >
             <Grid item xs={12} sm={4}>
-            <Box mr={5}>
+            <Box pt={3} mx={5} align="center">
             <a href="https://www.tum.de/nc/die-tum/aktuelles/pressemitteilungen/details/35954/" target="__blank">
             <img noWrap src="https://www.tum.de/typo3conf/ext/in2template/Resources/Public/Images/tum-logo.png" height="60" />
             </a>
             </Box>
             </Grid>
               <Grid item xs={12} sm={4}>
-              <Box>
+              <Box pt={3} align="center">
               <a href="https://wirvsvirushackathon.org" target="__blank">
                <img src="https://wirvsvirushackathon.org/wp-content/uploads/2020/03/12-scaled.jpg"  height="60"/>
             </a>
             </Box>
             </Grid>
             <Grid item xs={12} sm={4}>
-            <Box ml={22}>
+            <Box pt={3} mx={15} align="center">
             <a href="https://station-frankfurt.de/2020/03/25/die-szene-beweist-innovationsgeist-in-frankfurtrheinmain/" target="__blank">
                <img src="https://station-frankfurt.de/wp-content/uploads/2019/08/Station_OpenGraph.jpg" height="60"/>
             </a>
