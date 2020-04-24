@@ -19,9 +19,9 @@ class Home extends Component {
     	<div>
           <Container maxWidth="sm" class="hero">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              KMUs vs. Corona
+              KMU vs. Corona
             </Typography>
-            <Typography variant="h5" align="center" color="textSecondary" paragraph>
+            <Typography variant="h4" align="center" color="textSecondary" paragraph>
               Wir sammeln Ideen, Hilfsmittel, Finanzierungsquellen und mehr, um Klein- und Mittelstandsunternehmen
               aus der Corona-Krise zu helfen. 
 
@@ -33,7 +33,7 @@ class Home extends Component {
         <Container maxWidth="sm" class="subhero">
 
         <Grid container variant="h6" spacing={2} justify="center" class="subheading">
-            <Typography variant="h6" paragraph color="textSecondary" align="center">
+            <Typography variant="h5" paragraph color="textSecondary" align="center">
               Bekannt aus
             </Typography>
 

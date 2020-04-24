@@ -26,21 +26,21 @@ export default function FeaturedGrid() {
             <Grid item xs={12} sm={4}>
             <Box mr={5}>
             <a href="https://www.tum.de/nc/die-tum/aktuelles/pressemitteilungen/details/35954/" target="__blank">
-            <img noWrap src="https://www.tum.de/typo3conf/ext/in2template/Resources/Public/Images/tum-logo.png" height="50" />
+            <img noWrap src="https://www.tum.de/typo3conf/ext/in2template/Resources/Public/Images/tum-logo.png" height="60" />
             </a>
             </Box>
             </Grid>
               <Grid item xs={12} sm={4}>
               <Box>
               <a href="https://wirvsvirushackathon.org" target="__blank">
-               <img src="https://wirvsvirushackathon.org/wp-content/uploads/2020/03/12-scaled.jpg"  height="50"/>
+               <img src="https://wirvsvirushackathon.org/wp-content/uploads/2020/03/12-scaled.jpg"  height="60"/>
             </a>
             </Box>
             </Grid>
             <Grid item xs={12} sm={4}>
             <Box ml={22}>
             <a href="https://station-frankfurt.de/2020/03/25/die-szene-beweist-innovationsgeist-in-frankfurtrheinmain/" target="__blank">
-               <img src="https://station-frankfurt.de/wp-content/uploads/2019/08/Station_OpenGraph.jpg" height="50"/>
+               <img src="https://station-frankfurt.de/wp-content/uploads/2019/08/Station_OpenGraph.jpg" height="60"/>
             </a>
             </Box>
             </Grid>
