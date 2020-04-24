@@ -25,6 +25,7 @@ const styles = theme => ({
 export default withStyles(styles)(class ProblemDetail extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props.targetgroupslug)
     this.state = {
       title: '',
       description: '',
@@ -64,9 +65,6 @@ export default withStyles(styles)(class ProblemDetail extends Component {
   }
 
  checkIfSpecific (solution)  {
-  console.log("Props ID: "+this.props.id)
-  console.log("Specific for Target Groups: "+solution.specificForTargetGroups)
-  console.log("Slug: "+this.props.targetgroupslug)
 
     let result = (solution.specificForTargetGroups.length === 0) 
     || (typeof solution.specificForTargetGroups.find(tgroup => tgroup === this.props.targetgroupslug) !== "undefined");
