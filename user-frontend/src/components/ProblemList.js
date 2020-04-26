@@ -5,7 +5,7 @@ export default function ProblemList(props){
 const problemList = () => {
     return props.problems.map(problem => {
       return( 
-        <div>
+        <div key={problem._id}>
           <ProblemDetail targetgroupslug={props.slug} id={problem._id}/>
         </div>);
       })

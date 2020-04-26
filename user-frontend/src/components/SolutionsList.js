@@ -7,7 +7,7 @@ export default function SolutionsList(props){
 const solutionsList = () => {
     return props.solutions.map(solution => {
       return( 
-        <Grid item>
+        <Grid item key={solution._id}>
           <SolutionsListPanel solution={solution}/>
         </Grid>);
       })
