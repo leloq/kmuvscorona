@@ -68,7 +68,6 @@ export default withStyles(styles)(class ProblemDetail extends Component {
 
     let result = (solution.specificForTargetGroups.length === 0) 
     || (typeof solution.specificForTargetGroups.find(tgroup => tgroup === this.props.targetgroupslug) !== "undefined");
-    console.log(result)
     return result
 
 }
