@@ -109,39 +109,41 @@ export default function SearchAppBar() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-            <MenuItem onClick={handleClose}>
-              <Link to="/" style={{ textDecoration: 'none'}}>
+            <Link to="/" style={{ textDecoration: 'none'}}>
+            <MenuItem onClick={handleClick}>
                   Startseite
-                </Link>
               </MenuItem>
+            </Link>
 
-              <MenuItem onClick={handleClose}>
-              <Link to="/solutions" style={{ textDecoration: 'none'}}>
+            <Link to="/solutions" style={{ textDecoration: 'none'}}> 
+              <MenuItem onClick={handleClick}>
                   Lösungsansätze
-                </Link>
               </MenuItem>
+            </Link>
 
-              <MenuItem onClick={handleClose}>
-              <Link to="/NewSolution" style={{ textDecoration: 'none'}}>
+            <Link to="/NewSolution" style={{ textDecoration: 'none'}}>
+              <MenuItem onClick={handleClick}>
                   Lösung einreichen
-                </Link>
               </MenuItem>
+            </Link>
 
-              <MenuItem onClick={handleClose}>
-                <Link to="/help" style={{ textDecoration: 'none'}}>
+            <Link to="/help" style={{ textDecoration: 'none'}}>
+              <MenuItem onClick={handleClick}>
                     Helfen
-                </Link></MenuItem>
-                              
-              <MenuItem onClick={handleClose}><Link to="/about" style={{ textDecoration: 'none'}}>
+              </MenuItem>
+            </Link>
+                   
+            <Link to="/about" style={{ textDecoration: 'none'}}>         
+              <MenuItem onClick={handleClick}>
                   Über Uns
-                </Link></MenuItem>
+              </MenuItem>
+            </Link>
 
-              <MenuItem onClick={handleClose}>
-                <Link to="/contact" style={{ textDecoration: 'none'}}>
+            <Link to="/contact" style={{ textDecoration: 'none'}}>
+              <MenuItem onClick={handleClick}>
                     Kontakt
-                </Link></MenuItem>
-
-
+              </MenuItem>
+            </Link>
 
             </Menu>
 
