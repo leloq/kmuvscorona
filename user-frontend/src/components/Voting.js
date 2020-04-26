@@ -86,11 +86,11 @@ render(){
 const { classes } = this.props;
 return(
   <div className={classes.root}>
-    <Fab  aria-label="like" justify="center">
-        <ThumbUpAltIcon onClick={this.increaseLikes.bind(this)} style={{ color: green[500] }}/>
+    <Fab  aria-label="like" onClick={this.increaseLikes.bind(this)} justify="center">
+        <ThumbUpAltIcon style={{ color: green[500] }}/>
       </Fab>
-           <Fab aria-label="like" justify="center">
-        <ThumbDownIcon onClick={this.increaseDislikes.bind(this)} style={{ color: red[500] }} />
+           <Fab aria-label="like" onClick={this.increaseDislikes.bind(this)} justify="center">
+        <ThumbDownIcon  style={{ color: red[500] }} />
       </Fab>
       <Typography variant="overline" display="block" gutterBottom>
           {this.state.likes} Gefällts, {this.state.dislikes} Gefällts Nicht. 
