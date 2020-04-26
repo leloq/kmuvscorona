@@ -23,14 +23,18 @@ export default withRouter (function TargetGroupCard(props) {
   const classes = useStyles();
 
   const linkUrl = `/targetgroup/${props.slug}`
-
   const navigateToTargetGroup = () => {
     props.history.push(linkUrl)
   }
 
+  const helpUrl = `/help`
+  const navigateToHelpPage = () => {
+    props.history.push(helpUrl)
+  }
+
   return (
-    <Card className={classes.root} onClick={navigateToTargetGroup}>
-      <CardActionArea>
+    <Card className={classes.root}>
+      <CardActionArea onClick={navigateToTargetGroup}>
         <CardMedia
           className={classes.media}
           image={props.url}
@@ -46,10 +50,10 @@ export default withRouter (function TargetGroupCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={navigateToHelpPage}>
           Helfen
         </Button>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={navigateToTargetGroup}>
           Lösungen
         </Button>
       </CardActions>
