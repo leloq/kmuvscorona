@@ -6,6 +6,7 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import axios from './../axiosInstance';
 import Typography from '@material-ui/core/Typography';
 import { green, red } from '@material-ui/core/colors';
+import Cookies from 'universal-cookie';
 
 const styles = theme => ({
   root: {
@@ -18,6 +19,8 @@ const styles = theme => ({
   }
 
 });
+
+const cookies = new Cookies();
 
 export default withStyles(styles)(class ProblemDetail extends Component {
 
@@ -48,38 +51,55 @@ export default withStyles(styles)(class ProblemDetail extends Component {
   }
 
   increaseLikes = () => {
+
+    console.log('Increase likes cookie: ' + cookies.get(this.props.solution._id))
+
+    if (typeof cookies.get(this.props.solution._id) == "undefined") {
+
       axios.post('solutions/vote/'+this.props.solution._id, {
-      upVotes: this.state.likes+1,
-      downVotes: this.state.dislikes
-    })
-    .then(response => {
-      console.log(response);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+        upVotes: this.state.likes+1,
+        downVotes: this.state.dislikes
+      })
+      
+      .then(response => {
+        console.log(response);
+      })
+      
+      .catch(error => {
+        console.log(error);
+      });
+
+    cookies.set(this.props.solution._id,true, {path: "/"});
 
     this.setState(prevState => {
        return {likes: prevState.likes + 1}
     })
+    }
 }
 
   increaseDislikes = () => {
-      axios.post('solutions/vote/'+this.props.solution._id, {
-      upVotes: this.state.likes,
-      downVotes: this.state.dislikes+1
-    })
-    .then(response => {
-      console.log(response);
-    })
-    .catch(error => {
-      console.log(error);
-    });
 
-    this.setState(prevState => {
+    console.log('Decrease like cookie: ' + cookies.get(this.props.solution._id))
+    if (typeof cookies.get(this.props.solution._id) == "undefined") {
+      axios.post('solutions/vote/'+this.props.solution._id, {
+        upVotes: this.state.likes,
+        downVotes: this.state.dislikes+1
+      })
+      
+      .then(response => {
+        console.log(response);
+      })
+      
+      .catch(error => {
+        console.log(error);
+      });
+
+      cookies.set(this.props.solution._id,true, {path: "/"});
+
+      this.setState(prevState => {
        return {dislikes: prevState.dislikes + 1}
-    }
-    )
+      })
+  }
 }
 
 render(){
