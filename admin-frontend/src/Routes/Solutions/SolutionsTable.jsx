@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import Tooltip from '@material-ui/core/Tooltip';
 import { makeStyles, Paper, TableContainer, Table, TableHead, TableBody, TableRow, TableCell, IconButton } from '@material-ui/core';
 import { useSelector } from 'react-redux';
-import { Check, VisibilityOff, Edit, Delete } from '@material-ui/icons';
+import { Check, Error, VisibilityOff, Edit, Delete } from '@material-ui/icons';
 import moment from 'moment';
 import { navigate } from '@reach/router';
 import SolutionsDeleteDialog from './SolutionsDeleteDialog';
@@ -35,7 +36,7 @@ function descendingComparator(a, b, orderBy) {
   }
   
   const headCells = [
-    { id: 'preliminary', align: 'left', disablePadding: false, label: 'Gültig (non-preliminary)' },
+    { id: 'status', align: 'left', disablePadding: false, label: 'Status' },
     { id: 'title', align: 'left', disablePadding: false, label: 'Titel' },
     { id: 'description', align: 'right', disablePadding: false, label: 'Beschreibung' },
     { id: 'changedAt', alignR: 'right', disablePadding: true, label: 'Geändert Am' },
@@ -82,6 +83,7 @@ function descendingComparator(a, b, orderBy) {
     onRequestSort: PropTypes.func.isRequired,
     order: PropTypes.oneOf(['asc', 'desc']).isRequired,
     orderBy: PropTypes.string.isRequired,
+    status: PropTypes.oneOf([0, 1, 2]).isRequired,
   };
 
 const useStyles = makeStyles(theme => ({
@@ -109,8 +111,21 @@ const SolutionsTable = () => {
     const [solutionToDelete, setSolutionToDelete] = useState(null);
     const solutions = useSelector(state => state.Solutions.data);
     const classes = useStyles();
-    const [order, setOrder] = React.useState('asc');
-    const [orderBy, setOrderBy] = React.useState('preliminary');
+    const [order, setOrder] = React.useState('desc');
+    const [orderBy, setOrderBy] = React.useState('status');
+    const problems = useSelector(state => state.Problems.data);
+
+    const StatusIndicator = {
+        VALID: <Tooltip title="Gültige Lösung">
+                    <Check />
+                </Tooltip>,// non-preliminary and problem mapped correctly
+        PRELIMINARY: <Tooltip title="Lösungsstatus preliminary">
+                        <VisibilityOff />
+                    </Tooltip>, // preliminary
+        MISSINGPROBLEM: <Tooltip title="Kein Problem zugeordnet">
+                            <Error />
+                        </Tooltip>, // no problem mapped      
+    }
 
     const openDeleteDialog = solutionId => () => {
         setDeleteDialog(true);
@@ -126,12 +141,34 @@ const SolutionsTable = () => {
         navigate(`/solutions/${solutionId}`);
     };
 
-    if (solutions === null || typeof solutions === 'undefined' || solutions.length === 0) {
-        return null;
-    }
-
     const navigateToEditSolutionForm = solutionId => () => {
         navigate('/editSolution/' + solutionId);
+    }
+
+    const setSolutionStatus = solution => {
+        if (solution.preliminary) {
+            solution.status = 1;
+        }
+        else {
+            const mappedProblem = problems.find(problem => problem.solutions.includes(solution._id));
+            if (mappedProblem === null || typeof mappedProblem === 'undefined') {
+                solution.status = 2;
+            }
+            else {
+                solution.status = 0;
+            }
+        }
+    }
+
+    const getStatusIndicator = solution => {
+        switch(solution.status) {
+            case 0:
+                return StatusIndicator.VALID;
+            case 1:
+                return StatusIndicator.PRELIMINARY;
+            case 2:
+                return StatusIndicator.MISSINGPROBLEM;
+        }
     }
 
     const getDescriptionPreview = solution => `${solution.description.substring(0, 150)}...`
@@ -142,6 +179,11 @@ const SolutionsTable = () => {
         setOrderBy(property);
       };
 
+    if (solutions === null || typeof solutions === 'undefined' || solutions.length === 0) {
+        return null;
+    }
+    
+    solutions.forEach(setSolutionStatus);
 
     return (
         <div className={classes.root}>
@@ -156,7 +198,7 @@ const SolutionsTable = () => {
                 <TableBody>
                 {stableSort(solutions, getComparator(order, orderBy)).map(solution => (
                         <TableRow key={solution._id}>
-                            <TableCell>{solution.preliminary ? <VisibilityOff /> : <Check />}</TableCell>
+                            <TableCell>{getStatusIndicator(solution)}</TableCell>
                             <TableCell onClick={navigateToSingleSolution(solution._id)}>{solution.title}</TableCell>
                             <TableCell onClick={navigateToSingleSolution(solution._id)} align="right">{getDescriptionPreview(solution)}</TableCell>
                             <TableCell onClick={navigateToSingleSolution(solution._id)} align="right">{moment(solutions.updatedAt).format('DD.MM.YYYY [um] HH:mm')}</TableCell>

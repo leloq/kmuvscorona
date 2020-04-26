@@ -27,6 +27,9 @@ const Solutions = () => {
     dispatch({
         type: 'Solutions/getSolutions',
     });
+    dispatch({
+        type: 'Problems/getProblems',
+    });
     return (
         <>
             <SolutionsTable />
