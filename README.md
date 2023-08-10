@@ -1,9 +1,9 @@
 # What is kmuvscorona?
 
 KMU vs. Corona provides sector-specific and problem-specific knowledge and solution approaches for German SMEs. Working with experts and information from the internet, we identified the major challenges for SMEs right now, as well as potential solutions. KMU Vs. Corona maps solutions with problems and in turn links the problems to one or more of the six main target groups we defined. The end-user visits our website as a handyman, hairdresser or independent artist and chooses the target group or industry they identify with, finding relevant problems and solutions ready listed.
- 
-[You can find a live demo here.](https://www.kmuvscorona.de/)
 
+NOTE: The project is outdated by 2023, the former domain is no longer available or related to the former project.
+ 
 Feel free to use our source code for your regional / national "SME Vs. Corona" project. Our project is divided into 3 packages:
 
 * ### `backend`
